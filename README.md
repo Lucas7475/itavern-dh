@@ -1,4 +1,4 @@
-# iTavern
+# eTavern
 
 O site é uma rede social com o intuito de conectar pessoas que queiram jogar jogos table top.
 
@@ -24,4 +24,4 @@ Site feito como projeto integrador durante o curso Desenvolvimento Web [Full Sta
 
 ## Disponível em
 
-[iTavern](#)
+[eTavern](#)
