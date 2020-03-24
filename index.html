@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>iTavern</title>
+  <!-- font-awesome -->
+  <link rel="stylesheet" href="./fontawesome-free-5.12.1-web/css/all.min.css" />
+  <!-- custom css -->
+  <link rel="stylesheet" href="./css/styles.css" />
+</head>
+
+<body>
+  <!-- navbar -->
+  <!-- navbutton -->
+  <span class="nav-btn" id="nav-btn">
+    <i class="fas fa-beer"></i>
+  </span>
+  <nav class="navbar showNav" id="navbar">
+    <div class="navbar-header">
+      <span class="nav-close" id="nav-close">
+        <i class="fas fa-times"></i>
+      </span>
+      <img src="./images/perfil.png" alt="" class="profile-picture">
+      <h3 class="profile-name">João da Silva</h3>
+    </div>
+    <ul class="nav-items">
+      <!-- Inicio de um link da navbar -->
+      <li>
+        <a href="#" class="nav-link">
+          <i class="fas fa-user-alt fa-fw nav-icon"></i>
+          <span class="nav-text">Perfil</span>
+        </a>
+      </li>
+      <!-- fim de um link da navbar -->
+      <!-- Inicio de um link da navbar -->
+      <li>
+        <a href="#" class="nav-link">
+          <i class="fas fa-users fa-fw nav-icon"></i>
+          <span class="nav-text">Grupos</span></a>
+      </li>
+      <!-- fim de um link da navbar -->
+      <!-- Inicio de um link da navbar -->
+      <li>
+        <a href="#" class="nav-link">
+          <i class="fas fa-dungeon fa-fw nav-icon"></i>
+          <span class="nav-text">Criar Sala</span></a>
+      </li>
+      <!-- fim de um link da navbar -->
+      <!-- Inicio de um link da navbar -->
+      <li>
+        <a href="#" class="nav-link">
+          <i class="fas fa-dice fa-fw nav-icon"></i>
+          <span class="nav-text">Buscar Jogos</span>
+        </a>
+      </li>
+      <!-- fim de um link da navbar -->
+      <!-- Inicio de um link da navbar -->
+      <li>
+        <a href="#" class="nav-link">
+          <i class="fas fa-user-friends nav-icon"></i>
+          <span class="nav-text">Amigos</span></a>
+      </li>
+      <!-- fim de um link da navbar -->
+      <!-- Inicio de um link da navbar -->
+      <li>
+        <a href="#" class="nav-link">
+          <i class="fas fa-scroll nav-icon"></i>
+          <span class="nav-text">Histórico</span>
+        </a>
+      </li>
+      <!-- fim de um link da navbar -->
+    </ul>
+    <div class="perfil-btn">
+      <a href="#" class="btn sidebar-btn">opções</a>
+      <a href="#" class="btn sidebar-btn">sair</a>
+    </div>
+  </nav>
+  <!----------------------------------------------------- footer--------------------------------------------------------->
+  <footer class="footer">
+    <div class="social-icons">
+      <!-- social icon -->
+      <a href="#" class="social-icon">
+        <i class="fab fa-facebook"></i>
+      </a>
+      <!-- end icon -->
+      <!-- social icon -->
+      <a href="#" class="social-icon">
+        <i class="fab fa-twitter"></i>
+      </a>
+      <!-- end icon -->
+      <!-- social icon -->
+      <a href="#" class="social-icon">
+        <i class="fab fa-instagram"></i>
+      </a>
+      <!-- end icon -->
+    </div>
+    <h4 class="footer-text">
+      &copy;<span id="date"></span>
+      <span class="company">iTavern</span>
+      Todos os direitos reservados
+    </h4>
+  </footer>
+  <!----------------------------------------------------- fim do footer--------------------------------------------------------->
+  <script src="app.js"></script>
+</body>
+
+</html>
