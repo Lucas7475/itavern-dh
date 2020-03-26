@@ -6,10 +6,13 @@
   /*colors*/
   --clr-primary: #fcab64;
   --clr-primary-light: #fcd29f;
+  --clr-primary-bg: #f7d3a73b;
   --clr-primary-dark: rgb(189, 85, 16);
+  --clr-scroll: #3b2025;
   --clr-grey-1: #102a42;
   --clr-grey-5: #617d98;
   --clr-grey-10: #f1f5f8;
+  --clr-grey-11: #d1dbe2;
   --clr-white: #fff;
 
   /*fonts*/
@@ -17,9 +20,9 @@
   --ff-secondary: "Indie Flower", cursive;
 
   /**/
-  --transition: all 0.3s linear;
+  --transition: all 0.5s ease;
   --spacing: 0.25rem;
-  --radius: 0.5rem;
+  --radius: 1rem;
 }
 
 /*================================Global CSS====================================*/
@@ -31,7 +34,7 @@
 
 body {
   font-family: var(--ff-primary);
-  background: var(--clr-white);
+  background: var(--clr-primary-bg);
   color: var(--clr-grey-1);
   line-height: 1.5;
   font-size: 0.875rem;
@@ -105,25 +108,11 @@ p {
   }
 }
 
-.btn {
-  background-color: var(--clr-primary);
-  text-transform: uppercase;
-  color: var(--clr-white);
-  padding: 0.375rem 0.75rem;
-  letter-spacing: var(--spacing);
-  display: inline-block;
-  font-weight: 700;
-  font-size: 0.875rem;
-  border: none;
-  cursor: pointer;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
-  transition: var(--transition);
+.col-centered {
+  float: none;
+  margin: 0 auto;
 }
 
-.btn:hover {
-  background-color: var(--clr-primary-light);
-  color: var(--clr-primary-dark);
-}
 /*================================End of global CSS====================================*/
 /*===============================Navbar/sidebar========================================*/
 
@@ -135,16 +124,13 @@ p {
 }
 
 .nav-btn {
-  position: fixed;
-  color: var(--clr-primary);
-  font-size: 2.5rem;
-  top: 5%;
-  left: 5%;
+  color: var(--clr-primary-dark);
+  font-size: 2rem;
   z-index: 1;
   cursor: pointer;
 }
 
-.navbar {
+.navbar-c {
   position: fixed;
   left: 0;
   top: 0;
@@ -161,7 +147,7 @@ p {
   transform: translate(0%);
 }
 
-.navbar-header {
+.navbar-header-c {
   text-align: right;
 }
 
@@ -242,17 +228,20 @@ p {
   width: 8rem;
 }
 
-.sidebar-btn {
-  padding: 0.9rem 1.3rem;
-  text-align: center;
-  font-size: 1.25rem;
+.btn-outline-primary {
+  color: var(--clr-primary-dark);
+  letter-spacing: var(--spacing);
+  border-color: var(--clr-primary-dark);
+}
+
+.btn-outline-primary:hover {
+  color: #fff;
   background-color: var(--clr-primary);
-  color: var(--clr-white);
-  border-radius: var(--radius);
+  border-color: var(--clr-primary);
 }
 
 @media screen and (min-width: 600px) {
-  .navbar {
+  .navbar-c {
     width: 50vw;
     max-width: 20rem;
   }
@@ -264,9 +253,11 @@ p {
     font-size: 1.25rem;
     padding: 1.25rem 1rem;
   }
+
   .profile-name {
     margin-bottom: 4rem;
   }
+
   .perfil-btn a {
     padding: 1rem;
     width: 8rem;
@@ -277,6 +268,86 @@ p {
   }
 }
 
+/* ==========================================searchbar======================================== */
+
+.searchbar {
+  background-color: var(--clr-primary-light);
+}
+
+/* ==========================================grupos======================================== */
+
+.grupos {
+  height: (100vw);
+  overflow: scroll;
+  background: white;
+}
+
+.card {
+  transition: var(--transition);
+  position: relative;
+  border-radius: var(--radius);
+  box-shadow: 0 5px 15px rgb(0, 0, 0, 0.2);
+  font-family: var(--ff-primary);
+  width: (400px);
+}
+
+.card-img-top {
+  height: 7vw;
+  object-fit: cover;
+}
+
+.card-body {
+  background-color: var(--clr-grey-10);
+}
+
+.card-img-top {
+  border-radius: var(--radius) var(--radius) 0 0;
+}
+
+.card:hover {
+  box-shadow: 0 5px 15px rgb(0, 0, 0, 0.3);
+  transform: scale(1.02);
+}
+
+.cover-container {
+  position: relative;
+}
+
+.group-icon {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%, +50%);
+  font-size: 3rem;
+  border-radius: 50%;
+  border: solid 5px var(--clr-grey-10);
+  color: white;
+  background-color: red;
+  overflow: hidden;
+}
+
+.group-perks {
+  list-style: none;
+  color: var(--clr-grey-5);
+}
+
+.group-title {
+  margin-top: 10px;
+  letter-spacing: 0;
+}
+
+.group-game {
+  font-family: var(--ff-secondary);
+  color: red;
+  font-weight: 700;
+}
+
+.btn-grupo {
+  margin-top: 0rem;
+  width: 5rem;
+}
+
+/* ==========================================footer======================================== */
 footer {
   padding: 2rem 0rem;
   background-color: #222;
@@ -302,5 +373,7 @@ footer {
 }
 
 .company {
+  text-transform: none;
+  font-size: 1.25rem;
   color: var(--clr-primary);
 }
