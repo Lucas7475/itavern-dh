@@ -15,6 +15,7 @@ O site é uma rede social com o intuito de conectar pessoas que queiram jogar jo
 ## Built With
 
 - HTML5 e CSS3
+- [Bootstrap 4](https://getbootstrap.com/) - Framework Front-end
 - [NodeJS](https://nodejs.org/en/) - Backend
 - [Font Awesome](https://fontawesome.com/) - Icones utilizados no projeto.
 
@@ -24,4 +25,4 @@ Site feito como projeto integrador durante o curso Desenvolvimento Web [Full Sta
 
 ## Disponível em
 
-[eTavern](#)
+[eTavern](https://nervous-gates-5bc2c8.netlify.com/?fbclid=IwAR2uRiDOe3JUbArZ9s6i-6Sy_11ZRjFVqZP-WRb1KvQANmBQndNR3r0t6WQ)
