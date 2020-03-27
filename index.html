@@ -1,447 +1,529 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>iTavern</title>
+    <!-- font-awesome -->
+    <link
+      rel="stylesheet"
+      href="./fontawesome-free-5.12.1-web/css/all.min.css"
+    />
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-  <title>eTavern</title>
-  <!-- font-awesome -->
-  <link rel="stylesheet" href="./fontawesome-free-5.12.1-web/css/all.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+    <!-- custom css -->
+    <link rel="stylesheet" href="./css/styles.css" />
+  </head>
 
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous" />
-  <!-- custom css -->
-  <link rel="stylesheet" href="./css/styles.css" />
-</head>
+  <body>
+    <!-- navbar -->
+    <!-- navbutton -->
+    <nav class="navbar-c" id="navbar">
+      <div class="navbar-header-c">
+        <span class="nav-close" id="nav-close">
+          <i class="fas fa-times"></i>
+        </span>
+        <img src="./images/perfil.png" alt="" class="profile-picture" />
+        <h3 class="profile-name">João da Silva</h3>
+      </div>
+      <ul class="nav-items">
+        <!-- Inicio de um link da navbar -->
+        <li>
+          <a href="#" class="nav-link">
+            <i class="fas fa-user-alt fa-fw nav-icon"></i>
+            <span class="nav-text">Perfil</span>
+          </a>
+        </li>
+        <!-- fim de um link da navbar -->
+        <!-- Inicio de um link da navbar -->
+        <li>
+          <a href="#" class="nav-link">
+            <i class="fas fa-users fa-fw nav-icon"></i>
+            <span class="nav-text">Grupos</span></a
+          >
+        </li>
+        <!-- fim de um link da navbar -->
+        <!-- Inicio de um link da navbar -->
+        <li>
+          <a href="#" class="nav-link">
+            <i class="fas fa-dungeon fa-fw nav-icon"></i>
+            <span class="nav-text">Criar Sala</span></a
+          >
+        </li>
+        <!-- fim de um link da navbar -->
+        <!-- Inicio de um link da navbar -->
+        <li>
+          <a href="#" class="nav-link">
+            <i class="fas fa-dice fa-fw nav-icon"></i>
+            <span class="nav-text">Buscar Grupos</span>
+          </a>
+        </li>
+        <!-- fim de um link da navbar -->
+        <!-- Inicio de um link da navbar -->
+        <li>
+          <a href="#" class="nav-link">
+            <i class="fas fa-user-friends nav-icon"></i>
+            <span class="nav-text">Amigos</span></a
+          >
+        </li>
+        <!-- fim de um link da navbar -->
+        <!-- Inicio de um link da navbar -->
+        <li>
+          <a href="#" class="nav-link">
+            <i class="fas fa-scroll nav-icon"></i>
+            <span class="nav-text">Histórico</span>
+          </a>
+        </li>
+        <!-- fim de um link da navbar -->
+      </ul>
+      <div class="perfil-btn">
+        <a href="#" class="btn btn-outline-primary">OPÇÕES</a>
+        <a href="#" class="btn btn-outline-primary">SAIR</a>
+      </div>
+    </nav>
 
-<body>
-  <!-- navbar -->
-  <!-- navbutton -->
-  <nav class="navbar-c" id="navbar">
-    <div class="navbar-header-c">
-      <span class="nav-close" id="nav-close">
-        <i class="fas fa-times"></i>
-      </span>
-      <img src="./images/perfil.png" alt="" class="profile-picture" />
-      <h3 class="profile-name">João da Silva</h3>
-    </div>
-    <ul class="nav-items">
-      <!-- Inicio de um link da navbar -->
-      <li>
-        <a href="#" class="nav-link">
-          <i class="fas fa-user-alt fa-fw nav-icon"></i>
-          <span class="nav-text">Perfil</span>
-        </a>
-      </li>
-      <!-- fim de um link da navbar -->
-      <!-- Inicio de um link da navbar -->
-      <li>
-        <a href="#" class="nav-link">
-          <i class="fas fa-users fa-fw nav-icon"></i>
-          <span class="nav-text">Grupos</span></a>
-      </li>
-      <!-- fim de um link da navbar -->
-      <!-- Inicio de um link da navbar -->
-      <li>
-        <a href="#" class="nav-link">
-          <i class="fas fa-dungeon fa-fw nav-icon"></i>
-          <span class="nav-text">Criar Sala</span></a>
-      </li>
-      <!-- fim de um link da navbar -->
-      <!-- Inicio de um link da navbar -->
-      <li>
-        <a href="#" class="nav-link">
-          <i class="fas fa-dice fa-fw nav-icon"></i>
-          <span class="nav-text">Buscar Grupos</span>
-        </a>
-      </li>
-      <!-- fim de um link da navbar -->
-      <!-- Inicio de um link da navbar -->
-      <li>
-        <a href="#" class="nav-link">
-          <i class="fas fa-user-friends nav-icon"></i>
-          <span class="nav-text">Amigos</span></a>
-      </li>
-      <!-- fim de um link da navbar -->
-      <!-- Inicio de um link da navbar -->
-      <li>
-        <a href="#" class="nav-link">
-          <i class="fas fa-scroll nav-icon"></i>
-          <span class="nav-text">Histórico</span>
-        </a>
-      </li>
-      <!-- fim de um link da navbar -->
-    </ul>
-    <div class="perfil-btn">
-      <a href="#" class="btn btn-outline-primary">OPÇÕES</a>
-      <a href="#" class="btn btn-outline-primary">SAIR</a>
-    </div>
-  </nav>
-
-  <!-- searchbar -->
-  <section class="container searchbar">
-    <div class="row pt-3">
-      <span class="nav-btn" id="nav-btn">
-        <i class="fas fa-bars"></i>
-      </span>
-      <div class="col-12 col-md-6 pl-5">
-        <div class="input-group mb-3">
-          <input type="text" class="form-control" placeholder="Pesquise por jogo ou nome do grupo"
-            aria-label="Recipient's username" aria-describedby="button-addon2" />
-          <div class="input-group-append">
-            <button class="btn btn-outline-secondary" type="button" id="button-addon2">
-              <i class="fas fa-search"></i>
-            </button>
+    <!-- searchbar -->
+    <section class="container searchbar">
+      <div class="row pt-3">
+        <span class="nav-btn" id="nav-btn">
+          <i class="fas fa-bars"></i>
+        </span>
+        <div class="col-12 col-md-6 pl-5">
+          <div class="input-group mb-3">
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Pesquise por jogo ou nome do grupo"
+              aria-label="Recipient's username"
+              aria-describedby="button-addon2"
+            />
+            <div class="input-group-append">
+              <button
+                class="btn btn-outline-secondary"
+                type="button"
+                id="button-addon2"
+              >
+                <i class="fas fa-search"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="col-6 col-md-3">
+          <div class="input-group mb-3">
+            <select
+              class="custom-select"
+              id="inputGroupSelect01"
+              placeholder="Tamanho do grupo"
+            >
+              <option selected>Tamanho do grupo</option>
+              <option value="1">Pequeno (1-3)</option>
+              <option value="2">Médio (3-5)</option>
+              <option value="3">Grande (>5)</option>
+            </select>
+          </div>
+        </div>
+        <div class="col-6 col-md-3">
+          <div class="input-group mb-3">
+            <select class="custom-select" id="inputGroupSelect01">
+              <option selected>Distância</option>
+              <option value="1">Até 5km</option>
+              <option value="2">5km a 15km</option>
+              <option value="3">mais de 15km</option>
+            </select>
           </div>
         </div>
       </div>
-      <div class="col-6 col-md-3">
-        <div class="input-group mb-3">
-          <select class="custom-select" id="inputGroupSelect01" placeholder="Tamanho do grupo">
-            <option selected>Tamanho do grupo</option>
-            <option value="1">Pequeno (1-3)</option>
-            <option value="2">Médio (3-5)</option>
-            <option value="3">Grande (>5)</option>
-          </select>
-        </div>
+    </section>
+    <!-- end of searchbar -->
+    <section class="container grupos">
+      <div class="row">
+        <!-- Inicio de um card de grupo -->
+        <article class="col-12 col-sm-6 col-lg-4 col-xl-3 py-3">
+          <div class="card">
+            <div class="cover-container">
+              <img
+                src="./images/group-cover3.jpg"
+                class="card-img-top"
+                alt="..."
+              />
+              <i class="fab fa-d-and-d fa-fw group-icon"></i>
+            </div>
+            <div class="card-body text-center">
+              <h3 class="group-title">Nome do Grupo</h3>
+              <h4 class="group-game">Call of cthullu</h4>
+              <ul class="group-perks">
+                <li>Membros: <span class="text-warning">4/5</span></li>
+                <li>Reuniões: Sexta</li>
+                <li>São Paulo, Zona Norte</li>
+              </ul>
+              <a href="#" class="btn btn-danger btn-grupo">Info</a>
+              <a href="#" class="btn btn-danger btn-grupo">Entrar</a>
+            </div>
+          </div>
+        </article>
+        <!-- Fim de um card de grupo -->
+        <!-- Inicio de um card de grupo -->
+        <article class="col-12 col-sm-6 col-lg-4 col-xl-3 py-3">
+          <div class="card">
+            <div class="cover-container">
+              <img
+                src="./images/group-cover.jpg"
+                class="card-img-top"
+                alt="..."
+              />
+              <i class="fas fa-book-dead fa-fw group-icon"></i>
+            </div>
+            <div class="card-body text-center">
+              <h3 class="group-title">Nome do Grupo</h3>
+              <h4 class="group-game">Pathfinder</h4>
+              <ul class="group-perks">
+                <li>Membros: <span class="text-success">3/5</span></li>
+                <li>Reuniões: Segundas e Sábados</li>
+                <li>Rio de Janeiro, Zona Sul</li>
+              </ul>
+              <a href="#" class="btn btn-danger btn-grupo">Info</a>
+              <a href="#" class="btn btn-danger btn-grupo">Entrar</a>
+            </div>
+          </div>
+        </article>
+        <!-- Fim de um card de grupo -->
+        <!-- Inicio de um card de grupo -->
+        <article class="col-12 col-sm-6 col-lg-4 col-xl-3 py-3">
+          <div class="card">
+            <div class="cover-container">
+              <img
+                src="./images/group-cover2.jpg"
+                class="card-img-top"
+                alt="..."
+              />
+              <i class="fab fa-d-and-d fa-fw group-icon"></i>
+            </div>
+            <div class="card-body text-center">
+              <h3 class="group-title">Nome do Grupo</h3>
+              <h4 class="group-game">Dungeons & Dragons</h4>
+              <ul class="group-perks">
+                <li>Membros: <span class="text-success">2/3</span></li>
+                <li>Reuniões: Sábados</li>
+                <li>São Paulo, Zona Leste</li>
+              </ul>
+              <a href="#" class="btn btn-danger btn-grupo">Info</a>
+              <a href="#" class="btn btn-danger btn-grupo">Entrar</a>
+            </div>
+          </div>
+        </article>
+        <article class="col-12 col-sm-6 col-lg-4 col-xl-3 py-3">
+          <div class="card">
+            <div class="cover-container">
+              <img
+                src="./images/group-cover5.jpg"
+                class="card-img-top"
+                alt="..."
+              />
+              <i class="fab fa-d-and-d fa-fw group-icon"></i>
+            </div>
+            <div class="card-body text-center">
+              <h3 class="group-title">Nome do Grupo</h3>
+              <h4 class="group-game">Call of cthullu</h4>
+              <ul class="group-perks">
+                <li>Membros: <span class="text-danger">10/10</span></li>
+                <li>Reuniões: Sábados</li>
+                <li>Osasco</li>
+              </ul>
+              <a href="#" class="btn btn-danger btn-grupo">Info</a>
+              <a href="#" class="btn btn-danger btn-grupo">Entrar</a>
+            </div>
+          </div>
+        </article>
+        <!-- Fim de um card de grupo -->
+        <!-- Inicio de um card de grupo -->
+        <article class="col-12 col-sm-6 col-lg-4 col-xl-3 py-3">
+          <div class="card">
+            <div class="cover-container">
+              <img
+                src="./images/group-cover4.png"
+                class="card-img-top"
+                alt="..."
+              />
+              <i class="fas fa-dice-d20 fa-fw group-icon"></i>
+            </div>
+            <div class="card-body text-center">
+              <h3 class="group-title">Nome do Grupo</h3>
+              <h4 class="group-game">Banco Imobiliário</h4>
+              <ul class="group-perks">
+                <li>Membros: <span class="text-danger">5/5</span></li>
+                <li>Reuniões: Quartas</li>
+                <li>São Paulo, Zona Oeste</li>
+              </ul>
+              <a href="#" class="btn btn-danger btn-grupo">Info</a>
+              <a href="#" class="btn btn-danger btn-grupo">Entrar</a>
+            </div>
+          </div>
+        </article>
+        <!-- Fim de um card de grupo -->
+        <!-- Inicio de um card de grupo -->
+        <article class="col-12 col-sm-6 col-lg-4 col-xl-3 py-3">
+          <div class="card">
+            <div class="cover-container">
+              <img
+                src="./images/group-cover6.jpg"
+                class="card-img-top"
+                alt="..."
+              />
+              <i class="fas fa-hat-wizard fa-fw group-icon"></i>
+            </div>
+            <div class="card-body text-center">
+              <h3 class="group-title">Nome do Grupo</h3>
+              <h4 class="group-game">Dungeons & Dragons</h4>
+              <ul class="group-perks">
+                <li>Membros: <span class="text-success">3/7</span></li>
+                <li>Reuniões: Sábados</li>
+                <li>Santa Catarina</li>
+              </ul>
+              <a href="#" class="btn btn-danger btn-grupo">Info</a>
+              <a href="#" class="btn btn-danger btn-grupo">Entrar</a>
+            </div>
+          </div>
+        </article>
+        <!-- Fim de um card de grupo -->
+        <!-- Inicio de um card de grupo -->
+        <article class="col-12 col-sm-6 col-lg-4 col-xl-3 py-3">
+          <div class="card">
+            <div class="cover-container">
+              <img
+                src="./images/group-cover.jpg"
+                class="card-img-top"
+                alt="..."
+              />
+              <i class="fas fa-dice-three fa-fw group-icon "></i>
+            </div>
+            <div class="card-body text-center">
+              <h3 class="group-title">Nome do Grupo</h3>
+              <h4 class="group-game">Pathfinder</h4>
+              <ul class="group-perks">
+                <li>Membros: <span class="text-success">3/5</span></li>
+                <li>Reuniões: Sábados</li>
+                <li>Rio de Janeiro, Zona Norte</li>
+              </ul>
+              <a href="#" class="btn btn-danger btn-grupo">Info</a>
+              <a href="#" class="btn btn-danger btn-grupo">Entrar</a>
+            </div>
+          </div>
+        </article>
+        <article class="col-12 col-sm-6 col-lg-4 col-xl-3 py-3">
+          <div class="card">
+            <div class="cover-container">
+              <img
+                src="./images/group-cover.jpg"
+                class="card-img-top"
+                alt="..."
+              />
+              <i class="fas fa-skull-crossbones fa-fw group-icon"></i>
+            </div>
+            <div class="card-body text-center">
+              <h3 class="group-title">Nome do Grupo</h3>
+              <h4 class="group-game">Banco Imobiliário</h4>
+              <ul class="group-perks">
+                <li>Membros: <span class="text-success">3/10</span></li>
+                <li>Reuniões: Sextas</li>
+                <li>São Paulo, Zona Sul</li>
+              </ul>
+              <a href="#" class="btn btn-danger btn-grupo">Info</a>
+              <a href="#" class="btn btn-danger btn-grupo">Entrar</a>
+            </div>
+          </div>
+        </article>
+        <article class="col-12 col-sm-6 col-lg-4 col-xl-3 py-3">
+          <div class="card">
+            <div class="cover-container">
+              <img
+                src="./images/group-cover6.jpg"
+                class="card-img-top"
+                alt="..."
+              />
+              <i class="fas fa-hat-wizard fa-fw group-icon"></i>
+            </div>
+            <div class="card-body text-center">
+              <h3 class="group-title">Nome do Grupo</h3>
+              <h4 class="group-game">Dungeons & Dragons</h4>
+              <ul class="group-perks">
+                <li>Membros: <span class="text-warning">6/7</span></li>
+                <li>Reuniões: Sábados</li>
+                <li>Porto Alegre</li>
+              </ul>
+              <a href="#" class="btn btn-danger btn-grupo">Info</a>
+              <a href="#" class="btn btn-danger btn-grupo">Entrar</a>
+            </div>
+          </div>
+        </article>
+        <!-- Fim de um card de grupo -->
+        <!-- Inicio de um card de grupo -->
+        <article class="col-12 col-sm-6 col-lg-4 col-xl-3 py-3">
+          <div class="card">
+            <div class="cover-container">
+              <img
+                src="./images/group-cover.jpg"
+                class="card-img-top"
+                alt="..."
+              />
+              <i class="fas fa-dice-three fa-fw group-icon "></i>
+            </div>
+            <div class="card-body text-center">
+              <h3 class="group-title">Nome do Grupo</h3>
+              <h4 class="group-game">Dungeons & Dragons</h4>
+              <ul class="group-perks">
+                <li>Membros: <span class="text-success">3/5</span></li>
+                <li>Reuniões: Sábados</li>
+                <li>São Paulo, Zona Sul</li>
+              </ul>
+              <a href="#" class="btn btn-danger btn-grupo">Info</a>
+              <a href="#" class="btn btn-danger btn-grupo">Entrar</a>
+            </div>
+          </div>
+        </article>
+        <article class="col-12 col-sm-6 col-lg-4 col-xl-3 py-3">
+          <div class="card">
+            <div class="cover-container">
+              <img
+                src="./images/group-cover.jpg"
+                class="card-img-top"
+                alt="..."
+              />
+              <i class="fas fa-skull-crossbones fa-fw group-icon"></i>
+            </div>
+            <div class="card-body text-center">
+              <h3 class="group-title">Nome do Grupo</h3>
+              <h4 class="group-game">Dungeons & Dragons</h4>
+              <ul class="group-perks">
+                <li>Membros: <span class="text-danger">5/5</span></li>
+                <li>Reuniões: Sextas</li>
+                <li>São Paulo, Centro</li>
+              </ul>
+              <a href="#" class="btn btn-danger btn-grupo">Info</a>
+              <a href="#" class="btn btn-danger btn-grupo">Entrar</a>
+            </div>
+          </div>
+        </article>
+        <article class="col-12 col-sm-6 col-lg-4 col-xl-3 py-3">
+          <div class="card">
+            <div class="cover-container">
+              <img
+                src="./images/group-cover6.jpg"
+                class="card-img-top"
+                alt="..."
+              />
+              <i class="fas fa-hat-wizard fa-fw group-icon"></i>
+            </div>
+            <div class="card-body text-center">
+              <h3 class="group-title">Nome do Grupo</h3>
+              <h4 class="group-game">Tormenta</h4>
+              <ul class="group-perks">
+                <li>Membros: <span class="text-success">3/5</span></li>
+                <li>Reuniões: Sextas</li>
+                <li>São Paulo, Zona Norte</li>
+              </ul>
+              <a href="#" class="btn btn-danger btn-grupo">Info</a>
+              <a href="#" class="btn btn-danger btn-grupo">Entrar</a>
+            </div>
+          </div>
+        </article>
+        <!-- Fim de um card de grupo -->
+        <!-- Inicio de um card de grupo -->
+        <article class="col-12 col-sm-6 col-lg-4 col-xl-3 py-3">
+          <div class="card">
+            <div class="cover-container">
+              <img
+                src="./images/group-cover.jpg"
+                class="card-img-top"
+                alt="..."
+              />
+              <i class="fas fa-dice-three fa-fw group-icon "></i>
+            </div>
+            <div class="card-body text-center">
+              <h3 class="group-title">Nome do Grupo</h3>
+              <h4 class="group-game">Dungeons & Dragons</h4>
+              <ul class="group-perks">
+                <li>Membros: <span class="text-success">3/5</span></li>
+                <li>Reuniões: Sábados</li>
+                <li>São Paulo, Zona Leste</li>
+              </ul>
+              <a href="#" class="btn btn-danger btn-grupo">Info</a>
+              <a href="#" class="btn btn-danger btn-grupo">Entrar</a>
+            </div>
+          </div>
+        </article>
+        <article class="col-12 col-sm-6 col-lg-4 col-xl-3 py-3">
+          <div class="card">
+            <div class="cover-container">
+              <img
+                src="./images/group-cover.jpg"
+                class="card-img-top"
+                alt="..."
+              />
+              <i class="fas fa-skull-crossbones fa-fw group-icon"></i>
+            </div>
+            <div class="card-body text-center">
+              <h3 class="group-title">Nome do Grupo</h3>
+              <h4 class="group-game">Tormenta</h4>
+              <ul class="group-perks">
+                <li>Membros: <span class="text-success">3/5</span></li>
+                <li>Reuniões: Sextas</li>
+                <li>Florianópolis</li>
+              </ul>
+              <a href="#" class="btn btn-danger btn-grupo">Info</a>
+              <a href="#" class="btn btn-danger btn-grupo">Entrar</a>
+            </div>
+          </div>
+        </article>
+        <!-- Fim de um card de grupo -->
       </div>
-      <div class="col-6 col-md-3">
-        <div class="input-group mb-3">
-          <select class="custom-select" id="inputGroupSelect01">
-            <option selected>Distância</option>
-            <option value="1">Até 5km</option>
-            <option value="2">5km a 15km</option>
-            <option value="3">mais de 15km</option>
-          </select>
-        </div>
+    </section>
+    <!----------------------------------------------------- footer--------------------------------------------------------->
+    <footer class="footer">
+      <div class="social-icons">
+        <!-- social icon -->
+        <a href="#" class="social-icon">
+          <i class="fab fa-facebook"></i>
+        </a>
+        <!-- end icon -->
+        <!-- social icon -->
+        <a href="#" class="social-icon">
+          <i class="fab fa-twitter"></i>
+        </a>
+        <!-- end icon -->
+        <!-- social icon -->
+        <a href="#" class="social-icon">
+          <i class="fab fa-instagram"></i>
+        </a>
+        <!-- end icon -->
       </div>
-    </div>
-  </section>
-  <!-- end of searchbar -->
-  <section class="container grupos">
-    <div class="row">
-
-      <!-- Inicio de um card de grupo -->
-      <article class="col-12 col-sm-6 col-lg-4 col-xl-3 py-3">
-        <div class="card">
-          <div class="cover-container">
-            <img src="./images/group-cover3.jpg" class="card-img-top" alt="...">
-            <i class="fab fa-d-and-d fa-fw group-icon"></i>
-          </div>
-          <div class="card-body text-center">
-            <h3 class="group-title">Nome do Grupo</h3>
-            <h4 class="group-game">Call of cthullu</h4>
-            <ul class="group-perks">
-              <li>Membros: <span class="text-warning">4/5</span></li>
-              <li>Reuniões: Sexta</li>
-              <li>São Paulo, Zona Norte</li>
-            </ul>
-            <a href="#" class="btn btn-danger btn-grupo">Info</a>
-            <a href="#" class="btn btn-danger btn-grupo">Entrar</a>
-          </div>
-        </div>
-      </article>
-      <!-- Fim de um card de grupo -->
-      <!-- Inicio de um card de grupo -->
-      <article class="col-12 col-sm-6 col-lg-4 col-xl-3 py-3">
-        <div class="card">
-          <div class="cover-container">
-            <img src="./images/group-cover.jpg" class="card-img-top" alt="...">
-            <i class="fas fa-book-dead fa-fw group-icon"></i>
-          </div>
-          <div class="card-body text-center">
-            <h3 class="group-title">Nome do Grupo</h3>
-            <h4 class="group-game">Pathfinder</h4>
-            <ul class="group-perks">
-              <li>Membros: <span class="text-success">3/5</span></li>
-              <li>Reuniões: Segundas e Sábados</li>
-              <li>Rio de Janeiro, Zona Sul</li>
-            </ul>
-            <a href="#" class="btn btn-danger btn-grupo">Info</a>
-            <a href="#" class="btn btn-danger btn-grupo">Entrar</a>
-          </div>
-        </div>
-      </article>
-      <!-- Fim de um card de grupo -->
-      <!-- Inicio de um card de grupo -->
-      <article class="col-12 col-sm-6 col-lg-4 col-xl-3 py-3">
-        <div class="card">
-          <div class="cover-container">
-            <img src="./images/group-cover2.jpg" class="card-img-top" alt="...">
-            <i class="fab fa-d-and-d fa-fw group-icon"></i>
-          </div>
-          <div class="card-body text-center">
-            <h3 class="group-title">Nome do Grupo</h3>
-            <h4 class="group-game">Dungeons & Dragons</h4>
-            <ul class="group-perks">
-              <li>Membros: <span class="text-success">2/3</span></li>
-              <li>Reuniões: Sábados</li>
-              <li>São Paulo, Zona Leste</li>
-            </ul>
-            <a href="#" class="btn btn-danger btn-grupo">Info</a>
-            <a href="#" class="btn btn-danger btn-grupo">Entrar</a>
-          </div>
-        </div>
-      </article>
-      <article class="col-12 col-sm-6 col-lg-4 col-xl-3 py-3">
-        <div class="card">
-          <div class="cover-container">
-            <img src="./images/group-cover5.jpg" class="card-img-top" alt="...">
-            <i class="fab fa-d-and-d fa-fw group-icon"></i>
-          </div>
-          <div class="card-body text-center">
-            <h3 class="group-title">Nome do Grupo</h3>
-            <h4 class="group-game">Call of cthullu</h4>
-            <ul class="group-perks">
-              <li>Membros: <span class="text-danger">10/10</span></li>
-              <li>Reuniões: Sábados</li>
-              <li>Osasco</li>
-            </ul>
-            <a href="#" class="btn btn-danger btn-grupo">Info</a>
-            <a href="#" class="btn btn-danger btn-grupo">Entrar</a>
-          </div>
-        </div>
-      </article>
-      <!-- Fim de um card de grupo -->
-      <!-- Inicio de um card de grupo -->
-      <article class="col-12 col-sm-6 col-lg-4 col-xl-3 py-3">
-        <div class="card">
-          <div class="cover-container">
-            <img src="./images/group-cover4.png" class="card-img-top" alt="...">
-            <i class="fas fa-dice-d20 fa-fw group-icon"></i>
-          </div>
-          <div class="card-body text-center">
-            <h3 class="group-title">Nome do Grupo</h3>
-            <h4 class="group-game">Banco Imobiliário</h4>
-            <ul class="group-perks">
-              <li>Membros: <span class="text-danger">5/5</span></li>
-              <li>Reuniões: Quartas</li>
-              <li>São Paulo, Zona Oeste</li>
-            </ul>
-            <a href="#" class="btn btn-danger btn-grupo">Info</a>
-            <a href="#" class="btn btn-danger btn-grupo">Entrar</a>
-          </div>
-        </div>
-      </article>
-      <!-- Fim de um card de grupo -->
-      <!-- Inicio de um card de grupo -->
-      <article class="col-12 col-sm-6 col-lg-4 col-xl-3 py-3">
-        <div class="card">
-          <div class="cover-container">
-            <img src="./images/group-cover6.jpg" class="card-img-top" alt="...">
-            <i class="fas fa-hat-wizard fa-fw group-icon"></i>
-          </div>
-          <div class="card-body text-center">
-            <h3 class="group-title">Nome do Grupo</h3>
-            <h4 class="group-game">Dungeons & Dragons</h4>
-            <ul class="group-perks">
-              <li>Membros: <span class="text-success">3/7</span></li>
-              <li>Reuniões: Sábados</li>
-              <li>Santa Catarina</li>
-            </ul>
-            <a href="#" class="btn btn-danger btn-grupo">Info</a>
-            <a href="#" class="btn btn-danger btn-grupo">Entrar</a>
-          </div>
-        </div>
-      </article>
-      <!-- Fim de um card de grupo -->
-      <!-- Inicio de um card de grupo -->
-      <article class="col-12 col-sm-6 col-lg-4 col-xl-3 py-3">
-        <div class="card">
-          <div class="cover-container">
-            <img src="./images/group-cover.jpg" class="card-img-top" alt="...">
-            <i class="fas fa-dice-three fa-fw group-icon "></i>
-          </div>
-          <div class="card-body text-center">
-            <h3 class="group-title">Nome do Grupo</h3>
-            <h4 class="group-game">Pathfinder</h4>
-            <ul class="group-perks">
-              <li>Membros: <span class="text-success">3/5</span></li>
-              <li>Reuniões: Sábados</li>
-              <li>Rio de Janeiro, Zona Norte</li>
-            </ul>
-            <a href="#" class="btn btn-danger btn-grupo">Info</a>
-            <a href="#" class="btn btn-danger btn-grupo">Entrar</a>
-          </div>
-        </div>
-      </article>
-      <article class="col-12 col-sm-6 col-lg-4 col-xl-3 py-3">
-        <div class="card">
-          <div class="cover-container">
-            <img src="./images/group-cover.jpg" class="card-img-top" alt="...">
-            <i class="fas fa-skull-crossbones fa-fw group-icon"></i>
-          </div>
-          <div class="card-body text-center">
-            <h3 class="group-title">Nome do Grupo</h3>
-            <h4 class="group-game">Banco Imobiliário</h4>
-            <ul class="group-perks">
-              <li>Membros: <span class="text-success">3/10</span></li>
-              <li>Reuniões: Sextas</li>
-              <li>São Paulo, Zona Sul</li>
-            </ul>
-            <a href="#" class="btn btn-danger btn-grupo">Info</a>
-            <a href="#" class="btn btn-danger btn-grupo">Entrar</a>
-          </div>
-        </div>
-      </article>
-      <article class="col-12 col-sm-6 col-lg-4 col-xl-3 py-3">
-        <div class="card">
-          <div class="cover-container">
-            <img src="./images/group-cover6.jpg" class="card-img-top" alt="...">
-            <i class="fas fa-hat-wizard fa-fw group-icon"></i>
-          </div>
-          <div class="card-body text-center">
-            <h3 class="group-title">Nome do Grupo</h3>
-            <h4 class="group-game">Dungeons & Dragons</h4>
-            <ul class="group-perks">
-              <li>Membros: <span class="text-warning">6/7</span></li>
-              <li>Reuniões: Sábados</li>
-              <li>Porto Alegre</li>
-            </ul>
-            <a href="#" class="btn btn-danger btn-grupo">Info</a>
-            <a href="#" class="btn btn-danger btn-grupo">Entrar</a>
-          </div>
-        </div>
-      </article>
-      <!-- Fim de um card de grupo -->
-      <!-- Inicio de um card de grupo -->
-      <article class="col-12 col-sm-6 col-lg-4 col-xl-3 py-3">
-        <div class="card">
-          <div class="cover-container">
-            <img src="./images/group-cover.jpg" class="card-img-top" alt="...">
-            <i class="fas fa-dice-three fa-fw group-icon "></i>
-          </div>
-          <div class="card-body text-center">
-            <h3 class="group-title">Nome do Grupo</h3>
-            <h4 class="group-game">Dungeons & Dragons</h4>
-            <ul class="group-perks">
-              <li>Membros: <span class="text-success">3/5</span></li>
-              <li>Reuniões: Sábados</li>
-              <li>São Paulo, Zona Sul</li>
-            </ul>
-            <a href="#" class="btn btn-danger btn-grupo">Info</a>
-            <a href="#" class="btn btn-danger btn-grupo">Entrar</a>
-          </div>
-        </div>
-      </article>
-      <article class="col-12 col-sm-6 col-lg-4 col-xl-3 py-3">
-        <div class="card">
-          <div class="cover-container">
-            <img src="./images/group-cover.jpg" class="card-img-top" alt="...">
-            <i class="fas fa-skull-crossbones fa-fw group-icon"></i>
-          </div>
-          <div class="card-body text-center">
-            <h3 class="group-title">Nome do Grupo</h3>
-            <h4 class="group-game">Dungeons & Dragons</h4>
-            <ul class="group-perks">
-              <li>Membros: <span class="text-danger">5/5</span></li>
-              <li>Reuniões: Sextas</li>
-              <li>São Paulo, Centro</li>
-            </ul>
-            <a href="#" class="btn btn-danger btn-grupo">Info</a>
-            <a href="#" class="btn btn-danger btn-grupo">Entrar</a>
-          </div>
-        </div>
-      </article>
-      <article class="col-12 col-sm-6 col-lg-4 col-xl-3 py-3">
-        <div class="card">
-          <div class="cover-container">
-            <img src="./images/group-cover6.jpg" class="card-img-top" alt="...">
-            <i class="fas fa-hat-wizard fa-fw group-icon"></i>
-          </div>
-          <div class="card-body text-center">
-            <h3 class="group-title">Nome do Grupo</h3>
-            <h4 class="group-game">Tormenta</h4>
-            <ul class="group-perks">
-              <li>Membros: <span class="text-success">3/5</span></li>
-              <li>Reuniões: Sextas</li>
-              <li>São Paulo, Zona Norte</li>
-            </ul>
-            <a href="#" class="btn btn-danger btn-grupo">Info</a>
-            <a href="#" class="btn btn-danger btn-grupo">Entrar</a>
-          </div>
-        </div>
-      </article>
-      <!-- Fim de um card de grupo -->
-      <!-- Inicio de um card de grupo -->
-      <article class="col-12 col-sm-6 col-lg-4 col-xl-3 py-3">
-        <div class="card">
-          <div class="cover-container">
-            <img src="./images/group-cover.jpg" class="card-img-top" alt="...">
-            <i class="fas fa-dice-three fa-fw group-icon "></i>
-          </div>
-          <div class="card-body text-center">
-            <h3 class="group-title">Nome do Grupo</h3>
-            <h4 class="group-game">Dungeons & Dragons</h4>
-            <ul class="group-perks">
-              <li>Membros: <span class="text-success">3/5</span></li>
-              <li>Reuniões: Sábados</li>
-              <li>São Paulo, Zona Leste</li>
-            </ul>
-            <a href="#" class="btn btn-danger btn-grupo">Info</a>
-            <a href="#" class="btn btn-danger btn-grupo">Entrar</a>
-          </div>
-        </div>
-      </article>
-      <article class="col-12 col-sm-6 col-lg-4 col-xl-3 py-3">
-        <div class="card">
-          <div class="cover-container">
-            <img src="./images/group-cover.jpg" class="card-img-top" alt="...">
-            <i class="fas fa-skull-crossbones fa-fw group-icon"></i>
-          </div>
-          <div class="card-body text-center">
-            <h3 class="group-title">Nome do Grupo</h3>
-            <h4 class="group-game">Tormenta</h4>
-            <ul class="group-perks">
-              <li>Membros: <span class="text-success">3/5</span></li>
-              <li>Reuniões: Sextas</li>
-              <li>Florianópolis</li>
-            </ul>
-            <a href="#" class="btn btn-danger btn-grupo">Info</a>
-            <a href="#" class="btn btn-danger btn-grupo">Entrar</a>
-          </div>
-        </div>
-      </article>
-      <!-- Fim de um card de grupo -->
-    </div>
-  </section>
-  <!----------------------------------------------------- footer--------------------------------------------------------->
-  <footer class="footer">
-    <div class="social-icons">
-      <!-- social icon -->
-      <a href="#" class="social-icon">
-        <i class="fab fa-facebook"></i>
-      </a>
-      <!-- end icon -->
-      <!-- social icon -->
-      <a href="#" class="social-icon">
-        <i class="fab fa-twitter"></i>
-      </a>
-      <!-- end icon -->
-      <!-- social icon -->
-      <a href="#" class="social-icon">
-        <i class="fab fa-instagram"></i>
-      </a>
-      <!-- end icon -->
-    </div>
-    <h4 class="footer-text">
-      &copy;<span id="date"></span>
-      <span class="company">eTavern</span>
-      Todos os direitos reservados
-    </h4>
-  </footer>
-  <!----------------------------------------------------- fim do footer--------------------------------------------------------->
-  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
-    integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
-  </script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
-  </script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
-    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
-  </script>
-  <script src="app.js"></script>
-</body>
-
+      <h4 class="footer-text">
+        &copy;<span id="date"></span>
+        <span class="company">iTavern</span>
+        Todos os direitos reservados
+      </h4>
+    </footer>
+    <!----------------------------------------------------- fim do footer--------------------------------------------------------->
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+      integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+      integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+      crossorigin="anonymous"
+    ></script>
+    <script src="app.js"></script>
+  </body>
 </html>
