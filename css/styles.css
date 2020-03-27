@@ -4,14 +4,15 @@
 /* =========================== VARIABLES ========================*/
 :root {
   /*colors*/
-  --clr-primary: #fcab64;
-  --clr-primary-light: #fcd29f;
-  --clr-primary-bg: #f7d3a73b;
-  --clr-primary-dark: rgb(189, 85, 16);
-  --clr-scroll: #3b2025;
+  --clr-primary: #d98c4a;
+  --clr-primary-light: #f2cf8d;
+  --clr-primary-light2: #f2da91;
+  --clr-primary-dark: #a6401b;
+  --clr-primary-bg: #d1dbe25e;
+
   --clr-grey-1: #102a42;
   --clr-grey-5: #617d98;
-  --clr-grey-10: #f1f5f8;
+  --clr-grey-10: #f2f2f2;
   --clr-grey-11: #d1dbe2;
   --clr-white: #fff;
 
@@ -21,7 +22,7 @@
 
   /**/
   --transition: all 0.5s ease;
-  --spacing: 0.25rem;
+  --spacing: 0.15rem;
   --radius: 1rem;
 }
 
@@ -108,9 +109,15 @@ p {
   }
 }
 
-.col-centered {
-  float: none;
-  margin: 0 auto;
+.btn {
+  background-color: var(--clr-primary);
+  border-color: var(--clr-primary);
+  color: white;
+}
+
+.btn:hover {
+  background-color: var(--clr-primary-dark);
+  border-color: var(--clr-primary-dark);
 }
 
 /*================================End of global CSS====================================*/
@@ -125,6 +132,9 @@ p {
 
 .nav-btn {
   color: var(--clr-primary-dark);
+  position: absolute;
+  top: 8px;
+  left: 10px;
   font-size: 2rem;
   z-index: 1;
   cursor: pointer;
@@ -143,8 +153,13 @@ p {
   transition: 0.5s ease-out;
 }
 
+.body-overflow {
+  overflow: hidden;
+}
+
 .showNav {
   transform: translate(0%);
+  z-index: 3;
 }
 
 .navbar-header-c {
@@ -204,11 +219,11 @@ p {
 }
 
 .nav-link:hover .nav-text {
-  padding-left: 2rem;
+  padding-left: 1rem;
 }
 
 .nav-link:hover .nav-icon {
-  padding-left: 0.75rem;
+  padding-left: 0.5rem;
   color: var(--clr-primary-dark);
   transform: scale(1.6);
 }
@@ -229,28 +244,24 @@ p {
 }
 
 .btn-outline-primary {
-  color: var(--clr-primary-dark);
+  font-weight: 700;
   letter-spacing: var(--spacing);
-  border-color: var(--clr-primary-dark);
-}
-
-.btn-outline-primary:hover {
-  color: #fff;
-  background-color: var(--clr-primary);
-  border-color: var(--clr-primary);
 }
 
 @media screen and (min-width: 600px) {
+  .body-overflow {
+    overflow: scroll;
+  }
+
   .navbar-c {
     width: 50vw;
-    max-width: 20rem;
+    max-width: 16rem;
   }
 }
 
 @media screen and (min-height: 820px) {
   .nav-link {
     display: block;
-    font-size: 1.25rem;
     padding: 1.25rem 1rem;
   }
 
@@ -259,8 +270,8 @@ p {
   }
 
   .perfil-btn a {
-    padding: 1rem;
-    width: 8rem;
+    padding: 1rem 0.5rem;
+    width: 6rem;
   }
 
   .profile-picture {
@@ -268,17 +279,87 @@ p {
   }
 }
 
+@media screen and (min-width: 1600px) {
+  .nav-btn {
+    display: none;
+  }
+
+  .body-overflow {
+    overflow: scroll;
+  }
+
+  .navbar-c {
+    max-width: none;
+    max-height: 800px;
+
+    transform: translateX(0%);
+    background: none;
+    box-shadow: none;
+    padding-top: 2rem;
+    padding-left: calc((50% - 600px) / 10);
+    width: calc(50% - 600px);
+    /* border-right: solid red 4px; */
+  }
+
+  .nav-link:hover {
+    border: none;
+    border-radius: 2rem;
+  }
+
+  .nav-link:hover .nav-text {
+    padding-left: 0.8rem;
+  }
+
+  .nav-text {
+    font-size: 0.8rem;
+    letter-spacing: 0.1rem;
+  }
+
+  .nav-link:hover .nav-icon {
+    padding-left: 0.5rem;
+    color: var(--clr-primary-dark);
+    transform: scale(1.6);
+  }
+
+  .nav-close {
+    display: none;
+  }
+
+  .profile-name {
+    font-size: 1.5rem;
+  }
+}
+
+@media screen and (min-width: 1750px) {
+  .navbar-c {
+    /* padding-left: 2rem; */
+  }
+
+  .nav-items {
+    padding-left: 2rem;
+  }
+
+  .nav-text {
+    font-size: 1rem;
+    letter-spacing: var(--spacing);
+  }
+
+  .nav-link:hover .nav-text {
+    padding-left: 1.75rem;
+  }
+}
+
 /* ==========================================searchbar======================================== */
 
 .searchbar {
+  position: relative;
+  border-radius: 0 0 var(--radius) var(--radius);
   background-color: var(--clr-primary-light);
 }
 
 /* ==========================================grupos======================================== */
 
 .grupos {
-  height: (100vw);
-  overflow: scroll;
   background: white;
 }
 
@@ -291,8 +372,12 @@ p {
   width: (400px);
 }
 
+.card-body {
+  border-radius: var(--radius);
+}
+
 .card-img-top {
-  height: 7vw;
+  height: 14vh;
   object-fit: cover;
 }
 
@@ -306,7 +391,7 @@ p {
 
 .card:hover {
   box-shadow: 0 5px 15px rgb(0, 0, 0, 0.3);
-  transform: scale(1.02);
+  transform: scale(1.01);
 }
 
 .cover-container {
@@ -322,7 +407,7 @@ p {
   border-radius: 50%;
   border: solid 5px var(--clr-grey-10);
   color: white;
-  background-color: red;
+  background-color: var(--clr-primary-dark);
   overflow: hidden;
 }
 
@@ -338,7 +423,8 @@ p {
 
 .group-game {
   font-family: var(--ff-secondary);
-  color: red;
+  color: var(--clr-primary-dark);
+  font-size: 1.1rem;
   font-weight: 700;
 }
 
@@ -347,11 +433,20 @@ p {
   width: 5rem;
 }
 
+/*Media queries pra consertar a imagem dos cards dos grupos*/
+
+@media screen and (max-width: 768px) {
+  .card-img-top {
+    height: 20vh;
+  }
+}
+
 /* ==========================================footer======================================== */
 footer {
   padding: 2rem 0rem;
   background-color: #222;
   text-align: center;
+  z-index: 5;
 }
 
 .social-icon {
