@@ -1,0 +1,73 @@
+<%- include('parts/head',{title:'iTavern'}); %>
+<link rel="stylesheet" href="/css/grupos.css">
+<%- include('parts/navbar'); %>
+<!-- searchbar -->
+<main>
+  <section class="container searchbar">
+    <div class="row pt-3">
+      <span class="nav-btn" id="nav-btn">
+        <i class="fas fa-bars"></i>
+      </span>
+      <div class="col-12 col-md-6 pl-5">
+        <div class="input-group mb-3">
+          <input type="text" class="form-control" placeholder="Pesquise por jogo ou nome do grupo"
+            aria-label="Recipient's username" aria-describedby="button-addon2" />
+          <div class="input-group-append">
+            <button class="btn btn-outline-secondary" type="button" id="button-addon2">
+              <i class="fas fa-search"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="col-6 col-md-3">
+        <div class="input-group mb-3">
+          <select class="custom-select" id="inputGroupSelect01" placeholder="Tamanho do grupo">
+            <option selected>Tamanho do grupo</option>
+            <option value="1">Pequeno (1-3)</option>
+            <option value="2">Médio (3-5)</option>
+            <option value="3">Grande (>5)</option>
+          </select>
+        </div>
+      </div>
+      <div class="col-6 col-md-3">
+        <div class="input-group mb-3">
+          <select class="custom-select" id="inputGroupSelect01">
+            <option selected>Distância</option>
+            <option value="1">Até 5km</option>
+            <option value="2">5km a 15km</option>
+            <option value="3">mais de 15km</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- end of searchbar -->
+  <section class="container grupos">
+    <div class="row">
+      <!-- Inicio de um card de grupo -->
+      <% for(let grupo of grupos){ %>
+      <article class="col-12 col-sm-6 col-lg-4 col-xl-3 py-3">
+        <div class="card">
+          <div class="cover-container">
+            <img src="images/covers/<%= grupo.img %>" class="card-img-top" alt="..." />
+            <i class="<%= grupo.icon %> fa-fw group-icon"></i>
+          </div>
+          <div class="card-body text-center">
+            <h3 class="group-title"><%= grupo.nome %></h3>
+            <h4 class="group-game"><%= grupo.jogo %></h4>
+            <ul class="group-perks">
+              <li>Membros: <span class="text-warning"><%= grupo.intMembros %>/<%= grupo.intMaxMembros %></span></li>
+              <li>Reuniões: <%= grupo.reunioes %></li>
+              <li><%= grupo.local %></li>
+            </ul>
+            <a href="#" class="btn btn-danger btn-grupo">Info</a>
+            <a href="#" class="btn btn-danger btn-grupo">Entrar</a>
+          </div>
+        </div>
+      </article>
+      <% } %>
+      <!-- Fim de um card de grupo -->
+    </div>
+  </section>
+</main>
+<%- include('parts/foot'); %>
