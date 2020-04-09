@@ -1,6 +1,5 @@
 /* ============================ FONTS ===============================*/
 @import url("https://fonts.googleapis.com/css?family=Indie+Flower|Oswald:400,700&display=swap");
-@import url("../node_modules/@fortawesome/fontawesome-free/css/all.min.css");
 
 /* =========================== VARIABLES ========================*/
 :root {
@@ -120,6 +119,15 @@ p {
 .btn:hover {
   background-color: var(--clr-primary-dark);
   border-color: var(--clr-primary-dark);
+}
+
+.form-control:focus {
+
+  color: #495057;
+  background-color: #fff;
+  border-color: var(--clr-primary-light);
+  outline: 0;
+  box-shadow: 0 0 0 .2rem #a6401b75
 }
 
 /*================================End of global CSS====================================*/
@@ -348,13 +356,11 @@ p {
   }
 }
 
-/* ==========================================searchbar======================================== */
-
-.searchbar {
-  position: relative;
-  border-radius: 0 0 var(--radius) var(--radius);
-  background-color: var(--clr-primary-light);
+#buscar-grupos-link {
+  color: var(--clr-primary-dark);
+  transform: scale(1.1);
 }
+
 
 /* ==========================================grupos======================================== */
 

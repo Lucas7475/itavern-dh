@@ -12,6 +12,72 @@
   {
     "id": 1,
     "nome": "grupo 1",
+    "jogo": "Path Finder",
+    "local": "Santa Catarina",
+    "icon": "fas fa-hat-wizard",
+    "intMembros": 4,
+    "intMaxMembros": 7,
+    "img": "group-cover2.jpg",
+    "reunioes": ["Terças, Quartas"]
+  },
+  {
+    "id": 1,
+    "nome": "grupo 1",
+    "jogo": "Path Finder",
+    "local": "Santa Catarina",
+    "icon": "fas fa-hat-wizard",
+    "intMembros": 4,
+    "intMaxMembros": 7,
+    "img": "group-cover2.jpg",
+    "reunioes": ["Terças, Quartas"]
+  },
+  {
+    "id": 1,
+    "nome": "grupo 1",
+    "jogo": "Dungeons & Dragons",
+    "local": "Santa Catarina",
+    "icon": "fas fa-hat-wizard",
+    "intMembros": 4,
+    "intMaxMembros": 7,
+    "img": "group-cover2.jpg",
+    "reunioes": ["Terças, Quartas"]
+  },
+  {
+    "id": 1,
+    "nome": "grupo 1",
+    "jogo": "Dungeons & Dragons",
+    "local": "Santa Catarina",
+    "icon": "fas fa-hat-wizard",
+    "intMembros": 4,
+    "intMaxMembros": 7,
+    "img": "group-cover2.jpg",
+    "reunioes": ["Terças, Quartas"]
+  },
+  {
+    "id": 1,
+    "nome": "grupo 1",
+    "jogo": "Dungeons & Dragons",
+    "local": "Santa Catarina",
+    "icon": "fas fa-hat-wizard",
+    "intMembros": 4,
+    "intMaxMembros": 7,
+    "img": "group-cover2.jpg",
+    "reunioes": ["Terças, Quartas"]
+  },
+  {
+    "id": 1,
+    "nome": "grupo 1",
+    "jogo": "Dungeons & Dragons",
+    "local": "Santa Catarina",
+    "icon": "fas fa-hat-wizard",
+    "intMembros": 4,
+    "intMaxMembros": 7,
+    "img": "group-cover2.jpg",
+    "reunioes": ["Terças, Quartas"]
+  },
+  {
+    "id": 1,
+    "nome": "grupo 1",
     "jogo": "Dungeons & Dragons",
     "local": "Santa Catarina",
     "icon": "fas fa-hat-wizard",
