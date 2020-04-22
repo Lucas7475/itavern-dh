@@ -1,0 +1,129 @@
+
+<!-- Button trigger modal -->
+<link rel="stylesheet" href="/css/criarSala.css">
+<!-- <button type="button" class="btn" data-toggle="modal" data-target="#exampleModal">
+    Criar Sala
+  </button> -->
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Crie o grupo</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">X</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form action="#" class="formulario" method="post" enctype="multipart/form-data">
+            <label class="nomeGrupo">
+              Nome do Grupo:
+              <input type="text" name="nomeGrupo" id="nomeGrupo">
+            </label>
+            <br>
+            <label class="nomeJogo">
+              Nome do Jogo:
+              <select name="nomeJogo" id="nomeJogo">
+                  <option selected disabled>Selecione</option>
+                  <!--  for(jogo of jogos){ -->
+                      <!-- <option value=" jogo.id ">jogo.nome</option> -->
+                  <!--  }  -->
+              </select>
+            </label>
+            <br>
+            <div class="numJogadores">
+              <label for="numJogador" id="numJogadores">Nº de Jogadores:</label>
+              <select name="numJogadores" id="numJogador">
+                    <option selected disabled>nº</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+              </select>
+            </div>
+            <br>
+            <div class="inicio">
+                <label for="inicio">Início das Reuniões:</label>
+                <input class="teste" type="text" name="inicio" id="inicio" placeholder="dd/mm/aaaa"><!-- calendario será aprimorado -->
+            </div>
+            <br>
+            <div class="diaReuniao">
+                <label for="diaReuniao">Dias das Reuniões:</label>
+                <input type="text" name="diaReuniao" id="diaReuniao">
+            </div>
+            <br>
+            <div class="endereco">
+              <label class="cidade">
+                Cidade:
+                <select name="nomeJogo" id="nomeJogo">
+                  <option selected disabled>Selecione</option>
+                  <!--  for(cidade of cidades){ -->
+                      <!-- <option value=" cidade.id ">cidade.nome</option> -->
+                  <!--  }  -->
+                </select>
+              </label>
+              <label class="rua">
+                Endereço:
+                <input type="text" name="endereco" id="endereco">
+              </label>
+              <label class="numero">
+                Número:
+                <input type="text" name="numero" id="numero">
+              </label>
+              <label class="complemento">
+                Complemento:
+                <input type="text" name="complemento" id="complemento">
+              </label>
+            </div>
+            <br>
+            <label for="imgGrupo" class="imgGrupo">
+                Imagem do grupo:
+            </label>
+            <div class="upload">
+                  <input type="file" name="imgGrupo" id="imgGrupo">
+            </div>
+            <br>
+            <label for="descricao" class="descricao">Descrição do grupo:</label>
+            <br>
+            <textarea name="descricao" id="descricao"></textarea>
+            <br>
+            <div class="opcoes">
+                Restrições:
+                <br>
+                <div class="bebidas">
+                  Bebidas:
+                  <br>
+                  <input type="radio" name="bebidas" id="livre" value="livre" >
+                  <label for="livre">Qualquer tipo</label>
+                  <br>
+                  <input type="radio" name="bebidas" id="semAlcool" value="semAlcool">
+                  <label for="semAlcool">Sem álcool</label>
+                  <br>
+                  <input type="radio" name="bebidas" id="semBebidas" value="semBebidas">
+                  <label for="semBebidas">Sem bebidas</label>
+                  <br>
+                </div>
+                <div class="crianca">
+                  Crianças:
+                  <br>
+                  <input type="radio" name="crianca" id="sim" value="sim">
+                  <label for="sim">Sim</label>
+                  <br>
+                  <input type="radio" name="crianca" id="nao" value="nao" checked>
+                  <label for="nao">Não</label>
+                </div>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn" data-dismiss="modal">Fechar</button>
+          <button type="button" class="btn">Criar</button>
+        </div>
+      </div>
+    </div>
+  </div>
