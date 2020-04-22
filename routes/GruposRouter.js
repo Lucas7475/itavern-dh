@@ -4,6 +4,7 @@ var router = express.Router();
 const GruposController = require("../controllers/GruposController");
 
 /* GET home page. */
+router.get("/", GruposController.index);
 router.get("/search/", GruposController.search);
 // router.get('/busca', GruposController.search);
 // router.get('/grupos/create', PizzasController.create);

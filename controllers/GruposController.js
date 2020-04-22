@@ -1,6 +1,11 @@
 const gruposDB = require("../database/grupos.json");
 
 module.exports = {
+  index: (req, res) => {
+    res.render("grupos", {
+      gruposDB
+    });
+  },
   search: (req, res) => {
     let grupos = gruposDB
 
@@ -17,7 +22,7 @@ module.exports = {
       grupos = res
     }
 
-    res.render("grupos", {
+    res.render("grupos-busca", {
       grupos
     });
   },

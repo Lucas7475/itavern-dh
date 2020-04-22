@@ -1,49 +1,96 @@
-/* ==========================================searchbar======================================== */
+body {
+  background-color: var(--clr-primary-bg);
+}
 
-.searchbar {
+.main-content {
+  display: flex;
+  width: 100%;
+  height: 100vh;
+  margin-left: auto;
+}
+
+.group-chat {
+  flex: 1 1;
+}
+
+aside {
+  flex: 0 0 200px;
+  padding: 1rem;
+  overflow-y: auto;
+}
+
+/* Group Header */
+
+.group-header {
+  padding: 0.5rem;
+  background-color: var(--clr-grey-3);
+  display: flex;
+  align-items: center;
+  height: 54px;
+}
+
+.nav-btn {
   position: relative;
-  border-radius: 0 0 var(--radius) var(--radius);
-  background-color: var(--clr-primary-light);
+  top: 0;
+  left: 0;
 }
 
-
-
-/* Grupos */
-
-.grupos {
-  min-height: 120vh;
-  background: white;
+.header-icon {
+  margin-left: 2.5rem;
+  margin-right: 1rem;
+  font-size: 2rem;
+  border-radius: 50%;
+  border: solid 3px var(--clr-grey-5);
+  color: white;
+  background-color: var(--clr-primary-dark);
+  overflow: hidden;
 }
 
-.card {
-  transition: var(--transition);
+.group-name {
+  text-transform: uppercase;
+  font-weight: 400;
+  color: white;
+  margin: 0;
+}
+
+.group-msg-search {
+  margin-right: 0.5rem;
+  margin-left: auto;
+}
+
+.input-group {
+  width: 250px;
+  margin-left: auto;
+  margin-right: 3rem;
+}
+
+.form-control {
+  letter-spacing: var(--spacing);
+}
+
+.chat {
+  height: calc(100vh - 54px);
   position: relative;
-  border-radius: var(--radius);
-  box-shadow: 0 5px 15px rgb(0, 0, 0, 0.2);
-  font-family: var(--ff-primary);
-  width: (400px);
+  background-color: #99999920;
 }
 
-.card-body {
-  border-radius: var(--radius);
+.message-box {
+  position: absolute;
+  width: 100%;
+  bottom: 0px;
 }
 
-.card-img-top {
-  height: 14vh;
-  object-fit: cover;
+.chat-control {
+  height: 3rem;
 }
 
-.card-body {
-  background-color: var(--clr-grey-10);
+.msg-text {
+  padding-left: 1rem;
 }
 
-.card-img-top {
-  border-radius: var(--radius) var(--radius) 0 0;
-}
-
-.card:hover {
-  box-shadow: 0 5px 15px rgb(0, 0, 0, 0.3);
-  transform: scale(1.01);
+.btn-grupo {
+  font-size: 0.8rem;
+  text-transform: uppercase;
 }
 
 .cover-container {
@@ -55,40 +102,124 @@
   bottom: 0;
   left: 50%;
   transform: translate(-50%, +50%);
-  font-size: 3rem;
+  font-size: 2rem;
   border-radius: 50%;
-  border: solid 5px var(--clr-grey-10);
+  border: solid 3px var(--clr-grey-10);
   color: white;
   background-color: var(--clr-primary-dark);
   overflow: hidden;
 }
 
-.group-perks {
-  list-style: none;
-  color: var(--clr-grey-5);
+.card {
+  transition: var(--transition);
+  position: relative;
+  border-radius: var(--radius);
+  box-shadow: 0 5px 10px rgb(0, 0, 0, 0.1);
+  font-family: var(--ff-primary);
+  margin-bottom: 2rem;
+}
+
+.card-body {
+  border-radius: var(--radius);
+  background-color: var(--clr-grey-10);
+}
+
+.card-img-top {
+  height: 14vh;
+  object-fit: cover;
+  border-radius: var(--radius) var(--radius) 0 0;
 }
 
 .group-title {
   margin-top: 10px;
   letter-spacing: 0;
+  margin-bottom: 5px;
 }
 
 .group-game {
   font-family: var(--ff-secondary);
   color: var(--clr-primary-dark);
-  font-size: 1.1rem;
+  font-size: 1rem;
   font-weight: 700;
 }
 
-.btn-grupo {
-  margin-top: 0rem;
-  width: 5rem;
+.next-game {
+  font-size: 0.85rem;
+  margin-bottom: 10px;
 }
 
-/*Media queries pra consertar a imagem dos cards dos grupos*/
+.card-body {
+  padding: 10px;
+}
 
-@media screen and (max-width: 768px) {
-  .card-img-top {
-    height: 20vh;
+.card-img-top {
+  object-fit: cover;
+  height: 7vh;
+}
+
+.message-area {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  height: calc(100% - 3rem);
+}
+
+.chat-msg {
+  position: relative;
+  max-width: 70%;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  margin-left: 1rem;
+  width: 400px;
+  color: #111111;
+  background-color: #cccccc;
+  border-radius: 0 var(--radius) var(--radius) var(--radius);
+  padding: 0.8rem;
+  text-align: justify;
+}
+
+p {
+  margin: 0;
+}
+
+.chat-msg h4 {
+  color: green;
+}
+
+.datetime {
+  position: absolute;
+  top: 5px;
+  right: 15px;
+  color: #888888;
+}
+
+.my-msg {
+  margin-left: auto;
+  margin-right: 1rem;
+  background-color: var(--clr-primary-light);
+  border-radius: var(--radius) var(--radius) 0 var(--radius);
+}
+
+.my-msg h4 {
+  color: var(--clr-primary-dark);
+}
+
+/*  */
+
+@media screen and (min-width: 1600px) {
+  .main-content {
+    max-width: calc(100% - 250px);
   }
+
+  .navbar-c {
+    width: 250px;
+  }
+
+  .nav-items {
+    padding-left: 0.75rem;
+  }
+}
+
+footer {
+  display: none;
 }
