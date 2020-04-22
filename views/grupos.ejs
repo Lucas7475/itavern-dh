@@ -1,9 +1,18 @@
 <%- include('parts/head',{title:'iTavern | Grupos'}); %>
 <link rel="stylesheet" href="/css/grupos.css" />
+<<<<<<< HEAD
 <%- include('parts/navbar', {current_page:'grupos'}); %>
 <div class="main-content">
   <main class="group-chat">
     <div class="group-header">
+=======
+<%- include('parts/navbar', {current_page:'buscar-grupos'}); %>
+<%- include('criarSala'); %>
+<!-- searchbar -->
+<main>
+  <section class="container searchbar">
+    <form id="form-busca" action="/grupos/search" method="GET" class="row pt-3">
+>>>>>>> b70bf43264e9fda9426715e89ab09e97314635ad
       <span class="nav-btn" id="nav-btn">
         <i class="fas fa-fw fa-bars"></i>
       </span>

@@ -1,16 +1,16 @@
 <!-- navbar -->
 <!-- navbutton -->
 <style>
-  #<%=current_page %>:hover {
+  #<%= current_page %>:hover {
     background: none;
   }
 
-  #<%=current_page %>>.nav-text {
+  #<%= current_page %>>.nav-text {
     color: var(--clr-primary-dark);
     font-size: 1.25rem;
   }
 
-  #<%=current_page %>>.nav-icon {
+  #<%= current_page %>>.nav-icon {
     color: var(--clr-primary-dark);
     font-size: 1.5rem;
   }
@@ -41,7 +41,7 @@
     <!-- fim de um link da navbar -->
     <!-- Inicio de um link da navbar -->
     <li>
-      <a href="#" id="criar-sala" class="nav-link">
+      <a href="#" class="nav-link" data-toggle="modal" data-target="#exampleModal">
         <i class="fas fa-dungeon fa-fw nav-icon"></i>
         <span class="nav-text">Criar Sala</span></a>
     </li>
