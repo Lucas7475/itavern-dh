@@ -81,7 +81,6 @@ p {
 }
 
 @media screen and (min-width: 800px) {
-
   h1,
   h2,
   h3,
@@ -122,12 +121,11 @@ p {
 }
 
 .form-control:focus {
-
   color: #495057;
   background-color: #fff;
   border-color: var(--clr-primary-light);
   outline: 0;
-  box-shadow: 0 0 0 .2rem #a6401b75
+  box-shadow: 0 0 0 0.2rem #a6401b75;
 }
 
 /*================================End of global CSS====================================*/
@@ -139,7 +137,6 @@ p {
   border-radius: 50%;
   width: 100px;
 }
-
 
 .nav-btn {
   color: var(--clr-primary-dark);
@@ -230,6 +227,7 @@ p {
 }
 
 .nav-link:hover .nav-text {
+  color: var(--clr-primary-dark);
   padding-left: 1rem;
 }
 
@@ -341,7 +339,6 @@ p {
 }
 
 @media screen and (min-width: 1750px) {
-
   .nav-items {
     padding-left: 2rem;
   }
@@ -355,12 +352,6 @@ p {
     padding-left: 1.75rem;
   }
 }
-
-#buscar-grupos-link {
-  color: var(--clr-primary-dark);
-  transform: scale(1.1);
-}
-
 
 /* ==========================================grupos======================================== */
 
