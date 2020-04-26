@@ -1,6 +1,6 @@
 # iTavern
 
-O site é uma rede social com o intuito de conectar pessoas que queiram jogar jogos table top.
+Rede social com o intuito de conectar pessoas que queiram jogar jogos table top.
 
 ### Através dele você poderá:
 
