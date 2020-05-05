@@ -1,0 +1,202 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Shojumaru&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Roboto', sans-serif;
+}
+
+#container{
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+}
+
+/*
+**PARTE ESQUERDA
+*/
+
+#principal-esquerda{
+    background-color: #F5DEB0;
+}
+
+#conteudo-1, #conteudo-2{
+    width: 50%;
+    height: 100%;
+    margin: auto;
+    text-align: center;
+}
+
+#conteudo-1 img{
+    margin-top: 80px;
+}
+
+#conteudo-1 h1{
+    font-size: 2.5em;
+    font-family: 'Shojumaru', cursive;
+}
+
+#conteudo-1 h3{
+    font-size: 1em;
+}
+
+#lista{
+    margin-top: 50px;
+}
+
+#lista ul, #conteudo-2 #redes-sociais ul{
+    font-size: 0.9em;
+    list-style: none;
+}
+
+#lista ul li{
+    padding: 12px;
+}
+
+#conteudo-1 button{
+    width: 120px;
+    height: 30px;
+    border-radius: 20px;
+    background-color: #D98C4A;
+    margin: 50px;
+}
+
+
+/*
+**PARTE DIREITA
+*/
+#principal-direita{
+    background-color: #ffffff;
+}
+
+#conteudo-2 h1{
+    font-size: 1.8em;
+    font-family: 'Shojumaru', cursive;
+    padding-top: 70px;
+    text-align: left;
+}
+
+#conteudo-2 #redes-sociais{
+    margin-top: 45px;
+}
+
+#conteudo-2 #redes-sociais ul li{
+    padding: 10px;
+}
+
+#conteudo-2 #redes-sociais ul li button, #login input{
+    width: 300px;
+    height: 40px;
+    border-radius: 5px;
+}
+
+#conteudo-2 .facebook{
+    background-color: #3B5998;
+}
+
+#conteudo-2 .google{
+    background-color: #EA4335;
+}
+
+#conteudo-2 .twitter{
+    background-color: #00ACEE;
+}
+
+button{
+    color: #ffffff;
+}
+
+#conteudo-2 h4{
+    margin: 20px 0;
+    font-family: 'Shojumaru', cursive;
+    font-size: 1.2em;
+}
+
+#login{
+    margin-top: -60px;
+}
+
+#login h1{
+    font-size: 1.4em;
+    margin-bottom: 15px;
+}
+
+#login #logar{
+    width: 315px;
+    margin: auto;
+}
+
+#login #logar input{
+    margin: 7px;
+    padding: 10px;
+}
+
+#login #logar h4{
+    font-size: 0.65em;
+    margin-top: 0;
+    text-align: left;
+    text-indent: 10px;
+}
+
+#login .entrar{
+    width: 100px;
+    height: 40px;
+    border-radius: 5px;
+    background-color: #D98C4A;
+    margin-left: 200px;
+    margin-bottom: 15px;
+}
+
+#login .criar-conta{
+    width: 300px;
+    height: 40px;
+    border-radius: 5px;
+    background-color: #D98C4A;
+    margin-bottom: 10px;
+}
+
+/*
+** MODAL
+*/
+
+.modal-header, .modal-body, .modal-footer{
+    background-color: #F5DEB0;
+}
+
+.modal-header h5, .modal-body h6{
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.7em;
+}
+
+.modal-body .row{
+    padding: 10px;
+    margin: 5px;
+}
+
+.modal-body h6{
+    font-size: 1.5em;
+}
+
+.modal-body .row input{
+    width: 100%;
+    height: 60%;
+    border-radius: 5px;
+    border-style: none;
+    border: 1px solid black;
+}
+
+.modal-footer{
+    font-family: 'Roboto', sans-serif;
+}
+
+.modal-footer button{
+    background-color: #D98C4A;
+    border: #D98C4A;
+    color: #ffffff;
+}

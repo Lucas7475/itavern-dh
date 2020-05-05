@@ -1,4 +1,4 @@
-<%- include('parts/head',{title:'iTavern | Grupos'}); %>
+<%- include('parts/head',{title:'iTavern / Grupos'}); %>
 <link rel="stylesheet" href="/css/grupos.css" />
 <%- include('parts/navbar', {current_page:'grupos'}); %>
 <div class="main-content">
@@ -9,8 +9,7 @@
       </span>
       <i class="<%=gruposDB[1].icon %> fa-fw header-icon"></i>
       <h4 class="group-name"><%=gruposDB[1].nome%></h4>
-
-      <div class="input-group">
+      <div class="input-group search-msg">
         <input type="text" name="searchText" class="form-control" placeholder="busca" aria-label="Recipient's username"
           aria-describedby="button-addon2" />
         <div class="input-group-append">
@@ -19,6 +18,9 @@
           </button>
         </div>
       </div>
+      <span class="nav-btn" id="nav-btn-groups">
+        <i class="fas fa-fw fa-user-friends"></i>
+      </span>
     </div>
     <div class="chat">
       <div class="message-area">
@@ -30,9 +32,9 @@
         </div>
         <div class="chat-msg">
           <h4>Membro 1</h4>
-          <p>tempore fugit rem? Quis quia tempora sint exercitationem enim reiciendis eius nobis odit quae quo.</p>
+          <p class="msg">tempore fugit rem? Quis quia tempora sint exercitationem enim reiciendis eius nobis odit quae
+            quo.</p>
           <p class="datetime"> 14:22</p>
-
         </div>
         <div class="chat-msg my-msg">
           <h4>Você</h4>
@@ -46,9 +48,33 @@
             perspiciatis!</p>
           <p class="datetime"> 14:25</p>
         </div>
+        <div class="chat-msg my-msg">
+          <h4>Você</h4>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus minima dolorum, deleniti delectus nisi
+            perspiciatis!</p>
+          <p class="datetime"> 14:24</p>
+        </div>
+        <div class="chat-msg my-msg">
+          <h4>Você</h4>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus minima dolorum, deleniti delectus nisi
+            perspiciatis!</p>
+          <p class="datetime"> 14:24</p>
+        </div>
+        <div class="chat-msg my-msg">
+          <h4>Você</h4>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus minima dolorum, deleniti delectus nisi
+            perspiciatis!</p>
+          <p class="datetime"> 14:24</p>
+        </div>
+        <div class="chat-msg">
+          <h4>Membro 1</h4>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus minima dolorum, deleniti delectus nisi
+            perspiciatis!</p>
+          <p class="datetime"> 14:25</p>
+        </div>
       </div>
       <form class="input-group message-box">
-        <input type="text" name="searchText" class="form-control msg-text chat-control" placeholder="Envie uma mensagem"
+        <input type="text" name="msgText" class="form-control msg-text chat-control" placeholder="Envie uma mensagem"
           aria-label="Recipient's username" aria-describedby="button-addon2" />
         <div class="input-group-append">
           <button class="btn btn-outline-secondary form-control chat-control" type="submit" id="button-addon2">
@@ -59,6 +85,7 @@
     </div>
   </main>
   <aside>
+    <h4>Meus Grupos</h4>
     <div class="card">
       <div class="cover-container">
         <img src="/images/covers/<%= gruposDB[0].img %>" class="card-img-top" alt="capa do grupo" />
@@ -87,5 +114,5 @@
     </div>
   </aside>
 </div>
-
+<script src="/javascripts/groups-sidebar.js"></script>
 <%- include('parts/foot'); %>
