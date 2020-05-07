@@ -12,14 +12,17 @@ body{
     font-family: 'Roboto', sans-serif;
 }
 
+.row{
+    margin: 0;
+}
+
 /*
 **FORMATAÇÃO PARA OS DOIS LADOS
 */
 
 #conteudo-1, #conteudo-2{
-    /* position: relative; */
+    position: relative;
     width: 50%;
-    /* height: 100%; */
     margin: 0 auto;
     text-align: center;
 }
@@ -29,9 +32,8 @@ body{
 */
 
 #principal-esquerda{
-    position: relative;
     background-color: #F5DEB0;
-    height: 97vh;
+    min-height: 100vh;
 }
 
 #conteudo-1 img{
@@ -73,8 +75,8 @@ body{
 
 #conteudo-1 button{
     width: 120px;
-    height: 30px;
-    border-radius: 20px;
+    height: 45px;
+    border-radius: 5px;
     background-color: #D98C4A;
     margin: 50px;
 }
@@ -84,9 +86,12 @@ body{
 **PARTE DIREITA
 */
 #principal-direita{
-    position: relative;
     background-color: #ffffff;
-    height: 97vh;
+    min-height: 100vh;
+}
+
+#conteudo-2 .ou{
+    margin: 20px;
 }
 
 #conteudo-2 h1{
@@ -94,13 +99,15 @@ body{
     font-size: 1.8em;
     font-family: 'Shojumaru', cursive;
     text-align: left;
-    /* border: 1px solid green; */
+}
+
+#conteudo-2 #login h1{
+    margin-top: -20px;
 }
 
 #conteudo-2 #redes-sociais{
     position: relative;
-    /* margin-top: 25px; */
-    /* border: 1px solid red; */
+    margin: 25px;
 }
 
 #conteudo-2 #redes-sociais ul li{
@@ -135,12 +142,10 @@ button{
     /* padding: -10px; */
     font-family: 'Shojumaru', cursive;
     font-size: 1.2em;
-    /* border: 1px solid red; */
 }
 
 #login{
-    /* margin-top: 60px; */
-    /* border: 1px solid blue; */
+    margin-top: 60px;
 }
 
 #login h1{
@@ -173,7 +178,7 @@ button{
 }
 
 #login .entrar{
-    width: 100px;
+    min-width: 70px;
     height: 40px;
     border-radius: 5px;
     background-color: #D98C4A;
@@ -182,7 +187,7 @@ button{
 }
 
 #login .criar-conta{
-    width: 300px;
+    min-width: 250px;
     height: 40px;
     border-radius: 5px;
     background-color: #D98C4A;
@@ -254,11 +259,11 @@ button{
     }
 
     .ou{
-        margin-top: 70px;
+        margin: 70px auto;
     }
 
     #login{
-        margin-top: -10px;
+        margin-top: 50px;
     }
 
     #conteudo-2 .facebook, #conteudo-2 .google, #conteudo-2 .twitter{
@@ -273,11 +278,3 @@ button{
         font-size: 1.2em;
     }
 }
-
-/*Large devices (desktops, 992px and up)*/
-@media (min-width: 992px) and (max-width: 1199.98px) {
-    
-}
-
-/*Extra large devices (large desktops, 1200px and up)*/
-@media (min-width: 1200px) {}
