@@ -120,13 +120,13 @@
     align-self: center;
     flex-grow: 1;
 }
-.diaReuniao{
+.horaReuniao{
     grid-row: 2;
     grid-column: 1 / 4;
     display: flex;
     align-self: center;
 }
-.diaReuniao input{
+.horaReuniao input{
     flex-grow: 1;
     margin-left: 10px;
     margin-right: 15px;
@@ -351,11 +351,11 @@ input[type="file"] {
         grid-column: 6 / -1;
     }
     /* TERCEIRA LINHA DO FORMULARIO */
-    .diaReuniao{
+    .horaReuniao{
         grid-row: 3;
         grid-column: 1 / 5;
     }
-    .diaReuniao input{
+    .horaReuniao input{
         margin: 0;
         margin-left: 5px;
         max-width: 5.3rem;
@@ -433,7 +433,7 @@ input[type="file"] {
     .numJogadores{
         margin-left: 3px;
     }
-    .diaReuniao input{
+    .horaReuniao input{
         max-width: 4.2rem;
     }
     .rua{
