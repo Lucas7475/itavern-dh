@@ -2,13 +2,17 @@
     <link rel="stylesheet" href="css/login-cadastro.css">
 
 <!-- INICIO -->
-    <div class="row" id="container">
+    <div class="row" class="container">
+
+
         <!-- PARTE ESQUERDA -->
         <div class="col-6" id="principal-esquerda">
             <div id="conteudo-1">
                 <img src="images/logo-itavern.png" alt="iTavern Logo">
-                <h1>iTavern</h1>
-                <h3>Rede social para Games</h3>
+                <div id="nome-itavern">
+                    <h1>iTavern</h1>
+                    <h3>Rede social para Games</h3>    
+                </div>
                 <div id="lista">
                     <ul>
                         <li>Procure grupos na sua região</li>
@@ -19,6 +23,8 @@
                 <button>Saiba mais</button>
             </div>
         </div>
+
+
 
         <!-- PARTE DIREITA -->
         <div class="col-6" id="principal-direita">
@@ -31,13 +37,15 @@
                         <li><button class="twitter">Entre com Twitter</button></li>
                     </ul>
                 </div>
-                <h4>ou</h4>
+                <div class="ou">
+                    <h4>ou</h4>
+                </div>
                 <div id="login">
                     <h1>Insira sua conta iTavern</h1>
                     <div id="logar">
                         <input type="text" placeholder="Email"><br>
                         <input type="text" placeholder="Senha">
-                        <h4>Esqueceu sua senha?</h4>
+                        <a href="#"><h4>Esqueceu sua senha?</h4></a>
                     </div>
                     <button class="entrar">Entrar</button><br>
                     <button class="criar-conta" data-toggle="modal" data-target="#modalCadastro">Criar conta</button>
@@ -50,7 +58,7 @@
 
     <div class="modal bd-example-modal-lg" id="modalCadastro" tabindex="-1" role="dialog" aria-labelledby="TituloModalCentralizado" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
-          <div class="modal-content">
+        <div class="modal-content">
 
 
             <div class="modal-header">
@@ -94,12 +102,11 @@
             </div>
 
             <div class="modal-footer">
-                <!-- <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p> -->
                 <button type="button" class="btn">Cadastrar</button>
             </div>
-          </div>
         </div>
-      </div>
+        </div>
+    </div>
 
 
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>

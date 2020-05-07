@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,500&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Shojumaru&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
-
+    
 *{
     margin: 0;
     padding: 0;
@@ -12,10 +12,16 @@ body{
     font-family: 'Roboto', sans-serif;
 }
 
-#container{
-    height: 100vh;
-    width: 100vw;
-    display: flex;
+/*
+**FORMATAÇÃO PARA OS DOIS LADOS
+*/
+
+#conteudo-1, #conteudo-2{
+    /* position: relative; */
+    width: 50%;
+    /* height: 100%; */
+    margin: 0 auto;
+    text-align: center;
 }
 
 /*
@@ -23,26 +29,32 @@ body{
 */
 
 #principal-esquerda{
+    position: relative;
     background-color: #F5DEB0;
-}
-
-#conteudo-1, #conteudo-2{
-    width: 50%;
-    height: 100%;
-    margin: auto;
-    text-align: center;
+    height: 97vh;
 }
 
 #conteudo-1 img{
-    margin-top: 80px;
+    margin: 40px auto;
+    max-width:200px;
+    max-height:201px;
+    width: auto;
+    height: auto;
 }
 
-#conteudo-1 h1{
+#nome-itavern{
+    height: 10%;
+    text-align: center;
+}
+
+#nome-itavern h1{
+    text-align: center;
     font-size: 2.5em;
     font-family: 'Shojumaru', cursive;
 }
 
-#conteudo-1 h3{
+#nome-itavern h3{
+    text-align: center;
     font-size: 1em;
 }
 
@@ -72,18 +84,23 @@ body{
 **PARTE DIREITA
 */
 #principal-direita{
+    position: relative;
     background-color: #ffffff;
+    height: 97vh;
 }
 
 #conteudo-2 h1{
+    margin-top: 50px;
     font-size: 1.8em;
     font-family: 'Shojumaru', cursive;
-    padding-top: 70px;
     text-align: left;
+    /* border: 1px solid green; */
 }
 
 #conteudo-2 #redes-sociais{
-    margin-top: 45px;
+    position: relative;
+    /* margin-top: 25px; */
+    /* border: 1px solid red; */
 }
 
 #conteudo-2 #redes-sociais ul li{
@@ -91,7 +108,8 @@ body{
 }
 
 #conteudo-2 #redes-sociais ul li button, #login input{
-    width: 300px;
+    min-width: 230px;
+    max-width: 500px;
     height: 40px;
     border-radius: 5px;
 }
@@ -113,13 +131,16 @@ button{
 }
 
 #conteudo-2 h4{
-    margin: 20px 0;
+    margin: 15px 0;
+    /* padding: -10px; */
     font-family: 'Shojumaru', cursive;
     font-size: 1.2em;
+    /* border: 1px solid red; */
 }
 
 #login{
-    margin-top: -60px;
+    /* margin-top: 60px; */
+    /* border: 1px solid blue; */
 }
 
 #login h1{
@@ -137,7 +158,14 @@ button{
     padding: 10px;
 }
 
-#login #logar h4{
+#login #logar a{
+    display: block;
+    margin-top: 10px;
+    text-decoration: none;
+    color: #000;
+}
+
+#login #logar a h4{
     font-size: 0.65em;
     margin-top: 0;
     text-align: left;
@@ -200,3 +228,56 @@ button{
     border: #D98C4A;
     color: #ffffff;
 }
+
+/*Medium devices (tablets, 768px and up)*/
+@media (min-width: 576.98px) and (max-width: 991.98px) {
+    #conteudo-1{
+        position: relative;
+        width: 90%;
+        margin: 0 auto;
+    }
+
+    #lista ul, #conteudo-2 #redes-sociais ul{
+        font-size: 1.1em;
+    }
+
+    #conteudo-1 button{
+        width: 150px;
+        height: 50px;
+        font-size: 1.5em;
+    }
+
+    #conteudo-2{
+        position: relative;
+        width: 90%;
+        margin: 0 auto;
+    }
+
+    .ou{
+        margin-top: 70px;
+    }
+
+    #login{
+        margin-top: -10px;
+    }
+
+    #conteudo-2 .facebook, #conteudo-2 .google, #conteudo-2 .twitter{
+        font-size: 1.1em;
+    }
+
+    #login #logar a{
+        font-size: 1.2em;
+    }
+
+    #login .entrar, #login .criar-conta{
+        font-size: 1.2em;
+    }
+}
+
+/*Large devices (desktops, 992px and up)*/
+@media (min-width: 992px) and (max-width: 1199.98px) {
+    
+}
+
+/*Extra large devices (large desktops, 1200px and up)*/
+@media (min-width: 1200px) {}
