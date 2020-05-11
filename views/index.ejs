@@ -68,42 +68,40 @@
                 </button>
             </div>
 
-
+            <form action="/cadastro/submit" method="POST">
             <div class="modal-body">
                 <div class="row">
                     <div id="nome" class="col-6">
                         <h6>Nome</h6>
-                        <input type="text">
-                    </div>
-                    <div id="sobrenome" class="col-6">
-                        <h6>Sobrenome</h6>
-                        <input type="text">
+                        <input type="text" name="nome">
                     </div>
                 </div>
                 <div class="row">
-                    <div id="usuario" class="col-12">
+                    <div id="usuario" class="col-6">
                         <h6>Usuário</h6>
-                        <input type="text">
+                        <input type="text" name="nickname">
                     </div>
                 </div>
                 <div class="row">
-                    <div id="email" class="col-12">
+                    <div id="email" class="col-6">
                         <h6>Email</h6>
-                        <input type="text">
+                        <input type="email" name="email">
                     </div>
                 </div>
 
                 <div class="row">
                     <div id="senha" class="col-12">
                         <h6>Senha</h6>
-                        <input type="text">
+                        <input type="password" name="senha">
                     </div>
                 </div>
             </div>
 
             <div class="modal-footer">
-                <button type="button" class="btn">Cadastrar</button>
+                <button type="submit" class="btn">Cadastrar</button>
             </div>
+
+        </form>
         </div>
         </div>
     </div>

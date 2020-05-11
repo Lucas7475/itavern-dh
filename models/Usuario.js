@@ -3,8 +3,8 @@ let Usuario = (sequelize, DataTypes) => {
         'Usuario', {
             id_usuario: {
                 type: DataTypes.INTEGER,
-                primaryKey: true,
-                allowNull:false,
+                primaryKey:true,
+                allowNull: false,
                 autoIncrement: true
             },
             nome: {
@@ -28,6 +28,8 @@ let Usuario = (sequelize, DataTypes) => {
             tableName: 'usuario',
             timestamps: false
         });
+
+    return usuario;
 }
 
 

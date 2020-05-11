@@ -6,6 +6,7 @@ var logger = require("morgan");
 
 var gruposRouter = require("./routes/GruposRouter");
 var indexRouter = require("./routes/IndexRouter");
+var cadastroRouter = require("./routes/CadastroRouter");
 
 var app = express();
 app.use('/stylesheets/fontawesome', express.static(__dirname + '/node_modules/@fortawesome/fontawesome-free/'));
@@ -25,6 +26,7 @@ app.use(express.static(path.join(__dirname, "public")));
 
 app.use("/grupos", gruposRouter);
 app.use("/", indexRouter);
+app.use("/cadastro", cadastroRouter)
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

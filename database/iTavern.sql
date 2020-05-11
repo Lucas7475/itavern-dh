@@ -2,7 +2,7 @@ CREATE DATABASE iTavern;
 USE iTavern;
 
 CREATE TABLE usuario(
-id_usuario INT,
+id_usuario INT AUTO_INCREMENT,
 nome VARCHAR(100) NOT NULL,
 nickname VARCHAR(30) NOT NULL,
 email VARCHAR(100) NOT NULL,
@@ -11,13 +11,13 @@ CONSTRAINT PK_usuario PRIMARY KEY(id_usuario)
 );
 
 CREATE TABLE jogo(
-id_jogo INT,
+id_jogo INT AUTO_INCREMENT,
 nome VARCHAR(100),
 CONSTRAINT PK_jogo PRIMARY KEY(id_jogo)
 );
 
 CREATE TABLE restricao(
-id_restricao INT,
+id_restricao INT AUTO_INCREMENT,
 dias_semana VARCHAR(100),
 distancia CHAR(3),
 horario CHAR(5),
@@ -26,7 +26,7 @@ CONSTRAINT PK_restricao PRIMARY KEY(id_restricao)
 );
 
 CREATE TABLE endereco(
-id_endereco INT,
+id_endereco INT AUTO_INCREMENT,
 cep TINYINT NOT NULL,
 numero CHAR(7) NOT NULL,
 CONSTRAINT PK_endereco PRIMARY KEY(id_endereco)
@@ -46,7 +46,7 @@ CONSTRAINT PK_lista_amigo PRIMARY KEY CLUSTERED (id_usuario, id_amigo)
 );
 
 CREATE TABLE grupo(
-id_grupo INT,
+id_grupo INT AUTO_INCREMENT,
 nome VARCHAR(100) NOT NULL,
 num_jogadores TINYINT NOT NULL,
 dias_reuniao VARCHAR(60) NOT NULL,

@@ -29,7 +29,7 @@ let Grupo = (sequelize, DataTypes) => {
             id_restricao: DataTypes.INTEGER,
             id_jogo:DataTypes.INTEGER
         },{
-            tableName:grupo,
+            tableName:'grupo',
             timestamps:false
         });
 
