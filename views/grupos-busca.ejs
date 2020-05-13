@@ -20,20 +20,30 @@
           </div>
         </div>
       </div>
-      <div class="col-6 col-md-3">
+      <div class="col-4 col-md-2">
         <div class="input-group mb-3">
-          <select name="groupSize" class="custom-select form-control" id="inputGroupSelect01"
+          <select name="groupGame" class="custom-select form-control" id="inputGroupSelect01" placeholder="Jogo">
+            <option value="" selected disabled>Jogo</option>
+            <option value="1">Dungeons & Dragons</option>
+            <option value="2">PathFinder</option>
+            <option value="3">Tormenta</option>
+          </select>
+        </div>
+      </div>
+      <div class="col-4 col-md-2">
+        <div class="input-group mb-3">
+          <select name="groupSize" class="custom-select form-control" id="inputGroupSelect02"
             placeholder="Tamanho do grupo">
-            <option selected disabled>Tamanho do grupo</option>
+            <option value="" selected disabled>Tamanho do grupo</option>
             <option value="1">Pequeno (1-3)</option>
             <option value="2">Médio (3-5)</option>
             <option value="3">Grande (>5)</option>
           </select>
         </div>
       </div>
-      <div class="col-6 col-md-3">
+      <div class="col-4 col-md-2">
         <div class="input-group mb-3">
-          <select class="custom-select form-control" name="distance" placeholder="Distância" id="inputGroupSelect02">
+          <select class="custom-select form-control" name="distance" placeholder="Distância" id="inputGroupSelect03">
             <option value="" disabled selected>Distância</option>
             <option value="1">Até 5km</option>
             <option value="2">5km a 15km</option>

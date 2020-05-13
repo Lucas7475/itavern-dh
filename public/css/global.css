@@ -304,6 +304,7 @@ p {
   }
 
   .navbar-c {
+    position: absolute;
     max-width: none;
     max-height: 800px;
 
