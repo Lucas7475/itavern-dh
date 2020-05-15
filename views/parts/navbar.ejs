@@ -1,16 +1,16 @@
 <!-- navbar -->
 <!-- navbutton -->
 <style>
-  #<%= current_page %>:hover {
+  #<%=current_page %>:hover {
     background: none;
   }
 
-  #<%= current_page %>>.nav-text {
+  #<%=current_page %>>.nav-text {
     color: var(--clr-primary-dark);
     font-size: 1.25rem;
   }
 
-  #<%= current_page %>>.nav-icon {
+  #<%=current_page %>>.nav-icon {
     color: var(--clr-primary-dark);
     font-size: 1.5rem;
   }
@@ -24,6 +24,14 @@
     <h3 class="profile-name">João da Silva</h3>
   </div>
   <ul class="nav-items">
+    <!-- Inicio de um link da navbar -->
+    <li>
+      <a href="/home/" id="home" class="nav-link">
+        <i class="fas fa-home fa-fw nav-icon"></i>
+        <span class="nav-text">Home</span>
+      </a>
+    </li>
+    <!-- fim de um link da navbar -->
     <!-- Inicio de um link da navbar -->
     <li>
       <a href="#" id="perfil" class="nav-link">

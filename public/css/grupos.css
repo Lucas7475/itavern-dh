@@ -226,6 +226,10 @@ aside {
   margin-bottom: 2rem;
 }
 
+.card:hover {
+  transform: scale(1.03);
+}
+
 .card-body {
   border-radius: var(--radius);
   background-color: var(--clr-grey-10);
@@ -275,7 +279,7 @@ aside {
   }
 
   .chat-msg {
-    max-width: 70%;
+    max-width: 700px;
     width: 480px
   }
 

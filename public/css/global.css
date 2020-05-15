@@ -163,6 +163,7 @@ p {
   height: 100%;
   background: var(--clr-grey-10);
   box-shadow: 2px 0px 2px rgba(0, 0, 0, 0.2);
+  box-shadow: 3px 10px 3px 0 rgba(0, 0, 0, .02);
   z-index: 2;
   transform: translateX(-100%);
   transition: 0.5s ease-out;
@@ -174,7 +175,7 @@ p {
 
 .showNav {
   transform: translate(0%);
-  z-index: 3;
+  z-index: 12;
 }
 
 .navbar-header-c {
@@ -226,6 +227,7 @@ p {
 
 .nav-text {
   transition: var(--transition);
+  color: #555577
 }
 
 .nav-link:hover {
@@ -385,8 +387,9 @@ footer {
 .footer-text {
   margin-top: 1.25rem;
   color: var(--clr-white);
-  font-weight: 400;
+  font-weight: 200;
   text-transform: uppercase;
+  font-size: 1rem;
 }
 
 .company {
