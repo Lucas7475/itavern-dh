@@ -202,12 +202,9 @@ button{
     min-width: 580px;
 }
 
-.modal-body label{
-    height: 130px;
-}
-
 .modal-body .row{
     border-top: 1px solid black;
+    padding-bottom: 250px;
 }
 
 .modal-body .row input{
