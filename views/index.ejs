@@ -1,4 +1,5 @@
 <%- include('parts/head',{title:'iTavern'}); %>
+    <link rel="stylesheet" href="/css/font-awesome.min.css">
     <link rel="stylesheet" href="css/login-cadastro.css">
 
 <!-- INICIO -->
@@ -32,9 +33,9 @@
                 <h1>LOGIN</h1>
                 <div id="redes-sociais">
                     <ul>
-                        <li><button class="facebook"></i>Entre com Facebook</button></li>
-                        <li><button class="google">Entre com Google</button> </li>
-                        <li><button class="twitter">Entre com Twitter</button></li>
+                        <li><button class="facebook"><i class="fa fa-facebook" aria-hidden="true"></i>Entre com Facebook</button></li>
+                        <li><button class="google"><i class="fa fa-google" aria-hidden="true"></i>Entre com Google</button> </li>
+                        <li><button class="twitter"><i class="fa fa-twitter" aria-hidden="true"></i>Entre com Twitter</button></li>
                     </ul>
                 </div>
                 <div class="ou">
@@ -82,7 +83,7 @@
                 <label class="emailUser col-12">
                     <br>
                     Email:<br>
-                    <input type="text" name="emailUser" id="emailUser">
+                    <input type="email" name="emailUser" id="emailUser">
                 </label>
                 <br>
                 <label class="senhaUser col-12">
@@ -92,8 +93,8 @@
                 </label>
                 <label class="senhaUser col-12">
                     <br>
-                    Senha:<br>
-                    <input type="password" name="senhaUser" id="senhaUser">
+                    Confirmar senha:<br>
+                    <input type="password" name="confirmarSenhaUser" id="senhaUser">
                 </label>
               </div>
             </div>
@@ -107,6 +108,7 @@
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script src="https://use.fontawesome.com/46bd2a5d08.js"></script>
     
 </body>
 </html>
