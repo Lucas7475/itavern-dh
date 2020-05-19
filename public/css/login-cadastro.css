@@ -127,7 +127,6 @@ body{
 }
 
 #conteudo-2 .fa{
-    /* border: 1px solid yellow; */
     font-size: 1.4em;
     padding-right: 30px;
     padding-top: 3px;
@@ -226,7 +225,7 @@ button{
     max-width: 250px;
 }
 
-.modal-body .row input#emailUser, .modal-body .row input#senhaUser{
+.modal-body .row input#emailUser, .modal-body .row input#senhaUser, .modal-body .row input#confirmarSenhaUser{
     min-width: 490px;
 }
 
