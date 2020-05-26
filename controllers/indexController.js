@@ -44,5 +44,8 @@ module.exports = {
       meusGrupos,
       gruposSugeridos
     });
+  },
+  perfil: (req, res) => {
+    res.render("editar-perfil");
   }
 };
