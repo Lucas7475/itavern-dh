@@ -44,9 +44,9 @@
                 <div id="login">
                     <h1>Insira sua conta iTavern</h1>
                     <div id="logar">
-                        <form action="" method="">
-                            <input type="text" placeholder="Email"><br>
-                            <input type="password" placeholder="Senha">
+                        <form action="/login" method="POST">
+                            <input type="email" name="email"placeholder="Email"><br>
+                            <input type="password" name="senha" placeholder="Senha">
                             <a href="#"><h4>Esqueceu sua senha?</h4></a>
                             <button type="submit" class="entrar">Entrar</button><br>
                         </form>
@@ -61,7 +61,7 @@
 
     <div class="modal fade" id="modalCadastro" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
-            <form action="" method="">
+            <form action="/submit" method="POST">
                 <div class="modal-content">
                     <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalCenterTitle">Cadastro</h5>
@@ -74,7 +74,7 @@
                             <label class="nomeUser col-6">
                                 <br>
                                 Nome:
-                                <input type="text" name="nomeUser" id="nomeUser">
+                                <input type="text" name="nome" id="nomeUser">
                             </label>
                             <br>
                             <label class="sobrenomeUser col-6">
@@ -86,18 +86,18 @@
                             <label class="emailUser col-12">
                                 <br>
                                 Email:<br>
-                                <input type="email" name="emailUser" id="emailUser">
+                                <input type="email" name="email" id="emailUser">
                             </label>
                             <br>
                             <label class="senhaUser col-12">
                                 <br>
                                 Senha:<br>
-                                <input type="password" name="senhaUser" id="senhaUser">
+                                <input type="password" name="senha" id="senhaUser">
                             </label>
                             <label class="senhaUser col-12">
                                 <br>
                                 Confirmar senha:<br>
-                                <input type="password" name="confirmarSenhaUser" id="confirmarSenhaUser">
+                                <input type="password" name="senha2" id="confirmarSenhaUser">
                             </label>
                         </div>
                     </div>
