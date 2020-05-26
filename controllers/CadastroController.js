@@ -11,6 +11,11 @@ module.exports = {
             //recuperando dados do forms através do objeto body
             let {nome, nickname, email, senha} = req.body;
 
+            
+            if(!nome || !nickname || !email || !senha){
+                res.send({message:"Preencha todo o formulário!"})
+            }
+
             //hashing na senha
             senha = bcrypt.hashSync(senha, saltosDoHash);
 
@@ -20,8 +25,12 @@ module.exports = {
                 return res.send({message:"Este email já está cadastrado."})
             }
 
+            if(await Usuario.findOne({where:{nickname}})){
+                return res.send({message:"Este nome de usuário já está cadastrado. Por favor, escolha outro!"})
+            }
+
             //criando usuario
             await Usuario.create({nome,nickname,email,senha});
-            return res.redirect("/");
+            return res.redirect("/home");
     }
 }

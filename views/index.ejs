@@ -61,7 +61,7 @@
 
     <div class="modal fade" id="modalCadastro" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
-            <form action="/submit" method="POST">
+            <form action="cadastro/submit" method="POST">
                 <div class="modal-content">
                     <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalCenterTitle">Cadastro</h5>
@@ -79,8 +79,8 @@
                             <br>
                             <label class="sobrenomeUser col-6">
                                 <br>
-                                Sobrenome:
-                                <input type="text" name="sobrenomeUser" id="sobrenomeUser">
+                                Nome de Usuário:
+                                <input type="text" name="nickname" id="sobrenomeUser">
                             </label>
                             <br>
                             <label class="emailUser col-12">
@@ -102,7 +102,7 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="submit" class="btn btn-secondary" data-dismiss="modal">Cadastrar</button>
+                        <button type="submit" class="btn btn-secondary">Cadastrar</button>
                     </div>
                 </div>
             </form>

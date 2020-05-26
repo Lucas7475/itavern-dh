@@ -35,68 +35,23 @@
         
             <div class="numJogadores">
                 <label for="numJogador">Nº de Jogadores:</label>
-                <select name="numJogadores" id="numJogador">
-                    <option selected disabled>nº</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                    <option value="6">6</option>
-                    <option value="7">7</option>
-                    <option value="8">8</option>
-                    <option value="9">9</option>
-                    <option value="10">10</option>
-                </select>
+                <input type="number" name="numJogador" id="numJogador" min="2" step="1" pattern="\d*">
             </div>
         
             <div class="inicio">
                 <label for="inicio">Início das Reuniões:</label>
-                <input type="text" name="inicioReuniao" id="inicio" placeholder="dd/mm/aaaa"><!-- calendario será aprimorado -->
+                <input type="date" name="inicioReuniao" id="inicio" placeholder="dd/mm/aaaa"><!-- calendario será aprimorado -->
             </div>
 
             <div class="horario">
               <label for="horario">Horario das Reuniões:</label>
-              <select name="horario" id="horario">
-                  <option selected disabled>Selecione</option>
-                  <option value="1">1:00h</option>
-                  <option value="2">2:00hs</option>
-                  <option value="3">3:00hs</option>
-                  <option value="4">4:00hs</option>
-                  <option value="5">5:00hs</option>
-                  <option value="6">6:00hs</option>
-                  <option value="7">7:00hs</option>
-                  <option value="8">8:00hs</option>
-                  <option value="9">9:00hs</option>
-                  <option value="10">10:00hs</option>
-                  <option value="11">11:00hs</option>
-                  <option value="12">12:00hs</option>
-                  <option value="13">13:00hs</option>
-                  <option value="14">14:00hs</option>
-                  <option value="15">15:00hs</option>
-                  <option value="16">16:00hs</option>
-                  <option value="17">17:00hs</option>
-                  <option value="18">18:00hs</option>
-                  <option value="19">19:00hs</option>
-                  <option value="20">20:00hs</option>
-                  <option value="21">21:00hs</option>
-                  <option value="22">22:00hs</option>
-                  <option value="23">23:00hs</option>
-                  <option value="24">00:00h</option>
-              </select>
+              <input type="time" min="00:00" max="23:59" name="horario" id="horario">
           </div>
 
           <div class="duracao">
             <label for="tempo">Tempo de jogo:</label>
-            <select name="duracao" id="tempo">
-                <option selected disabled>Selecione</option>
-                <option value="2">2 horas</option>
-                <option value="3">3 horas</option>
-                <option value="4">4 horas</option>
-                <option value="5">5 horas</option>
-                <option value="6">6 horas</option>
-                <option value="7">7 horas</option>
-                <option value="8">8 horas</option>
-            </select>
-        </div>
+            <input type="number" name="duracao" min="0" step=".5">
+          </div>
         
             <div class="endereco">
                 <div class="cep">

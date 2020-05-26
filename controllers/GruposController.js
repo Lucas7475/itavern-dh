@@ -6,6 +6,13 @@ module.exports = {
       gruposDB
     });
   },
+
+
+  storage: async (req,res) => {
+      
+  },
+
+
   search: (req, res) => {
     let grupos = gruposDB
 
