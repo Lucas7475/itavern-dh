@@ -8,6 +8,7 @@ const uploadCover = require('../middlewares/uploadCover');
 router.get("/", GruposController.index);
 router.get("/search/", GruposController.search);
 router.post('/criargrupo', uploadCover.single('imgGrupo'), GruposController.store);
+router.get("/editarGrupos", GruposController.showEdit);
 
 
 module.exports = router;

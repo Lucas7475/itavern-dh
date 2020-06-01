@@ -49,7 +49,7 @@
 /* CORPO DO POPUP */
 
 .modal-body{
-    grid-row: 2 / span 6;
+    grid-row: 2 / -1;
     grid-column: 1 / -1;
     padding: 0% 5% 0 5%;
     height: 100%;
@@ -61,7 +61,7 @@
     width: 100%;
     display: grid;
     grid-template-columns: repeat(8, calc( 100% / 8));
-    grid-template-rows: repeat(5, auto);
+    grid-template-rows: repeat(6, auto);
     align-items: center;
 }
 .formulario input, select, textarea {
@@ -100,7 +100,7 @@
     justify-content: flex-end;
     flex-direction: column;
 }
-.numJogadores select{
+.numJogadores input{
     max-width: calc(  100% / 3 );
 }
 .inicio{
@@ -117,7 +117,7 @@
     display: flex;
     flex-direction: column;
 }
-.horario select{
+.horario input{
     max-width: calc( ( 100% * 3) / 4 );
 }
 .duracao{
@@ -126,7 +126,7 @@
     display: flex;
     flex-direction: column;
 }
-.duracao select{
+.duracao input{
     max-width: calc( ( 100% * 3) / 4 );
 }
 /* TERCEIRA E QUARTA LINHA DO FORMULARIO */
@@ -203,7 +203,7 @@
 }
 /* SEXTA LINHA DO FORMULARIO */
 .descricao{
-    grid-row: 4 / -1;
+    grid-row: 4 / 6;
     grid-column: 5 / -1;
     height: 100%;
     margin-bottom: 0;
@@ -245,7 +245,7 @@ input[type="file"] {
 }
 .modal-footer{
     border-top: 1px;
-    grid-row: 8;
+    grid-row: 6;
     grid-column: 6 / -1;
     padding-right: 12%;
 }
@@ -255,7 +255,13 @@ input[type="file"] {
 .btn:focus{
     box-shadow: none;
 }
-
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none;
+}
+.invi, .invi2, .invi3{
+    display: none;
+}
 
 @media (max-width: 1100px){
     .modal-dialog{
@@ -275,6 +281,10 @@ input[type="file"] {
         margin-left: 5px;
         width: 6.3rem;
     }
+    .modal-footer{
+        padding-top: 0;
+        margin-top: -15px;
+    }
 
 }
 @media (max-width: 790px){
@@ -288,11 +298,13 @@ input[type="file"] {
         font-size: 1.3rem;
     }
     .modal-footer button{
-        font-size: 0.9rem;
+        font-size: 0.8rem;
         padding: 5%;
     }
     .modal-body .formulario{
         font-size: 0.8rem;
+        grid-template-rows: repeat(5,auto);
+        margin-bottom: 5%;
     }
     .opcoes{
         grid-column: 1 / 6;
@@ -311,6 +323,10 @@ input[type="file"] {
     }
     .upload{
         width: 5.725rem;
+    }
+    .modal-footer{
+        grid-row: 5;
+        margin-top: 0;
     }
 } 
 @media (max-width: 576px){
@@ -338,7 +354,7 @@ input[type="file"] {
     .modal-body .formulario{
         align-items: flex-start;
         grid-template-columns: repeat(4, calc( 100% / 4));
-        grid-template-rows: repeat(7, auto);
+        grid-template-rows: repeat(8, auto);
     }
     /* PRIMEIRA LINHA FORM */
     .nomeGrupo{
@@ -438,8 +454,9 @@ input[type="file"] {
     .modal-footer{
         padding: 0;
         margin-right: 10px;
-        grid-column: 4 / -1;
+        grid-column: 3 / -1;
         grid-row: 8;
+        align-self: center;
     }
     .modal-footer button{
         font-size: 0.8rem;

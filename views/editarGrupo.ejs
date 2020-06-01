@@ -1,0 +1,43 @@
+<%- include('parts/head',{title:'iTavern | Editar Grupos'}); %>
+<link rel="stylesheet" href="/css/grupos-busca.css" />
+<link rel="stylesheet" href="/css/home.css" />
+<%- include('parts/navbar', {current_page:'Editar Grupos'}); %>
+
+<main>
+  <span class="nav-btn" id="nav-btn">
+    <i class="fas fa-bars"></i>
+  </span>
+  <section class="meusGrupos">
+    <div class="section-header">
+      <h3 class="section-title">Meus grupos criados</h3>
+      <div class="separator"></div>
+      <a href="#" class="btn">
+        novo
+      </a>
+    </div>
+    <div class="groups-container">
+      <!-- Inicio de um card de grupo -->
+      <% for(let grupo of meusGrupos){ %>
+        <%- include('editarSala', {grupo}); %>
+      <article class="card">
+        <div class="cover-container">
+          <img src="/images/covers/<%= grupo.img %>" class="card-img-top" alt="..." />
+          <i class="<%= grupo.icon %> fa-fw group-icon"></i>
+        </div>
+        <div class="card-body text-center">
+          <h3 class="group-title"><%= grupo.nome %></h3>
+          <h4 class="group-game"><%= grupo.jogo %></h4>
+          <ul class="group-perks">
+            <li>Próxima reunião em: 4 dias</li>
+          </ul>
+          <p class="invi"><%= grupo.reunioes %></p>          
+          <a href="#" class="btn btn-grupo" data-toggle="modal" data-target="#exampleModalEdit" onclick= "colocaCheck() ">Editar</a>
+        </div>
+      </article>
+      <% } %>
+      <!-- Fim de um card de grupo -->
+    </div>
+  </section>
+  <script src="/javascripts/editarSala.js"></script>
+</main>
+<%- include('parts/foot'); %>
