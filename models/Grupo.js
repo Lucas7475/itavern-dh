@@ -1,40 +1,44 @@
-let Grupo = (sequelize, DataTypes) => {
-    let grupo = sequelize.define(
-        'Grupo', {
-            id_grupo: {
-                type: DataTypes.INTEGER,
-                allowNull: false,
-                autoIncrement: true,
-                primaryKey: true
-            },
-            nome: {
-                type: DataTypes.STRING,
-                allowNull: false
-            },
-            num_jogadores: {
-                type: DataTypes.INTEGER,
-                allowNull: false
-            },
-            dias_reunião: {
-                type: DataTypes.STRING,
-                allowNull:false
-            },
-            inicio_reuniao:{
-                type: DataTypes.DATE,
-                allowNull: false
-            },
-            img: DataTypes.STRING,
-            descricao: DataTypes.STRING,
-            id_endereco: DataTypes.INTEGER,
-            id_restricao: DataTypes.INTEGER,
-            id_jogo:DataTypes.INTEGER
-        },{
-            tableName:'grupo',
-            timestamps:false
-        });
-
-        return grupo
-}
-
-
-module.exports = Grupo;
+'use strict';
+module.exports = (sequelize, DataTypes) => {
+  const Grupo = sequelize.define('Grupo', {
+    nome:{
+      type:DataTypes.STRING,
+      allowNull: false
+    }, 
+    numJogadores:{
+      type:DataTypes.NUMBER,
+      allowNull: false
+    },
+    diasReuniao:{
+      type:DataTypes.STRING,
+      allowNull: false
+    },
+    horario:{
+      type:DataTypes.STRING,
+      allowNull: false
+    },
+    tempoJogo:{
+      type:DataTypes.STRING,
+      allowNull: false
+    },
+    inicioReuniao: {
+      type:DataTypes.DATE,
+      allowNull: false
+    },
+    img: DataTypes.STRING,
+    descricao: DataTypes.STRING,
+    cep: {
+      type:DataTypes.STRING,
+      allowNull:false
+    },
+    numero: DataTypes.NUMBER
+  }, {
+    tableName: 'grupos'
+  });
+  Grupo.associate = function(models) {
+    Grupo.belongsTo(models.Jogo,{
+      foreignKey: 'id_jogo'
+    })
+  };
+  return Grupo;
+};

@@ -1,23 +1,14 @@
-let Jogo = (sequelize, DataTypes) => {
-    let jogo = sequelize.define(
-        'Jogo', {
-            id_jogo: {
-                type: DataTypes.INTEGER,
-                primaryKey: true,
-                allowNull:false,
-                autoIncrement: true
-            },
-            nome: {
-                type: DataTypes.STRING,
-                allowNull: false
-            }
-        }, {
-            tableName: 'jogo',
-            timestamps: false
-        }
-    )
-
-    return jogo;
-}
-
-module.exports = Jogo;
+'use strict';
+module.exports = (sequelize, DataTypes) => {
+  const Jogo = sequelize.define('Jogo', {
+    nome: DataTypes.STRING
+  }, {
+    tableName: 'jogos'
+  });
+  Jogo.associate = function(models) {
+    Jogo.hasMany(models.Grupo, {
+      foreignKey: 'id_grupo'
+    })
+  };
+  return Jogo;
+};
