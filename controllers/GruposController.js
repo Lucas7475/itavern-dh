@@ -40,7 +40,8 @@ module.exports = {
     });
   },
   showEdit:(req, res) =>{
-    let meusGrupos = [{
+    let meusGrupos = [
+      {
       "id": 1,
       "nome": "grupo 1",
       "jogo": "Dungeons & Dragons",

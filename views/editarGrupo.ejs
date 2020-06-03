@@ -16,27 +16,36 @@
       </a>
     </div>
     <div class="groups-container">
+      
+      <p id="invi4" class="invi"><%= meusGrupos.length  %></p>
+
+      <div id="semGrupo" class="">
+        <h2>você não gerencia nenhum grupo</h2>
+      </div>
+
       <!-- Inicio de um card de grupo -->
-      <% for(let grupo of meusGrupos){ %>
-        <%- include('editarSala', {grupo}); %>
-      <article class="card">
-        <div class="cover-container">
-          <img src="/images/covers/<%= grupo.img %>" class="card-img-top" alt="..." />
-          <i class="<%= grupo.icon %> fa-fw group-icon"></i>
+      <% for(let x = 0; x < meusGrupos.length; x++){ %>
+        <article class="card" id="<%= x %>">
+          <div class="cover-container">
+            <img src="/images/covers/<%= meusGrupos[x].img %>" class="card-img-top" alt="..." />
+            <i class="<%= meusGrupos[x].icon %> fa-fw group-icon"></i>
+            </div>
+            <div class="card-body text-center">
+              <h3 class="group-title"><%= meusGrupos[x].nome %></h3>
+              <h4 class="group-game"><%= meusGrupos[x].jogo %></h4>
+              <ul class="group-perks">
+                <li>Próxima reunião em: 4 dias</li>
+              </ul>
+              <p id="invi" class="invi"><%= meusGrupos[x].reunioes %></p>
+              <p id="invi2" class="invi"><%= x %></p>
+              <a href="#" class="btn btn-grupo" data-toggle="modal" data-target="#exampleModalEdit" onclick= "colocaCheck(), revelaGrupo()">Editar</a>
+            </div>
+          </article>
+          <% } %>
+          <!-- Fim de um card de grupo -->
         </div>
-        <div class="card-body text-center">
-          <h3 class="group-title"><%= grupo.nome %></h3>
-          <h4 class="group-game"><%= grupo.jogo %></h4>
-          <ul class="group-perks">
-            <li>Próxima reunião em: 4 dias</li>
-          </ul>
-          <p class="invi"><%= grupo.reunioes %></p>          
-          <a href="#" class="btn btn-grupo" data-toggle="modal" data-target="#exampleModalEdit" onclick= "colocaCheck() ">Editar</a>
-        </div>
-      </article>
-      <% } %>
-      <!-- Fim de um card de grupo -->
-    </div>
+        <%- include('editarSala', {meusGrupos}); %>
+
   </section>
   <script src="/javascripts/editarSala.js"></script>
 </main>

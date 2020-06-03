@@ -45,7 +45,6 @@
     padding: 0;
     font-weight: normal;
 }
-
 /* CORPO DO POPUP */
 
 .modal-body{
@@ -200,6 +199,7 @@
     grid-template-rows: repeat(4, auto);
     grid-template-columns: repeat(2, auto);
     column-gap: 10px;
+    text-align: left;
 }
 /* SEXTA LINHA DO FORMULARIO */
 .descricao{
@@ -259,7 +259,7 @@ input[type=number]::-webkit-inner-spin-button,
 input[type=number]::-webkit-outer-spin-button { 
   -webkit-appearance: none;
 }
-.invi, .invi2, .invi3{
+.invi{
     display: none;
 }
 
@@ -343,13 +343,14 @@ input[type=number]::-webkit-outer-spin-button {
         padding-right: 0;
         padding-left: 0;
         padding-bottom: 0;
+        grid-column: 3 / -1;
     }
     .close span{
         font-size: 14px;
     }
     .modal-header h5{
         font-size: 1.2rem;
-        margin-left: 12px;
+        margin-left: 26px;
     }
     .modal-body .formulario{
         align-items: flex-start;
@@ -454,7 +455,7 @@ input[type=number]::-webkit-outer-spin-button {
     .modal-footer{
         padding: 0;
         margin-right: 10px;
-        grid-column: 3 / -1;
+        grid-column: 1 / -1;
         grid-row: 8;
         align-self: center;
     }

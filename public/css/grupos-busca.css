@@ -86,3 +86,8 @@
     height: 20vh;
   }
 }
+@media(max-width:350px){
+  .btn-grupo{
+    width: 4.1rem;
+  }
+}
