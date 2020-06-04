@@ -41,8 +41,8 @@ module.exports = (sequelize, DataTypes) => {
       as:'jogoDoGrupo'
     })
     Grupo.belongsToMany(models.Usuario, {
-      foreignKey: 'id_usuario',
-      as:'usuariosGrupos',
+      foreignKey: 'id_grupo',
+      as:"usuariosDoGrupo",
       through: models.UsuarioGrupo
     });
   };
