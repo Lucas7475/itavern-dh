@@ -12,8 +12,8 @@
 
 module.exports = {
   "development": {
-    "username": "lucas1",
-    "password": "#Jacare1",
+    "username": "root",
+    "password": "soukatsui45",
     "database": "itavern",
     "host": "127.0.0.1",
     "dialect": "mysql",

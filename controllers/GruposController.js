@@ -18,7 +18,6 @@ module.exports = {
 
   },
 
-
   search: (req, res) => {
     let grupos = gruposDB
 

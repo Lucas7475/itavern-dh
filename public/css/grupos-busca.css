@@ -79,6 +79,10 @@
   width: 5rem;
 }
 
+form {
+  display: inline;
+}
+
 /*Media queries pra consertar a imagem dos cards dos grupos*/
 
 @media screen and (max-width: 768px) {

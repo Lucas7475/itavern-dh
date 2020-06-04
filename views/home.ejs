@@ -16,53 +16,24 @@
     </div>
     <div class="groups-container">
       <!-- Inicio de um card de grupo -->
-      <% for(let grupo of meusGrupos){ %>
+      <% for(let i=0; i < gruposDB.length; i++){ %>
       <article class="card">
         <div class="cover-container">
-          <img src="/images/covers/<%= grupo.img %>" class="card-img-top" alt="..." />
-          <i class="<%= grupo.icon %> fa-fw group-icon"></i>
+          <img src="/images/covers/<%= gruposDB[i].img %>" class="card-img-top" alt="..." />
+          <i class="<%= gruposDB[i].icon %> fa-fw group-icon"></i>
         </div>
         <div class="card-body text-center">
-          <h3 class="group-title"><%= grupo.nome %></h3>
-          <h4 class="group-game"><%= grupo.jogo %></h4>
+          <h3 class="group-title"><%= gruposDB[i].nome %></h3>
+          <h4 class="group-game"><%= gruposDB[i].jogo %></h4>
           <ul class="group-perks">
             <li>Próxima reunião em: 4 dias</li>
             <li style="color:green">22 novas mensagens</li>
           </ul>
+
           <a href="#" class="btn btn-danger btn-grupo">Info</a>
-          <a href="#" class="btn btn-danger btn-grupo">Chat</a>
-        </div>
-      </article>
-      <% } %>
-      <!-- Fim de um card de grupo -->
-    </div>
-  </section>
-  <section class="gruposSugeridos">
-    <div class="section-header">
-      <h3 class="section-title">grupos sugeridos</h3>
-      <div class="separator"></div>
-    </div>
-    <div class="groups-container">
-      <!-- Inicio de um card de grupo -->
-      <% for(let grupo of meusGrupos){ %>
-      <article class="card">
-        <div class="cover-container">
-          <img src="/images/covers/<%= grupo.img %>" class="card-img-top" alt="..." />
-          <i class="<%= grupo.icon %> fa-fw group-icon"></i>
-        </div>
-        <div class="card-body text-center">
-          <h3 class="group-title"><%= grupo.nome %></h3>
-          <h4 class="group-game"><%= grupo.jogo %></h4>
-          <ul class="group-perks">
-            <li>
-              Membros:
-              <span class="text-warning"><%= grupo.intMembros %>/<%= grupo.intMaxMembros %></span>
-            </li>
-            <li>Reuniões: <%= grupo.reunioes %></li>
-            <li><%= grupo.local %></li>
-          </ul>
-          <a href="#" class="btn btn-danger btn-grupo">Info</a>
-          <a href="#" class="btn btn-danger btn-grupo">Entrar</a>
+          <form action="/grupos?id=<% gruposDB[i].id %> " method="GET">
+            <input class="btn btn-danger btn-grupo" type="submit" value="Chat"/>
+          </form>
         </div>
       </article>
       <% } %>
