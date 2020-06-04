@@ -44,7 +44,7 @@ module.exports = (sequelize, DataTypes) => {
       foreignKey: 'id_usuario',
       as:'usuariosGrupos',
       through: models.UsuarioGrupo
-    })
+    });
   };
   return Grupo;
 };
