@@ -11,7 +11,6 @@
 // // }
 
 module.exports = {
-
   "development": {
     "username": "lucas1",
     "password": "#Jacare1",

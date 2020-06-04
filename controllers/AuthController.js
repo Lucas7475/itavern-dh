@@ -17,7 +17,7 @@ const AuthController = {
             return res.send({message:"Erro ao tentar realizar o login."})
         }
         
-        //req.session.usuario = usuario;
+        req.session.usuario = usuario
         return res.redirect('home');
 
     }
