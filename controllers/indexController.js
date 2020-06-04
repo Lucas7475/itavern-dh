@@ -1,39 +1,4 @@
-let meusGrupos = [{
-    "id": 1,
-    "nome": "grupo 1",
-    "jogo": "Dungeons & Dragons",
-    "local": "Santa Catarina",
-    "icon": "fas fa-hat-wizard",
-    "intMembros": 4,
-    "intMaxMembros": 7,
-    "img": "group-cover2.jpg",
-    "reunioes": ["Terças, Quartas"]
-  },
-  {
-    "id": 1,
-    "nome": "grupo 1",
-    "jogo": "Dungeons & Dragons",
-    "local": "Santa Catarina",
-    "icon": "fas fa-hat-wizard",
-    "intMembros": 4,
-    "intMaxMembros": 7,
-    "img": "group-cover2.jpg",
-    "reunioes": ["Terças, Quartas"]
-  },
-  {
-    "id": 1,
-    "nome": "grupo 8",
-    "jogo": "Dungeons & Dragons",
-    "local": "Santa Catarina",
-    "icon": "fab fa-d-and-d",
-    "intMembros": 4,
-    "intMaxMembros": 7,
-    "img": "group-cover3.jpg",
-    "reunioes": ["Terças, Quartas"]
-  }
-]
-// Conectar com o banco pra trazer as informações
-let gruposSugeridos = [1, 2]
+const gruposDB = require("../database/grupos.json");
 
 module.exports = {
   index: (req, res) => {
@@ -41,11 +6,19 @@ module.exports = {
   },
   home: (req, res) => {
     res.render("home", {
-      meusGrupos,
-      gruposSugeridos
+      gruposDB
     });
   },
   perfil: (req, res) => {
     res.render("editar-perfil");
+  },
+  chat: (req,res) =>{
+    console.log(req.query)
+    res.render("grupos",{
+      gruposDB
+    })
+  },
+  info: (req, res) => {
+    
   }
 };

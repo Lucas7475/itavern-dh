@@ -11,5 +11,4 @@ router.get("/search/", verificaUsuarioLogado, GruposController.search);
 router.post('/criargrupo', verificaUsuarioLogado, uploadCover.single('imgGrupo'), GruposController.store);
 router.get("/editarGrupos", verificaUsuarioLogado, GruposController.showEdit);
 
-
 module.exports = router;

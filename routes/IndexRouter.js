@@ -8,5 +8,6 @@ const IndexController = require("../controllers/indexController");
 router.get("/", IndexController.index);
 router.get("/home", verificaUsuarioLogado, IndexController.home);
 router.get("/perfil", verificaUsuarioLogado, IndexController.perfil);
+router.get("/grupos", verificaUsuarioLogado, IndexController.chat);
 
 module.exports = router;
