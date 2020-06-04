@@ -1,19 +1,7 @@
-const { sequelize, Grupo, Jogo } = require('../models');
+const { sequelize, Grupo, Jogo, Usuario } = require('../models');
 
 /* PEGANDO SÓ O GRUPO */
-Grupo.findAll().then(
-    data => {
-        data.map( u => {
-            let item = u.toJSON();
-            console.log(item);
-        });
-        sequelize.close();
-    }
-)
-
-
-/* PEGANDO O GRUPO COM OS USUARIOS DO GRUPO */
-// Grupo.findAll({include:['usuariosGrupos']}).then(
+// Grupo.findAll().then(
 //     data => {
 //         data.map( u => {
 //             let item = u.toJSON();
@@ -22,6 +10,23 @@ Grupo.findAll().then(
 //         sequelize.close();
 //     }
 // )
+
+
+/* PEGANDO O GRUPO COM OS USUARIOS DO GRUPO */
+Grupo.findAll({include:[
+        {
+        model:Usuario,
+        as:"usuariosDoGrupo",
+    }
+]}).then(
+    data => {
+        data.map( u => {
+            let item = u.toJSON();
+            console.log(item);
+        });
+        sequelize.close();
+    }
+)
 
 
 /* PEGANDO O GRUPO COM O SEU JOGO */
