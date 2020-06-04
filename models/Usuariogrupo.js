@@ -6,11 +6,13 @@ module.exports = (sequelize, DataTypes) => {
     tableName: 'usuarios_grupos'
   });
   UsuarioGrupo.associate = function(models) {
-    UsuarioGrupo.hasMany(models.Usuario, {
-      foreignKey: 'id'
-    });
     UsuarioGrupo.hasMany(models.Grupo, {
-      foreignKey: 'id'
+      foreignKey: 'id',
+      as:'dadosGrupos'
+    })
+    UsuarioGrupo.hasMany(models.Usuario, {
+      foreignKey: 'id',
+      as:'dadosUsuario'
     })
   };
   return UsuarioGrupo;

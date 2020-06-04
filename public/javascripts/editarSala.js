@@ -13,12 +13,12 @@ const colocaCheck = () =>{
         }
     }
 }
-const revelaGrupo = () =>{
-    let pGrupo = document.querySelectorAll('article').innerText;
-    let pSala = document.querySelector('#invi3');
-    console.log(pGrupo, pSala)
-    pSala.innerText = `<% let grupo = meusGrupos[${pGrupo}] %>`;
-}
+// document.querySelectorAll('.btn-grupo').forEach(botao =>{
+//     botao.addEventListener("click", (event)=>{
+//         let p = event.composedPath();
+//         document.querySelector('#muda').innerHTML = `<p id=${p[2].id}><% grupo = meusGrupos[${ p[2].id}] %>`;
+//     })
+// })
 
 //verifica se o usuario carregou algum grupo para editar
 let lista = document.querySelector('#invi4').innerText;

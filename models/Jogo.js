@@ -7,7 +7,8 @@ module.exports = (sequelize, DataTypes) => {
   });
   Jogo.associate = function(models) {
     Jogo.hasMany(models.Grupo, {
-      foreignKey: 'id_grupo'
+      foreignKey: 'id',
+      as:'grupos'
     })
   };
   return Jogo;

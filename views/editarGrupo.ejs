@@ -37,14 +37,14 @@
                 <li>Próxima reunião em: 4 dias</li>
               </ul>
               <p id="invi" class="invi"><%= meusGrupos[x].reunioes %></p>
-              <p id="invi2" class="invi"><%= x %></p>
-              <a href="#" class="btn btn-grupo" data-toggle="modal" data-target="#exampleModalEdit" onclick= "colocaCheck(), revelaGrupo()">Editar</a>
+              <% let grupo = meusGrupos[x] %>
+              <a href="#" class="btn btn-grupo" data-toggle="modal" data-target="#exampleModalEdit" onclick="colocaCheck()">Editar</a>
             </div>
           </article>
+          <%- include('editarSala', {grupo}); %>
           <% } %>
           <!-- Fim de um card de grupo -->
         </div>
-        <%- include('editarSala', {meusGrupos}); %>
 
   </section>
   <script src="/javascripts/editarSala.js"></script>

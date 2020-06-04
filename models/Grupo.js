@@ -35,9 +35,15 @@ module.exports = (sequelize, DataTypes) => {
   }, {
     tableName: 'grupos'
   });
-  Grupo.associate = function(models) {
+  Grupo.associate = (models) => {
     Grupo.belongsTo(models.Jogo,{
-      foreignKey: 'id_jogo'
+      foreignKey: 'id_jogo',
+      as:'jogoDoGrupo'
+    })
+    Grupo.belongsToMany(models.Usuario, {
+      foreignKey: 'id_usuario',
+      as:'usuariosGrupos',
+      through: models.UsuarioGrupo
     })
   };
   return Grupo;
