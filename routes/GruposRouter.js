@@ -1,6 +1,6 @@
 var express = require("express");
 var router = express.Router();
-var verificaUsuarioLogado = require('../middlewares/verificaUsuarioLogado');
+var verificaUsuarioLogado = require('../middlewares/VerificaUsuarioLogado');
 
 const GruposController = require("../controllers/GruposController");
 const uploadCover = require('../middlewares/uploadCover');
