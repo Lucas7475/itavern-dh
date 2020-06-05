@@ -9,8 +9,8 @@ module.exports = {
     // port: process.env.DB_PORT,
     // dialect: "mysql"
     "development": {
-      "username": "root",
-      "password": "soukatsui45",
+      "username": "lucas1",
+      "password": "#Jacare1",
       "database": "itavern",
       "host": "127.0.0.1",
       "dialect": "mysql",
