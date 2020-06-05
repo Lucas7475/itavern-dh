@@ -26,10 +26,10 @@
             <div class="nomeJogo">
                 <label for="nomeJogo">Nome do Jogo:</label>
                     <select name="nomeJogo" id="nomeJogo">
-                        <option selected disabled>Selecione</option>
-                        <!--  for(jogo of jogos){ -->
-                            <!-- <option value=" jogo.id ">jogo.nome</option> -->
-                        <!--  }  -->
+                      <option selected disabled>Selecione</option>
+                         <% for(jogo of jogos){ %>
+                            <option value="<%= jogo.id %>"><%= jogo.nome %></option>
+                        <%  }  %>
                     </select>
             </div>
         

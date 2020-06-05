@@ -1,5 +1,5 @@
 const gruposDB = require("../database/grupos.json");
-const { Grupo } = require('../models');
+const { Grupo, Jogo } = require('../models');
 
 module.exports = {
   index: (req, res) => {
@@ -18,7 +18,11 @@ module.exports = {
 
   },
 
-  search: (req, res) => {
+  search: async (req, res) => {
+    let listaJogos = await Jogo.findAll().then(
+      data => {
+          return data.map(u => u.toJSON())
+      })
     let grupos = gruposDB
 
     let {
@@ -35,10 +39,15 @@ module.exports = {
     }
 
     res.render("grupos-busca", {
-      grupos
+      grupos,
+      jogos: listaJogos
     });
   },
-  showEdit:(req, res) =>{
+  showEdit: async (req, res) => {
+    let listaJogos = await Jogo.findAll().then(
+      data => {
+          return data.map(u => u.toJSON())
+      })
     let meusGrupos = [
       {
       "id": 1,
@@ -99,7 +108,7 @@ module.exports = {
     }
   ]
   // Conectar com o banco pra trazer as informações
-    return res.render('editarGrupo', {meusGrupos});
+    return res.render('editarGrupo', {meusGrupos, jogos:listaJogos});
   }
 };
 

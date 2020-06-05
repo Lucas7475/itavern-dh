@@ -1,6 +1,7 @@
 <%- include('parts/head',{title:'iTavern | Editar Grupos'}); %>
 <link rel="stylesheet" href="/css/grupos-busca.css" />
 <link rel="stylesheet" href="/css/home.css" />
+<%- include('./criarSala',{jogos}); %>
 <%- include('parts/navbar', {current_page:'Editar Grupos'}); %>
 
 <main>
@@ -37,11 +38,10 @@
                 <li>Próxima reunião em: 4 dias</li>
               </ul>
               <p id="invi" class="invi"><%= meusGrupos[x].reunioes %></p>
-              <% let grupo = meusGrupos[x] %>
               <a href="#" class="btn btn-grupo" data-toggle="modal" data-target="#exampleModalEdit" onclick="colocaCheck()">Editar</a>
             </div>
           </article>
-          <%- include('editarSala', {grupo}); %>
+          <%- include('editarSala', {grupo:meusGrupos[x]}); %>
           <% } %>
           <!-- Fim de um card de grupo -->
         </div>

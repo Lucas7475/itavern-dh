@@ -1,21 +1,36 @@
 const gruposDB = require("../database/grupos.json");
 
+const { Jogo } = require('../models');
+
+
+
 module.exports = {
   index: (req, res) => {
     res.render("index");
   },
-  home: (req, res) => {
+  home: async (req, res) => {
+    let listaJogos = await Jogo.findAll().then(
+      data => {
+          return data.map(u => u.toJSON())
+      }
+)
     res.render("home", {
-      gruposDB
+      gruposDB,
+      jogos: listaJogos
     });
   },
-  perfil: (req, res) => {
-    res.render("editar-perfil");
+  perfil: async (req, res) => {
+    let listaJogos = await Jogo.findAll().then(
+      data => {
+          return data.map(u => u.toJSON())
+      }
+)
+    res.render("editar-perfil", {jogos:listaJogos});
   },
   chat: (req,res) =>{
     console.log(req.query)
     res.render("grupos",{
-      gruposDB
+      gruposDB,
     })
   },
   info: (req, res) => {

@@ -4,3 +4,4 @@ views/pagCriarSala.ejs
 views/parts/navbarT.ejs
 public/css/pagCriarSala.css
 config/database.js
+public/css/login-cadastro-cop.css

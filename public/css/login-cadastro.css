@@ -214,10 +214,11 @@ button{
     margin: 0 auto;
     min-width: 580px;
 }
-
+.modal-body{
+    grid-row: 2 / 7;
+}
 .modal-body .row{
     border-top: 1px solid black;
-    padding-bottom: 250px;
 }
 
 .modal-body .row input{
@@ -227,6 +228,11 @@ button{
 
 .modal-body .row input#emailUser, .modal-body .row input#senhaUser, .modal-body .row input#confirmarSenhaUser{
     min-width: 490px;
+}
+.modal-footer{
+    grid-row: 7;
+    padding-left: 0;
+    margin-right: 10px;
 }
 
 /*Medium devices*/

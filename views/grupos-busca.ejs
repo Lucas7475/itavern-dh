@@ -1,5 +1,6 @@
 <%- include('parts/head',{title:'iTavern | Busca de Grupos'}); %>
 <link rel="stylesheet" href="/css/grupos-busca.css" />
+<%- include('./criarSala',{jogos}); %>
 <%- include('parts/navbar', {current_page:'buscar-grupos'}); %>
 <!-- searchbar -->
 <main>
@@ -24,9 +25,9 @@
         <div class="input-group mb-3">
           <select name="groupGame" class="custom-select form-control" id="inputGroupSelect01" placeholder="Jogo">
             <option value="" selected disabled>Jogo</option>
-            <option value="1">Dungeons & Dragons</option>
-            <option value="2">PathFinder</option>
-            <option value="3">Tormenta</option>
+            <% for(jogo of jogos) {%>
+            <option value="<%= jogo.id %>"><%= jogo.nome %></option>
+            <% } %>
           </select>
         </div>
       </div>
