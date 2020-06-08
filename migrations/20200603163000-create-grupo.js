@@ -12,6 +12,10 @@ module.exports = {
         allowNull: false,
         type: Sequelize.INTEGER
       },
+      id_admin:{
+        allowNull: false,
+        type: Sequelize.INTEGER
+      },
       nome: {
         type: Sequelize.STRING,
         allowNull:false

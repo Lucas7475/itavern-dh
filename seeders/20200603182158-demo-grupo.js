@@ -6,6 +6,7 @@ module.exports = {
       return queryInterface.bulkInsert('grupos', [
         {
           id_jogo: 1,
+          id_admin: 6,
           nome: "Taverneiros",
           numJogadores: 5,
           diasReuniao: "Segunda-Feira, Sexta-Feira",
@@ -21,6 +22,7 @@ module.exports = {
         },
         {
           id_jogo: 1,
+          id_admin: 6,
           nome: "Ozerath",
           numJogadores: 6,
           diasReuniao: "Sábado, Domingo",
@@ -36,6 +38,7 @@ module.exports = {
         },
         {
           id_jogo: 3,
+          id_admin: 8,
           nome: "Terroes do Abismo",
           numJogadores: 7,
           diasReuniao: "Quarta-Feira, Quinta-Feira",
@@ -51,6 +54,7 @@ module.exports = {
         },
         {
           id_jogo: 4,
+          id_admin: 7,
           nome: "Atormentados",
           numJogadores: 10,
           diasReuniao: "Sexta-Feira",

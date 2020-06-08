@@ -10,8 +10,10 @@ module.exports = {
 
 
   store: async (req,res) => {
-    let id_jogo = 1
     let img = `public/images/covers/${req.file.filename}`;
+    let id_jogo = req.body.nomeJogo
+    let id_admin = req.session.idUsuario;
+
     let {nome,
          numJogadores,
          diasReuniao,
@@ -25,6 +27,7 @@ module.exports = {
     diasReuniao = diasReuniao.toString();
         
     await Grupo.create({id_jogo,
+                        id_admin,
                         nome,
                         numJogadores,
                         diasReuniao,
@@ -35,7 +38,10 @@ module.exports = {
                         descricao,
                         cep,
                         numero});
+
+    res.redirect('../home')
   },
+  
 
   search: async (req, res) => {
     let listaJogos = await Jogo.findAll().then(

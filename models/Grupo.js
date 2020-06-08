@@ -1,6 +1,10 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
   const Grupo = sequelize.define('Grupo', {
+    id_admin:{
+      type: DataTypes.INTEGER,
+      allowNull: false
+    },
     nome:{
       type:DataTypes.STRING,
       allowNull: false

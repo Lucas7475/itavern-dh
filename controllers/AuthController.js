@@ -8,6 +8,7 @@ const AuthController = {
         let {email, senha} = req.body;
 
         usuario = await Usuario.findOne({where:{email}});
+        console.log(usuario);
 
         if(!usuario){
             return res.send({message:"Erro ao tentar realizar o login."})
@@ -17,6 +18,7 @@ const AuthController = {
             return res.send({message:"Erro ao tentar realizar o login."})
         }
         
+        req.session.idUsuario = usuario.id
         req.session.usuario = usuario
         return res.redirect('home');
 
