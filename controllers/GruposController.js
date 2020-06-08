@@ -8,7 +8,27 @@ module.exports = {
     });
   },
 
+  teste: async (req,res) => {
+    let meusGrupos = await Grupo.findAll({include:[
+      {
+          model:Jogo,
+          as:"jogoDoGrupo",
+      }
+  ]},{where:{id_admin:6}}).then(
+          data => {
+              let listaGrupos = data.map( u => {
+                  return u.toJSON();
+              })
+              return listaGrupos;
+          }
+  )
+  for(grupo of meusGrupos){
+    console.log(grupo.inicioReuniao.toString());
+  }
+  
+    res.send({message:"oi"});
 
+  },
   store: async (req,res) => {
     let img = `public/images/covers/${req.file.filename}`;
     let id_jogo = req.body.nomeJogo
@@ -69,70 +89,28 @@ module.exports = {
     });
   },
   showEdit: async (req, res) => {
+
+    let idUsuario = req.session.idUsuario;
+
     let listaJogos = await Jogo.findAll().then(
       data => {
           return data.map(u => u.toJSON())
       })
-    let meusGrupos = [
+    
+    // Conectar com o banco pra trazer as informações
+    let meusGrupos = await Grupo.findAll({include:[
       {
-      "id": 1,
-      "nome": "grupo 1",
-      "jogo": "Dungeons & Dragons",
-      "cidade": "Santa Cruz",
-      "icon": "fas fa-hat-wizard",
-      "intMembros": 4,
-      "intMaxMembros": 7,
-      "inicioReuniao":"22/05/2020",
-      "horario":"15:00",
-      "duracao": 2,
-      "cep":"05361050",
-      "endereco":"Rua Manoel Patricio Menezes",
-      "numero":"52",
-      "complemento":"",
-      "descricao":"Um grupo",
-      "img": "group-cover2.jpg",
-      "reunioes": ["terca", "quarta"]
-    },
-    {
-      "id": 2,
-      "nome": "grupo 1",
-      "jogo": "Dungeons & Dragons",
-      "cidade": "Santa Catarina",
-      "icon": "fas fa-hat-wizard",
-      "intMembros": 4,
-      "intMaxMembros": 7,
-      "inicioReuniao":"22/05/2020",
-      "horario":"15:00",
-      "duracao": 2,
-      "cep":"05361050",
-      "endereco":"Rua Manoel Patricio Menezes",
-      "numero":"52",
-      "complemento":"",
-      "descricao":"Um grupo",
-      "img": "group-cover2.jpg",
-      "reunioes": ["terca", "quarta"]
-    },
-    {
-      "id": 3,
-      "nome": "grupo 8",
-      "jogo": "Dungeons & Dragons",
-      "cidade": "São Paulo",
-      "icon": "fab fa-d-and-d",
-      "intMembros": 4,
-      "intMaxMembros": 7,
-      "inicioReuniao":"22/05/2020",
-      "horario":"15:00",
-      "duracao": 2,
-      "cep":"05361050",
-      "endereco":"Rua Manoel Patricio Menezes",
-      "numero":"54",
-      "complemento":"",
-      "descricao":"Um grupo",
-      "img": "group-cover3.jpg",
-      "reunioes": ["terca", "quarta"]
-    }
-  ]
-  // Conectar com o banco pra trazer as informações
+          model:Jogo,
+          as:"jogoDoGrupo",
+      }
+  ],where:{id_admin:idUsuario}}).then(
+          data => {
+              let listaGrupos = data.map( u => {
+                  return u.toJSON();
+              })
+              return listaGrupos;
+          }
+  )
     return res.render('editarGrupo', {meusGrupos, jogos:listaJogos});
   }
 };
