@@ -30,7 +30,7 @@ module.exports = {
 
   },
   store: async (req,res) => {
-    let img = `public/images/covers/${req.file.filename}`;
+    let img = `../../images/covers/${req.file.filename}`;
     let id_jogo = req.body.nomeJogo
     let id_admin = req.session.idUsuario;
 
