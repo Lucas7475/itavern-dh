@@ -1,34 +1,45 @@
-const gruposDB = require("../database/grupos.json");
+// const gruposDB = require("../database/grupos.json");
 
-const { Jogo } = require('../models');
+const { Jogo, Usuario, Grupo } = require('../models');
 
-
-
+//
+function gruposDoUsuario(id){
+   return Usuario.findByPk(id,{include:[
+    {
+        model:Grupo,
+        as:"gruposDoUsuario"
+    }
+]}).then(data => {
+    return data.toJSON().gruposDoUsuario;
+        }
+)
+}
+function listaJogos(){
+  return Jogo.findAll().then(
+    data => {
+        return data.map(u => u.toJSON())
+    });
+}
 module.exports = {
   index: (req, res) => {
     res.render("index");
   },
   home: async (req, res) => {
-    let listaJogos = await Jogo.findAll().then(
-      data => {
-          return data.map(u => u.toJSON())
-      }
-)
+    let jogos = await listaJogos();
+    let id = req.session.idUsuario;
+    let gruposDB = await gruposDoUsuario(id);
     res.render("home", {
       gruposDB,
-      jogos: listaJogos
+      jogos
     });
   },
   perfil: async (req, res) => {
-    let listaJogos = await Jogo.findAll().then(
-      data => {
-          return data.map(u => u.toJSON())
-      }
-)
-    res.render("editar-perfil", {jogos:listaJogos});
+    let jogos = await listaJogos();
+    res.render("editar-perfil", {jogos});
   },
-  chat: (req,res) =>{
-    console.log(req.query)
+  chat: async (req,res) =>{
+    let gruposDB = gruposDoUsuario(1) 
+    // console.log(req.query)
     res.render("grupos",{
       gruposDB,
     })

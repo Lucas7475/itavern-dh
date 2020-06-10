@@ -11,6 +11,14 @@ module.exports = {
      }
 }
 // module.exports = {
+//   username: process.env.DB_USER,
+//   password: process.env.DB_PASS,
+//   database: process.env.DB_NAME,
+//   host: process.env.DB_HOST,
+//   port: process.env.DB_PORT,
+//   dialect: "mysql"
+// }
+// module.exports = {
 //   "development": {
 //     "username": "lucas1",
 //     "password": "#Jacare1",
