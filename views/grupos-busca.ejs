@@ -58,6 +58,7 @@
   <section class="container grupos">
     <div class="row">
       <!-- Inicio de um card de grupo -->
+      <% let x = 0; %>
       <% for(let grupo of grupos){ %>
       <article class="col-12 col-sm-6 col-lg-4 col-xl-3 py-3">
         <div class="card">
@@ -71,9 +72,9 @@
             <ul class="group-perks">
               <li>
                 Membros:
-                <span class="text-warning"><%= grupo.intMembros %>/<%= grupo.intMaxMembros %></span>
+                <span class="text-warning"><%= participantes[x] %>/<%= grupo.numJogadores %></span>
               </li>
-              <li>Reuniões: <%= grupo.reunioes %></li>
+              <li>Reuniões: <%= grupo.diasReuniao %></li>
               <li><%= grupo.local %></li>
             </ul>
             <a href="#" class="btn btn-danger btn-grupo">Info</a>
@@ -81,6 +82,7 @@
           </div>
         </div>
       </article>
+        <% x++; %>
       <% } %>
       <!-- Fim de um card de grupo -->
     </div>

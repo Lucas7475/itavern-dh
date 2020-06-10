@@ -8,7 +8,7 @@ const AuthController = {
         let {email, senha} = req.body;
 
         usuario = await Usuario.findOne({where:{email}});
-        console.log(usuario);
+        // console.log(usuario);
 
         if(!usuario){
             return res.send({message:"Erro ao tentar realizar o login."})

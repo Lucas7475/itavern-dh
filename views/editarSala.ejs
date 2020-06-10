@@ -26,10 +26,12 @@
             <div class="nomeJogo">
                 <label for="nomeJogo">Nome do Jogo:</label>
                     <select name="nomeJogo" id="nomeJogo">
-                        <option selected ><%= grupo.jogo %></option>
-                        <!--  for(jogo of jogos){ -->
-                            <!-- <option value=" jogo.id ">jogo.nome</option> -->
-                        <!--  }  -->
+                        <option selected value="<%= grupo.jogoDoGrupo.id %>" ><%= grupo.jogoDoGrupo.nome %></option>
+                        <% for(jogo of jogos){ %>
+                            <% if(jogo.id != grupo.jogoDoGrupo.id) { %>
+                              <option value="<%= jogo.id %>"><%= jogo.nome%></option>
+                            <% } %>
+                        <%  }  %>
                     </select>
             </div>
         
@@ -101,31 +103,31 @@
                 Dias de reunião:
                 <div class="diaReuniao">
                     <div class="dia">
-                      <input type="checkbox" name="diaReuniao" id="domingo" value="domingo" >
+                      <input type="checkbox" name="diaReuniao" id="Domingo" value="Domingo" >
                       <label for="domingo">Domingo</label>
                     </div>
                     <div class="dia">
-                      <input type="checkbox" name="diaReuniao" id="segunda" value="segunda" >
+                      <input type="checkbox" name="diaReuniao" id="Segunda-Feira" value="Segunda-Feira" >
                       <label for="segunda">Segunda-Feira</label>
                     </div>
                     <div class="dia">
-                      <input type="checkbox" name="diaReuniao" id="terca" value="terca" >
+                      <input type="checkbox" name="diaReuniao" id="Terça-Feira" value="Terça-Feira" >
                       <label for="terca">Terça-Feira</label>
                     </div>
                     <div class="dia">
-                      <input type="checkbox" name="diaReuniao" id="quarta" value="quarta" >
+                      <input type="checkbox" name="diaReuniao" id="Quarta-Feira" value="Quarta-Feira" >
                       <label for="quarta">Quarta-Feira</label>
                     </div>
                     <div class="dia">
-                      <input type="checkbox" name="diaReuniao" id="quinta" value="quinta" >
+                      <input type="checkbox" name="diaReuniao" id="Quinta-Feira" value="Quinta-Feira" >
                       <label for="quinta">Quinta-Feira</label>
                     </div>
                     <div class="dia">
-                      <input type="checkbox" name="diaReuniao" id="sexta" value="sexta" >
+                      <input type="checkbox" name="diaReuniao" id="Sexta-Feira" value="Sexta-Feira" >
                       <label for="sexta">Sexta-Feira</label>
                     </div>
                     <div class="dia">
-                      <input type="checkbox" name="diaReuniao" id="sabado" value="sabado">
+                      <input type="checkbox" name="diaReuniao" id="Sábado" value="Sábado">
                       <label for="sabado">Sábado</label>
                     </div>
                 </div>
