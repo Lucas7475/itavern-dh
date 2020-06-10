@@ -5,6 +5,10 @@
     Criar Sala
   </button> -->
 
+<script src="/javascripts/calculaCep.js">
+
+</script>
+
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
@@ -56,22 +60,24 @@
             <div class="endereco">
                 <div class="cep">
                     <label for="cep">CEP:</label>
-                    <input type="text" name="cep" id="cep" placeholder="Apenas números">
+                    <input type="text" name="cep" id="cep" placeholder="Apenas números" value="" maxlength="8"
+                    onblur="pesquisaCep(this.value)">
                 </div>
         
                 <div class="cidade">
                     <label for="cidade">Cidade:</label>
-                    <select name="cidade" id="cidade">
+                    <input type="text" name="cidade" id="cidade">
+                    <!-- <select name="cidade" id="cidade">
                         <option selected disabled>Selecione</option>
-                        <!--  for(cidade of cidades){ -->
-                            <!-- <option value=" cidade.id ">cidade.nome</option> -->
-                        <!--  }  -->
-                    </select>
+                         for(cidade of cidades){ 
+                            <option value=" cidade.id ">cidade.nome</option>
+                         } 
+                    </select> -->
                 </div>
         
                 <div class="rua">
                     <label for="endereco">Endereço:</label>
-                    <input type="text" name="endereco" id="endereco">
+                    <input type="text" name="endereco" id="endereco" value="">
                 </div>
         
                 <div class="numero">
