@@ -1,5 +1,4 @@
 main{
-    min-height: 100vh;
     max-width: 1170px;
     background-color: white;
     margin: 0 auto;
@@ -13,6 +12,7 @@ hr{
 
 .container{
     position: relative;
+    padding-bottom: 20px;
 }
 
 #page-name{
@@ -24,6 +24,8 @@ hr{
     text-transform: uppercase;
     font-weight: 400;
 }
+
+
 
 .separator{
     width: 70%;
@@ -39,6 +41,7 @@ hr{
     color: #a6401b;
     text-align: center;
     padding-top: 15px;
+    margin-bottom: 0;
 }
 
 .container #perfil-header{
@@ -86,6 +89,9 @@ hr{
 .container #botaoSubmit button{
     width: 150px;
 } 
+footer{
+    display: none;
+}
 
 @media (min-width: 992px) {
     #perfil-main .content label{

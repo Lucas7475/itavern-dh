@@ -1,12 +1,16 @@
 <%- include('parts/head',{title:'iTavern | Perfil'}); %>
 <link rel="stylesheet" href="/css/perfil.css">
+<%- include('./criarSala',{jogos}); %>
 <%- include('parts/navbar', {current_page:'perfil'}); %>
 
 <main>
+    <span class="nav-btn" id="nav-btn">
+        <i class="fas fa-bars"></i>
+      </span>
     <div class="container">
         <h3 id="page-name">Editar perfil</h3>
         <div class="separator"></div>
-        <form action="" method="" enctype="multipart/form-data">
+        <form id="formPerfil" action="" method="" enctype="multipart/form-data">
             <h4>Alterar foto do perfil</h4>
             <div id="perfil-header">
                 <img src="/images/profile-pics/perfil.png" alt="Foto de perfil" class="profile-picture" />
@@ -83,5 +87,4 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
     <script src="https://use.fontawesome.com/46bd2a5d08.js"></script>
 
-</body>
-</html>
+<%- include('parts/foot'); %>
