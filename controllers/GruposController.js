@@ -37,6 +37,11 @@ async function numAtualUsuarios(){
   let listaParticipantes = grupos.map(grupo => grupo.usuariosDoGrupo.length);
   return listaParticipantes;
 }
+function imgDoGrupo(id){
+  Grupo.findByPk(id).then(resul=>{
+    return resul.toJSON().img;
+  })
+}
 
 module.exports = {
   index: (req, res) => {
@@ -127,6 +132,53 @@ module.exports = {
         grupo.img = "/images/covers/group-cover.jpg";
       }
     })
-    return res.render('editarGrupo', {meusGrupos, jogos});
+    res.render('editarGrupo', {meusGrupos, jogos});
+  },
+  update: async (req, res) =>{
+    let { id } = req.params;
+    let img;
+    if(req.file == undefined){
+      img = await imgDoGrupo(id);
+    }else{
+      img = `../../images/covers/${req.file.filename}`;
+    }
+    let id_jogo = req.body.nomeJogo
+    let {nome,
+      numJogadores,
+      diasReuniao,
+      horario,
+      tempoJogo,
+      inicioReuniao,
+      cep,
+      numero,
+      descricao} = req.body
+
+    await Grupo.update({
+                        id_jogo,
+                        nome,
+                        numJogadores,
+                        diasReuniao,
+                        horario,
+                        tempoJogo,
+                        inicioReuniao,
+                        img,
+                        descricao,
+                        cep,
+                        numero
+    },{
+      where:{
+        id:id
+      }
+    });
+    res.redirect('../editarGrupos');
+  },
+  delete: async (req, res) =>{
+    let { id } = req.body;
+
+
+    await Grupo.destroy({where:{id:id}});
+    await UsuarioGrupo.destroy({where:{id_grupo:id}});
+
+    res.status(200).send();
   }
 };

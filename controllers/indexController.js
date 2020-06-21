@@ -35,7 +35,8 @@ module.exports = {
   },
   perfil: async (req, res) => {
     let jogos = await listaJogos();
-    res.render("editar-perfil", {jogos});
+    let { usuario } = req.session;
+    res.render("editar-perfil", {jogos, usuario});
   },
   chat: async (req,res) =>{
     let gruposDB = gruposDoUsuario(1) 

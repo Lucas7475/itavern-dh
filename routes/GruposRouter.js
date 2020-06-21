@@ -10,6 +10,8 @@ router.get("/", verificaUsuarioLogado, GruposController.index);
 router.get("/search/", verificaUsuarioLogado, GruposController.search);
 router.post('/criargrupo', verificaUsuarioLogado, uploadCover.single('imgGrupo'), GruposController.store);
 router.get("/editarGrupos", verificaUsuarioLogado, GruposController.showEdit);
+router.put("/:id/update", verificaUsuarioLogado, uploadCover.single('imgGrupo'), GruposController.update);
+router.delete("/:id/delete", verificaUsuarioLogado, GruposController.delete);
 router.get("/teste", GruposController.teste);
 
 module.exports = router;

@@ -20,7 +20,7 @@
       
       <p id="invi4" class="invi"><%= meusGrupos.length %></p>
 
-      <div id="semGrupo" class="">
+      <div id="semGrupo" class="invi">
         <h2>você não gerencia nenhum grupo</h2>
       </div>
 
@@ -39,13 +39,31 @@
                 <li>Começou em: <%= grupo.inicioReuniao.toLocaleDateString('pt-br', {}) %></li>
               </ul>
               
-              <a href="#" class="btn btn-grupo" data-toggle="modal" data-target="#exampleModalEdit<%= x %>">Editar</a>
+              <a href="#" class="btn btn-grupo edit" data-toggle="modal" data-target="#exampleModalEdit<%= x %>">Editar</a>
+              <a href="#" class="btn btn-grupo deletar" data-toggle="modal" data-target="#delete">Desfazer</a>
             </div>
           </article>
           <%- include('editarSala', {grupo, x}); %>
           <% x++ ;%>
           <% } %>
           <!-- Fim de um card de grupo -->
+          <div class="modal fade" id="delete" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog caixa" role="document">
+              <div class="modal-content tCaixa">
+                <div class="modal-header hContainer">
+                  <h5>Deseja desfazer esse grupo?</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">X</span>
+                  </button>
+                </div>
+                <h5 class="alerta">Essa ação não é reversível !</h5>
+                <div class="conteudo">
+                  <button type="button" class="btn" id="cancela" data-dismiss="modal">Cancelar</button>
+                  <button type="submit" class="btn" id="confirma" data-dismiss="modal">Confirmar</button>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
 
   </section>

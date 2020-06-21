@@ -4,6 +4,7 @@ var path = require("path");
 var cookieParser = require("cookie-parser");
 var logger = require("morgan");
 var session = require("express-session");
+var methodOverride = require('method-override');
 var gruposRouter = require("./routes/GruposRouter");
 var indexRouter = require("./routes/IndexRouter");
 var cadastroRouter = require("./routes/CadastroRouter");
@@ -24,6 +25,7 @@ app.use(
 );
 app.use(session({secret:"UMASENHAPARATODOSGOVERNAR"}));
 app.use(cookieParser());
+app.use(methodOverride("_method"));
 app.use(express.static(path.join(__dirname, "public")));
 app.use("/", indexRouter);
 app.use("/login", authRouter);

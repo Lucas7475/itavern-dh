@@ -34,6 +34,7 @@
     font-size: initial;
     padding: 6px 12px;
     outline: none;
+    font-family: sans-serif;
 }
 
 .modal-header h5{
@@ -261,6 +262,36 @@ input[type=number]::-webkit-outer-spin-button {
 }
 .invi{
     display: none;
+}
+.caixa{
+    height: -webkit-fill-available;
+    display: flex;
+    margin: auto;
+    justify-content: center;
+}
+.tCaixa{
+    background-color: var(--clr-primary-light);
+    display: flex;
+    height: 300px;
+    width: 300px;
+    align-self: center;
+}
+.conteudo{
+    padding: 15px;
+    display: flex;
+    justify-content: space-around;
+    margin-top: 3rem;
+}
+.hContainer h5{
+    font-size: 2rem;    
+}
+#delete .close{
+    margin-left: 10px;
+    margin-right: -5px;
+}
+.alerta{
+    font-size: 1.5rem;
+    margin-top: 1.5rem;
 }
 
 @media (max-width: 1100px){
