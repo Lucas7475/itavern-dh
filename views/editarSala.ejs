@@ -1,7 +1,7 @@
 
 <!-- Button trigger modal -->
 <link rel="stylesheet" href="/css/criarSala.css">
-<script src="/javascripts/calculaCep.js"></script>
+
 <!-- <button type="button" class="btn" data-toggle="modal" data-target="#exampleModal">
     Criar Sala
   </button> -->
@@ -59,13 +59,14 @@
             <div class="endereco">
                 <div class="cep">
                     <label for="cep">CEP:</label>
-                    <input type="text" name="cep" id="cep" placeholder="Apenas números" value="<%= grupo.cep %>" maxlength="8">
+                    <input type="text" class="cep-edit" name="cep" id="cep" placeholder="Apenas números" value="<%= grupo.cep %>" 
+                    onblur="pesquisaCep(this.value)" maxlength="8">
                 </div>
         
                 <div class="cidade">
                     <label for="cidade">Cidade:</label>
                     <select name="cidade" id="cidade">
-                        <option selected ><%= grupo.cidade %></option>
+                        <option selected ></option>
                         <!--  for(cidade of cidades){ -->
                             <!-- <option value=" cidade.id ">cidade.nome</option> -->
                         <!--  }  -->
@@ -74,7 +75,7 @@
         
                 <div class="rua">
                     <label for="endereco">Endereço:</label>
-                    <input type="text" name="endereco" id="endereco" value="<%= grupo.endereco %>">
+                    <input type="text" name="endereco" id="endereco" value="">
                 </div>
         
                 <div class="numero">

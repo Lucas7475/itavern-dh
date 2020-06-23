@@ -15,6 +15,10 @@ function gruposAll(){
     {
       model: Usuario,
       as:"usuariosDoGrupo"
+    },
+    {
+      model: Jogo,
+      as: 'jogoDoGrupo'
     }
   ]}).then(
     data => data.map( u => u.toJSON()))
@@ -112,15 +116,22 @@ module.exports = {
     let participantes = grupos.map(grupo => grupo.usuariosDoGrupo.length);
     let {
       searchText,
+      groupGame,
       groupSize,
       distance
     } = req.query;
     
     if (searchText) {
-      let res = grupos.filter(grupo => {
-        return (grupo.nome.includes(searchText) || grupo.jogo.includes(searchText))
+      grupos = grupos.filter(grupo => {
+        let umNome = grupo.nome.toLowerCase();
+        let pesquisado = searchText.toLowerCase().trim();
+        return (umNome.includes(pesquisado))
       })
-      grupos = res
+    }
+    if(groupGame){
+      grupos = grupos.filter(grupo =>{
+        return grupo.jogoDoGrupo.id == groupGame;
+      })
     }
     grupos.forEach(grupo => {
       if(grupo.img == ""){

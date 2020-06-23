@@ -1,8 +1,13 @@
 var idGrupo;
 var dataInicial;
 var dataAlterada;
+var cepInicial;
+var cepAlterado;
 
-$("#inicio").mask("99/99/9999"); 
+//mascara de data pro campo inicioReuniao
+$("#inicio").mask("99/99/9999");
+//mascara para o campo cep
+$("#cep").mask('99999-999');
 
 //função para marcar os dias de reunião
 const colocaCheck = (tag) =>{
@@ -57,6 +62,7 @@ document.querySelectorAll('.edit').forEach(botao =>{
         colocaCheck(p);
     })
 })
+// adicionando evento que pega a data que veio do banco
 document.querySelectorAll('.inicio-edit').forEach(inpInicio =>{
     inpInicio.addEventListener('focus', evento =>{
         dataInicial = inpInicio.value;
@@ -64,6 +70,7 @@ document.querySelectorAll('.inicio-edit').forEach(inpInicio =>{
         $(inpInicio).mask("99/99/9999");
     })
 })
+// adiciona evento que determina o valor da data
 document.querySelectorAll('.inicio-edit').forEach(inpInicio =>{
     inpInicio.addEventListener('blur', evento =>{
         dataAlterada = inpInicio.value;
@@ -71,6 +78,25 @@ document.querySelectorAll('.inicio-edit').forEach(inpInicio =>{
             inpInicio.value = dataAlterada;
         }else{
             inpInicio.value = dataInicial;
+        }
+    })
+})
+// adicionando evento que pega o cep que veio do banco
+document.querySelectorAll('.cep-edit').forEach(impCep =>{
+    impCep.addEventListener('click', evento =>{
+        cepInicial = impCep.value;
+        impCep.value = '';
+        $(impCep).mask('99999-999');
+    })
+})
+// adiciona evento que determina o valor da data
+document.querySelectorAll('.cep-edit').forEach(inpCep =>{
+    inpCep.addEventListener('blur', evento =>{
+        cepAlterado = inpCep.value;
+        if(cepAlterado != ""){
+            inpCep.value = cepAlterado;
+        }else{
+            inpCep.value = cepInicial;
         }
     })
 })
