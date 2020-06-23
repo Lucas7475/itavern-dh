@@ -59,18 +59,13 @@
             <div class="endereco">
                 <div class="cep">
                     <label for="cep">CEP:</label>
-                    <input type="text" class="cep-edit" name="cep" id="cep" placeholder="Apenas números" value="<%= grupo.cep %>" 
-                    onblur="pesquisaCep(this.value)" maxlength="8">
+                    <input type="text" class="cep-edit" name="cep" id="cep-edit" placeholder="Apenas números" value="<%= grupo.cep %>" 
+                     maxlength="9">
                 </div>
         
                 <div class="cidade">
                     <label for="cidade">Cidade:</label>
-                    <select name="cidade" id="cidade">
-                        <option selected ></option>
-                        <!--  for(cidade of cidades){ -->
-                            <!-- <option value=" cidade.id ">cidade.nome</option> -->
-                        <!--  }  -->
-                    </select>
+                    <input type="text" name="cidade" id="cidade">
                 </div>
         
                 <div class="rua">

@@ -3,11 +3,14 @@ var dataInicial;
 var dataAlterada;
 var cepInicial;
 var cepAlterado;
+var numEndereco;
+var tag;
 
 //mascara de data pro campo inicioReuniao
 $("#inicio").mask("99/99/9999");
 //mascara para o campo cep
-$("#cep").mask('99999-999');
+$("#cep-create").mask('99999-999');
+$("#cep-edit").mask('99999-999');
 
 //função para marcar os dias de reunião
 const colocaCheck = (tag) =>{
@@ -37,6 +40,7 @@ const removeArticle = (id)=>{
     document.getElementById(`${id}`).remove();
     return true;
 }
+
 //adicionando um evento que captura o id do grupo selecionado
 document.querySelectorAll('.deletar').forEach(botao=>{
     botao.addEventListener('click', async (evento) =>{
@@ -58,8 +62,10 @@ document.getElementById("confirma").addEventListener('click', async (evento)=>{
 document.querySelectorAll('.edit').forEach(botao =>{
     botao.addEventListener("click", (event)=>{
         event.preventDefault();
-        let p = event.composedPath()[0].dataset.target;
-        colocaCheck(p);
+        tag = event.composedPath()[0].dataset.target;
+        let valueCep = document.querySelector(`${tag}`).querySelector('#cep-edit').value;
+        colocaCheck(tag);
+        setPopup(tag ,valueCep);
     })
 })
 // adicionando evento que pega a data que veio do banco
@@ -85,7 +91,11 @@ document.querySelectorAll('.inicio-edit').forEach(inpInicio =>{
 document.querySelectorAll('.cep-edit').forEach(impCep =>{
     impCep.addEventListener('click', evento =>{
         cepInicial = impCep.value;
+        numEndereco = document.querySelector(`${tag}`).querySelector('#numero').value;
         impCep.value = '';
+        document.querySelector(`${tag}`).querySelector('#endereco').value = "";
+        document.querySelector(`${tag}`).querySelector('#numero').value = "";
+        document.querySelector(`${tag}`).querySelector('#cidade').value = "";
         $(impCep).mask('99999-999');
     })
 })
@@ -97,7 +107,9 @@ document.querySelectorAll('.cep-edit').forEach(inpCep =>{
             inpCep.value = cepAlterado;
         }else{
             inpCep.value = cepInicial;
+            document.querySelector(`${tag}`).querySelector('#numero').value = numEndereco;
         }
+        setPopup(tag, inpCep.value);
     })
 })
 
