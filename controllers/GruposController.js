@@ -1,4 +1,5 @@
 const gruposDB = require("../database/grupos.json");
+const { Op } = require('sequelize');
 const { Grupo, Jogo, UsuarioGrupo, Usuario } = require('../models');
 
 // essa função traz todos os jogos do banco
@@ -10,7 +11,12 @@ function listaJogos(){
 }
 // essa função traz todos os grupos e apenas os grupos
 function gruposAll(){
-  return Grupo.findAll().then(
+  return Grupo.findAll({include:[
+    {
+      model: Usuario,
+      as:"usuariosDoGrupo"
+    }
+  ]}).then(
     data => data.map( u => u.toJSON()))
 }
 // essa função traz os grupos que um usuario está
@@ -23,24 +29,25 @@ function gruposUsuario(id){
 ],where:{id_admin:id}}).then(
         data => data.map( u => u.toJSON()))
 }
-// essa função traz o numero de integrantes nos grupos
-async function numAtualUsuarios(){
-  let grupos = await Grupo.findAll({include:[
-    {
-    model:Usuario,
-    as:"usuariosDoGrupo",
-}
-]}).then(
-  data => {
-    return data.map( u => u.toJSON())
-  });
-  let listaParticipantes = grupos.map(grupo => grupo.usuariosDoGrupo.length);
-  return listaParticipantes;
-}
+//carrega as imagens com problema
 function imgDoGrupo(id){
   Grupo.findByPk(id).then(resul=>{
     return resul.toJSON().img;
   })
+}
+//troca o formato da data pro formato americano
+function arrumaDataDom(dataPt){
+  let dia = dataPt.substr(0,2);
+  let mes = dataPt[3] + dataPt[4];
+  let ano = dataPt.substr(6);
+  return `${ano}/${mes}/${dia}`;
+}
+//troca o formato da data pro formato Pt
+function arrumaDataDb(dataUs){
+  let dia = `0${dataUs.getDate()}`.length == 2? `0${dataUs.getDate()}`:`${dataUs.getDate()}`;
+  let mes = `0${dataUs.getMonth() + 1}`.length == 2? `0${dataUs.getMonth() + 1}`:`${dataUs.getMonth() + 1}`;
+  let ano = dataUs.getFullYear();
+  return `${dia}/${mes}/${ano}`;
 }
 
 module.exports = {
@@ -73,7 +80,8 @@ module.exports = {
          descricao} = req.body
     
     diasReuniao = diasReuniao.toString();
-        
+    inicioReuniao = arrumaDataDom(inicioReuniao);
+
     await Grupo.create({id_jogo,
                         id_admin,
                         nome,
@@ -101,7 +109,7 @@ module.exports = {
   search: async (req, res) => {
     let jogos = await listaJogos();
     let grupos = await gruposAll();
-    let participantes = await numAtualUsuarios();
+    let participantes = grupos.map(grupo => grupo.usuariosDoGrupo.length);
     let {
       searchText,
       groupSize,
@@ -114,6 +122,11 @@ module.exports = {
       })
       grupos = res
     }
+    grupos.forEach(grupo => {
+      if(grupo.img == ""){
+        grupo.img = "group-cover.jpg";
+      }
+    })
 
     res.render("grupos-busca", {
       grupos,
@@ -131,6 +144,7 @@ module.exports = {
       if(grupo.img == ""){
         grupo.img = "/images/covers/group-cover.jpg";
       }
+      grupo.inicioReuniao = arrumaDataDb(grupo.inicioReuniao);
     })
     res.render('editarGrupo', {meusGrupos, jogos});
   },
@@ -178,6 +192,18 @@ module.exports = {
 
     await Grupo.destroy({where:{id:id}});
     await UsuarioGrupo.destroy({where:{id_grupo:id}});
+
+    res.status(200).send();
+  },
+  addGrupo: async (req, res) =>{
+    let { id } = req.body;
+    console.log(id)
+    let idUsuario = req.session.idUsuario;
+
+    await UsuarioGrupo.create({
+      id_grupo: id,
+      id_usuario: idUsuario,
+    })
 
     res.status(200).send();
   }

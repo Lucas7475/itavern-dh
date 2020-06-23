@@ -12,6 +12,7 @@ router.post('/criargrupo', verificaUsuarioLogado, uploadCover.single('imgGrupo')
 router.get("/editarGrupos", verificaUsuarioLogado, GruposController.showEdit);
 router.put("/:id/update", verificaUsuarioLogado, uploadCover.single('imgGrupo'), GruposController.update);
 router.delete("/:id/delete", verificaUsuarioLogado, GruposController.delete);
+router.post('/addNoGrupo', verificaUsuarioLogado, GruposController.addGrupo);
 router.get("/teste", GruposController.teste);
 
 module.exports = router;

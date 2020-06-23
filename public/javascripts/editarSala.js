@@ -1,4 +1,8 @@
 var idGrupo;
+var dataInicial;
+var dataAlterada;
+
+$("#inicio").mask("99/99/9999"); 
 
 //função para marcar os dias de reunião
 const colocaCheck = (tag) =>{
@@ -51,6 +55,23 @@ document.querySelectorAll('.edit').forEach(botao =>{
         event.preventDefault();
         let p = event.composedPath()[0].dataset.target;
         colocaCheck(p);
+    })
+})
+document.querySelectorAll('.inicio-edit').forEach(inpInicio =>{
+    inpInicio.addEventListener('focus', evento =>{
+        dataInicial = inpInicio.value;
+        inpInicio.value = "";
+        $(inpInicio).mask("99/99/9999");
+    })
+})
+document.querySelectorAll('.inicio-edit').forEach(inpInicio =>{
+    inpInicio.addEventListener('blur', evento =>{
+        dataAlterada = inpInicio.value;
+        if(dataAlterada != ""){
+            inpInicio.value = dataAlterada;
+        }else{
+            inpInicio.value = dataInicial;
+        }
     })
 })
 

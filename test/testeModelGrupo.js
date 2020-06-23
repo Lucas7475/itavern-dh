@@ -1,5 +1,5 @@
 const { sequelize, Grupo, Jogo, Usuario } = require('../models');
-
+const { Op } = require('sequelize');
 /* PEGANDO SÓ O GRUPO */
 // Grupo.findAll().then(
 //     data => {
@@ -24,9 +24,19 @@ const { sequelize, Grupo, Jogo, Usuario } = require('../models');
 //             let item = u.toJSON();
 //             console.log(item);
 //         });
-//         sequelize.close();
 //     }
 // )
+
+Grupo.findAll({
+    include:[
+        {
+            model:Usuario
+        }
+    ],
+    where:{
+
+    }
+})
 
 
 /* PEGANDO O GRUPO COM O SEU JOGO */
@@ -44,7 +54,3 @@ const { sequelize, Grupo, Jogo, Usuario } = require('../models');
 //             return listaGrupos;
 //         }
 // )
-
-Grupo.findByPk(30).then(resul=>{
-    console.log(resul.toJSON());
-})

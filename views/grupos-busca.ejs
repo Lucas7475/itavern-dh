@@ -61,7 +61,7 @@
       <% let x = 0; %>
       <% for(let grupo of grupos){ %>
       <article class="col-12 col-sm-6 col-lg-4 col-xl-3 py-3">
-        <div class="card">
+        <div class="card" id="<%= grupo.id %>">
           <div class="cover-container">
             <img src="/images/covers/<%= grupo.img %>" class="card-img-top" alt="..." />
             <i class="<%= grupo.icon %> fa-fw group-icon"></i>
@@ -78,7 +78,7 @@
               <li><%= grupo.local %></li>
             </ul>
             <a href="#" class="btn btn-danger btn-grupo">Info</a>
-            <a href="#" class="btn btn-danger btn-grupo">Entrar</a>
+            <a href="#" class="btn btn-danger btn-grupo entrar" data-target="#entraGrupo" data-toggle="modal">Entrar</a>
           </div>
         </div>
       </article>
@@ -86,6 +86,24 @@
       <% } %>
       <!-- Fim de um card de grupo -->
     </div>
+    <div class="modal fade" id="entraGrupo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog caixa" role="document">
+        <div class="modal-content tCaixa">
+          <div class="modal-header hContainer">
+            <h5>Deseja entrar nesse grupo?</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">X</span>
+            </button>
+          </div>
+          <div class="conteudo">
+            <button type="button" class="btn" id="cancela" data-dismiss="modal">Cancelar</button>
+            <button type="submit" class="btn" id="confirmaEntrada" data-dismiss="modal">Confirmar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
   </section>
+  <!-- <script src="/javascripts/grupos-busca.js"></script> -->
 </main>
 <%- include('parts/foot'); %>
