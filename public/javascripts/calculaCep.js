@@ -10,6 +10,9 @@ function limpaFormEdit() {
     document.querySelector(`${popupEscolhido}`).querySelector('endereco').value=("");
     document.querySelector(`${popupEscolhido}`).querySelector('cidade').value=("");
 }
+function limpaInfo(){
+    document.querySelector('#exampleModalCenter').querySelector('#enderecoInfo').innerText = "Não definido";
+}
 // mostra o cep no popup de criar
 function callback(conteudo) {
 if (!("erro" in conteudo)) {
@@ -28,6 +31,14 @@ function mostraCep(conteudo) {
     } 
     else {
         limpaFormEdit();
+    }
+}
+function mostraCepInfo(conteudo){
+    if (!("erro" in conteudo)) {
+        document.querySelector('#enderecoInfo').innerText = (conteudo.logradouro);
+    } 
+    else {
+        limpaInfo();
     }
 }
 // função que busca o cep pro popup criar
@@ -74,6 +85,26 @@ function pesquisaCepEdit(valor) {
 function setPopup(tag, cep) {
     popupEscolhido = tag;
     pesquisaCepEdit(cep);
+}
+
+function pesquisaCepInfo(valor){
+    let cep = valor.replace(/\D/g, '');
+    
+    if (cep != "") {
+        var validacep = /^[0-9]{8}$/;
+    
+        if(validacep.test(cep)) {
+            let script = document.createElement('script');
+            script.src = `https://viacep.com.br/ws/${cep}/json/?callback=mostraCepInfo`
+            document.body.appendChild(script); 
+        } 
+        else {
+            limpaInfo();
+        }
+    }
+    else {
+        limpaInfo();
+    }
 }
 
 // adicionando evento que pega o valor do cep do grupo a ser criado

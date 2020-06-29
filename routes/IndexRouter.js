@@ -9,5 +9,7 @@ router.get("/", IndexController.index);
 router.get("/home", verificaUsuarioLogado, IndexController.home);
 router.get("/perfil", verificaUsuarioLogado, IndexController.perfil);
 router.get("/grupos", verificaUsuarioLogado, IndexController.chat);
+router.get("/sair", verificaUsuarioLogado, IndexController.sair);
+router.get('/info/:id', verificaUsuarioLogado, IndexController.info)
 
 module.exports = router;

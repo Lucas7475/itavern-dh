@@ -56,7 +56,9 @@ function arrumaDataDb(dataUs){
 
 module.exports = {
   index: (req, res) => {
+    let nickname = req.session.usuario.nickname;
     res.render("grupos", {
+      nickname,
       gruposDB
     });
   },
@@ -138,11 +140,13 @@ module.exports = {
         grupo.img = "group-cover.jpg";
       }
     })
+    let nickname = req.session.usuario.nickname;
 
     res.render("grupos-busca", {
       grupos,
       jogos,
-      participantes
+      participantes,
+      nickname
     });
   },
   showEdit: async (req, res) => {
@@ -157,7 +161,10 @@ module.exports = {
       }
       grupo.inicioReuniao = arrumaDataDb(grupo.inicioReuniao);
     })
-    res.render('editarGrupo', {meusGrupos, jogos});
+
+    let nickname = req.session.usuario.nickname;
+
+    res.render('editarGrupo', {meusGrupos, jogos, nickname});
   },
   update: async (req, res) =>{
     let { id } = req.params;

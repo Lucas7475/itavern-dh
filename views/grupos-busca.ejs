@@ -2,6 +2,7 @@
 <link rel="stylesheet" href="/css/grupos-busca.css" />
 <%- include('./criarSala',{jogos}); %>
 <%- include('parts/navbar', {current_page:'buscar-grupos'}); %>
+<%- include('./info'); %>
 <!-- searchbar -->
 <main>
   <section class="container searchbar">
@@ -77,8 +78,8 @@
               <li>Reuniões: <%= grupo.diasReuniao %></li>
               <li><%= grupo.local %></li>
             </ul>
-            <a href="#" class="btn btn-danger btn-grupo">Info</a>
-            <a href="#" class="btn btn-danger btn-grupo entrar" data-target="#entraGrupo" data-toggle="modal">Entrar</a>
+            <a href="#" class="btn btn-grupo info" data-toggle="modal" data-target="#exampleModalCenter">Info</a>
+            <a href="#" class="btn btn-grupo entrar" data-target="#entraGrupo" data-toggle="modal">Entrar</a>
           </div>
         </div>
       </article>

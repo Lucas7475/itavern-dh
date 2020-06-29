@@ -15,13 +15,21 @@
     grid-template-columns: repeat(8, 12.5%);
     grid-template-rows: repeat(8, 12.5%);
 }
+.titulo{
+    grid-column: 3 / 7;
+    margin: auto;
+}
+.botao{
+    grid-column: 8/ -1;
+}
 .modal-header{
     border-bottom: 1px;
     grid-row: 1;
     width: 100%;
-    grid-column: 4 / -1;
+    grid-column: 1 / -1;
     padding-top: 0px;
-    padding-left: 9.5%;
+    display: grid;
+    grid-template-columns: repeat(8, 12.5%);
 }
 
 .modal-header .close{
@@ -38,7 +46,7 @@
 }
 
 .modal-header h5{
-    padding-top: 15px;
+    padding-top: 10px;
     font-size: 1.5rem;
 }
 .close span{
@@ -371,17 +379,16 @@ input[type=number]::-webkit-outer-spin-button {
         grid-template-rows: repeat(8, auto);
     }
     .modal-header{
-        padding-right: 0;
+        /* padding-right: 0;
         padding-left: 0;
-        padding-bottom: 0;
-        grid-column: 3 / -1;
+        padding-bottom: 0; */
+        grid-column: 1 / -1;
     }
     .close span{
         font-size: 14px;
     }
     .modal-header h5{
         font-size: 1.2rem;
-        margin-left: 26px;
     }
     .modal-body .formulario{
         align-items: flex-start;

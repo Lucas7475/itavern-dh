@@ -27,17 +27,6 @@ const { Op } = require('sequelize');
 //     }
 // )
 
-Grupo.findAll({
-    include:[
-        {
-            model:Usuario
-        }
-    ],
-    where:{
-
-    }
-})
-
 
 /* PEGANDO O GRUPO COM O SEU JOGO */
 // Grupo.findAll({include:[
