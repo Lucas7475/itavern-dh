@@ -240,6 +240,8 @@ module.exports = {
       numero,
       descricao} = req.body
 
+      inicioReuniao = arrumaDataDom(inicioReuniao);
+
     await Grupo.update({
                         id_jogo,
                         nome,

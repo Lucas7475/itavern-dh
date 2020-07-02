@@ -56,7 +56,7 @@ const montaInfo = async (dados)=>{
     popInfo.querySelector('#dataInicio').innerHTML = dados.inicioReuniao;
 
     pesquisaCepInfo(dados.cep);
-
+    console.log(dados.usuariosDoGrupo)
     dados.usuariosDoGrupo.forEach(usuario =>{
         let articleUsuario = document.createElement('article');
         articleUsuario.setAttribute('class','usuario');
@@ -81,15 +81,16 @@ const montaInfo = async (dados)=>{
         if(usuario.id == dados.id_admin){
             popInfo.querySelector('#nomeAdm').innerHTML = usuario.nickname;
         }
+        if(usuario.id == dados.idLogado && dados.idLogado != dados.id_admin){
+            popInfo.querySelector('.adm').classList.remove('invi');
+            desejaSair();
+        }
     })
     if(dados.id_admin == dados.idLogado){
+
         popInfo.querySelector('.adm').classList.remove('invi');
         let pedidos = await requisitaNotificacoes(idGrupo);
         montaPedidos(pedidos);
-    }
-    else{
-        popInfo.querySelector('.adm').classList.remove('invi');
-        desejaSair();
     }
     
 }
@@ -147,6 +148,7 @@ const desejaSair = () =>{
     let btnNao = document.createElement('button');
     btnNao.setAttribute('id', "nao");
     btnNao.setAttribute('class', 'btn btn-primary');
+    btnNao.setAttribute('data-dismiss', 'modal');
     btnNao.innerText = "Não";
 
     sair.appendChild(span);
