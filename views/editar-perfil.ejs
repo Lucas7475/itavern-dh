@@ -10,24 +10,24 @@
     <div class="container">
         <h3 id="page-name">Editar perfil</h3>
         <div class="separator"></div>
-        <form id="formPerfil" action="" method="" enctype="multipart/form-data">
+        <form id="formPerfil" action="/cadastro/update?_method=PUT" method="POST" enctype="multipart/form-data">
             <h4>Alterar foto do perfil</h4>
             <div id="perfil-header">
-                <img src="/images/profile-pics/perfil.png" alt="Foto de perfil" class="profile-picture" />
-                <input type="file">
+                <img src="<%= usuario.img_perfil %>" alt="Foto de perfil" class="profile-picture" />
+                <input type="file" name="imgPerfil" id="imgPerfil">
             </div>
             <hr>
             <h4>Alterar dados do perfil</h4>
             <div id="perfil-main">
                 <div class="content">
                     <div class="dadosUser">
-                        <label for="nomePerfil">Nome do perfil</label>
-                        <input type="text" id="nomePerfil" name="nomePerfil" value="<%= usuario.nickname %>">
+                        <label for="nomePerfil">Nickname:</label>
+                        <input type="text" id="nomePerfil" name="nickname" value="<%= usuario.nickname %>">
                     </div>
 
                     <div class="dadosUser">
                         <label for="nomeReal">Nome real</label>
-                        <input type="text" id="nomeReal" name="nomeReal" value="<%= usuario.nome %>">
+                        <input type="text" id="nomeReal" name="nome" value="<%= usuario.nome %>">
                     </div>
 
                     <div class="dadosUser">

@@ -110,8 +110,11 @@ function verificaRelacao(idUsuario, idGrupo){
 module.exports = {
   index: (req, res) => {
     let nickname = req.session.usuario.nickname;
+    let imgPerfil = req.session.usuario.img_perfil;
+
     res.render("grupos", {
       nickname,
+      imgPerfil,
       gruposDB
     });
   },
@@ -196,12 +199,14 @@ module.exports = {
       }
     })
     let nickname = req.session.usuario.nickname;
+    let imgPerfil = req.session.usuario.img_perfil;
 
     res.render("grupos-busca", {
       grupos,
       jogos,
       participantes,
-      nickname
+      nickname,
+      imgPerfil
     });
   },
   showEdit: async (req, res) => {
@@ -218,8 +223,9 @@ module.exports = {
     })
 
     let nickname = req.session.usuario.nickname;
+    let imgPerfil = req.session.usuario.img_perfil;
 
-    res.render('editarGrupo', {meusGrupos, jogos, nickname});
+    res.render('editarGrupo', {meusGrupos, jogos, nickname, imgPerfil});
   },
   update: async (req, res) =>{
     let { id } = req.params;

@@ -72,7 +72,6 @@ document.querySelectorAll('.edit').forEach(botao =>{
 document.querySelectorAll('.inicio-edit').forEach(inpInicio =>{
     inpInicio.addEventListener('focus', evento =>{
         dataInicial = inpInicio.value;
-        inpInicio.value = "";
         $(inpInicio).mask("99/99/9999");
     })
 })

@@ -17,6 +17,10 @@ module.exports = {
         allowNull: false,
         unique: true
       },
+      img_perfil:{
+        type: Sequelize.STRING,
+        allowNull:true
+      },
       email: {
         type: Sequelize.STRING,
         allowNull: false,

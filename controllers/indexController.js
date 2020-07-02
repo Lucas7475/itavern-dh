@@ -38,7 +38,7 @@ function infoGrupo(id){
           {
             model: Usuario,
             as: "dadosDosUsuario",
-            attributes:["id", "nickname"]
+            attributes:["id", "nickname", "img_perfil"]
           },
           {
             model:Grupo,
@@ -87,38 +87,42 @@ module.exports = {
     let jogos = await listaJogos();
     let id = req.session.idUsuario;
     let nickname = req.session.usuario.nickname;
+    let imgPerfil = req.session.usuario.img_perfil;
     let gruposDB = await gruposDoUsuario(id);
 
     res.render("home", {
       gruposDB,
       jogos,
-      nickname
+      nickname,
+      imgPerfil
     });
   },
   perfil: async (req, res) => {
     let jogos = await listaJogos();
     let { usuario } = req.session;
     let nickname = req.session.usuario.nickname;
-    res.render("editar-perfil", {jogos, usuario, nickname});
+    let imgPerfil = req.session.usuario.img_perfil;
+    res.render("editar-perfil", {jogos, usuario, nickname, imgPerfil});
   },
   chat: async (req,res) =>{
     let gruposDB = gruposDoUsuario(1) 
-    let nickname = req.session.usuario.nickname
+    let nickname = req.session.usuario.nickname;
+    let imgPerfil = req.session.usuario.img_perfil;
     // console.log(req.query)
     res.render("grupos",{
       gruposDB,
-      nickname
+      nickname,
+      imgPerfil
     })
   },
   sair: (req, res) =>{
     req.session.usuario = undefined;
     req.session.idUsuario = undefined;
-    res.redirect("/");
+    res.redirect("/sair");
   },
   info: async (req, res) =>{
     let id = req.params.id;
     let infGrupo = await infoGrupo(id);
-    // console.log(infGrupo);
     let usuariosDoGrupo = infGrupo.map(obj => obj.dadosDosUsuario);
     infGrupo = infGrupo[0].dadosDosGrupo;
     infGrupo.usuariosDoGrupo = usuariosDoGrupo;

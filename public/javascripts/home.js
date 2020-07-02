@@ -56,7 +56,7 @@ const montaInfo = async (dados)=>{
     popInfo.querySelector('#dataInicio').innerHTML = dados.inicioReuniao;
 
     pesquisaCepInfo(dados.cep);
-    console.log(dados.usuariosDoGrupo)
+
     dados.usuariosDoGrupo.forEach(usuario =>{
         let articleUsuario = document.createElement('article');
         articleUsuario.setAttribute('class','usuario');
@@ -66,7 +66,7 @@ const montaInfo = async (dados)=>{
 
         let img = document.createElement('img');
         img.setAttribute('id','avatar');
-        img.setAttribute('src', "https://vignette.wikia.nocookie.net/dungeonrampage/images/5/5e/Ghost_Samurai.png/revision/latest?cb=20140906175132" );
+        img.setAttribute('src', `${usuario.img_perfil}` );
 
         let label = document.createElement('label');
         label.setAttribute('id','nickname');

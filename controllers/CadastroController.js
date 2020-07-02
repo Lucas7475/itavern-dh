@@ -28,21 +28,54 @@ module.exports = {
             if(await Usuario.findOne({where:{nickname}})){
                 return res.send({message:"Este nome de usuário já está cadastrado. Por favor, escolha outro!"})
             }
-
+            //imagem padrão de usuario
+            let imgPerfil = `../../images/covers/dragknight.jpg`
             //criando usuario
-            await Usuario.create({nome,nickname,email,senha});
+            await Usuario.create({nome, nickname, img_perfil:imgPerfil, email, senha});
 
             //pegando o usuario criado
             let usuario = await Usuario.findOne({
                 where:{
                     nickname:nickname
                 },
-                attributes:["id","nickname"]
+                attributes:["id","nickname","img_perfil", "nome"]
             })
 
             req.session.idUsuario = usuario.id
             req.session.usuario = usuario
 
             return res.redirect("/home");
+    },
+    update: async(req, res) =>{
+        
+        let idUsuario = req.session.idUsuario;
+
+        let { nickname, nome} = req.body;
+        let imgPerfil;
+
+        if(req.file == undefined){
+            imgPerfil = req.session.usuario.img_perfil;
+          }else{
+            imgPerfil = `../../images/covers/${req.file.filename}`;
+          }
+
+        await Usuario.update({
+            nome,
+            nickname,
+            img_perfil: imgPerfil
+        },{
+            where:{
+                id: idUsuario
+            }
+        })
+
+        req.session.usuario = await Usuario.findOne({
+            where:{
+                id: idUsuario
+            },
+            attributes:["id", "nome", "nickname", "img_perfil"]
+        })
+
+        res.redirect('/perfil');
     }
 }
