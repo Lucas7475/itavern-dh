@@ -23,6 +23,48 @@ function gruposAll(){
   ]}).then(
     data => data.map( u => u.toJSON()))
 }
+async function gruposSemUsuarioAtual(id){
+  let resul = await Grupo.findAll(
+      {
+          where:{
+              id_admin:{
+                  [Op.ne]:id
+              }
+          },
+          include:[
+              {
+                  model:Jogo,
+                  as:"jogoDoGrupo",
+                  attributes:{
+                      exclude:['createdAt','updatedAt']
+                  }
+              },
+              {
+                  model:Usuario,
+                  as:"usuariosDoGrupo",
+                  attributes:['id','nickname'],
+              }
+          ]
+      }
+  ).then(data => {
+      return data.map( u => u.toJSON());
+  });
+  let filtrado = resul.map(grupo => grupo);
+  let participantes = [];
+  resul.map((grupo, index)=>{
+      let contador = 0;
+      grupo.usuariosDoGrupo.map(usuario =>{
+          if(usuario.id == id && usuario.UsuarioGrupo.status == "aprovado"){
+              return filtrado.splice(index, 1);
+          }
+          else if(usuario.UsuarioGrupo.status == "aprovado"){
+            return contador++;
+          }
+      });
+      participantes.push(contador);
+  })
+  return {filtrado, participantes};
+}
 // essa função traz os grupos que um usuario está
 function gruposUsuario(id){
   return Grupo.findAll({include:[
@@ -52,6 +94,17 @@ function arrumaDataDb(dataUs){
   let mes = `0${dataUs.getMonth() + 1}`.length == 2? `0${dataUs.getMonth() + 1}`:`${dataUs.getMonth() + 1}`;
   let ano = dataUs.getFullYear();
   return `${dia}/${mes}/${ano}`;
+}
+//confere se o usuario já tem relação com um grupo
+function verificaRelacao(idUsuario, idGrupo){
+  return UsuarioGrupo.findOne({
+    where:{
+      id_grupo: idGrupo,
+      id_usuario: idUsuario
+    }
+  }).then(resul=>{
+    return resul == null? -1 : resul.toJSON();
+  })
 }
 
 module.exports = {
@@ -107,15 +160,17 @@ module.exports = {
     }).then(grupo => grupo.toJSON());
     await UsuarioGrupo.create({
       id_grupo: id_grupo.id,
-      id_usuario: id_admin
+      id_usuario: id_admin,
+      status: 'aprovado'
     })
 
     res.redirect('../home')
   },
   search: async (req, res) => {
     let jogos = await listaJogos();
-    let grupos = await gruposAll();
-    let participantes = grupos.map(grupo => grupo.usuariosDoGrupo.length);
+    let { filtrado, participantes } = await gruposSemUsuarioAtual(req.session.idUsuario);
+    // let participantes = grupos.map(grupo => grupo.usuariosDoGrupo.length);
+    let grupos = filtrado;
     let {
       searchText,
       groupGame,
@@ -215,14 +270,51 @@ module.exports = {
   },
   addGrupo: async (req, res) =>{
     let { id } = req.body;
-    console.log(id)
     let idUsuario = req.session.idUsuario;
 
-    await UsuarioGrupo.create({
-      id_grupo: id,
-      id_usuario: idUsuario,
-    })
+    let relacao = await verificaRelacao(idUsuario, id);
 
-    res.status(200).send();
+    if(relacao != -1){
+      let status = relacao.status
+      switch(status){
+        case 'aprovado':
+          res.status(200).json({situacao:"Seu pedido já foi aceito"});
+          break;
+        case 'recusado':
+          await UsuarioGrupo.update({
+            status:'aguardando'
+          },{
+            where:{
+              id_grupo: id,
+              id_usuario: idUsuario,
+            }
+          })
+          res.status(200).json({situacao:'Seu pedido foi enviado'})
+          break;
+        case 'aguardando':
+          res.status(200).json({situacao:"Seu pedido já está em análise"});
+          break;
+        case 'saiu':
+          await UsuarioGrupo.update({
+            status:'aguardando'
+          },{
+            where:{
+              id_grupo: id,
+              id_usuario: idUsuario,
+            }
+          })
+          res.status(200).json({situacao:'Seu pedido foi enviado'})
+          break;
+      }
+    }
+    else{
+      console.log("else"); 
+      await UsuarioGrupo.create({
+        id_grupo: id,
+        id_usuario: idUsuario,
+        status: 'aguardando'
+      })
+      res.status(200).json({situacao:"Seu pedido foi enviado"});
+    }
   }
 };

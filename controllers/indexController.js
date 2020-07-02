@@ -1,17 +1,23 @@
 // const gruposDB = require("../database/grupos.json");
 
-const { Jogo, Usuario, Grupo } = require('../models');
+const { Jogo, Usuario, Grupo, UsuarioGrupo } = require('../models');
 
 //
 function gruposDoUsuario(id){
-   return Usuario.findByPk(id,{include:[
-    {
+  return UsuarioGrupo.findAll({
+    where:{
+      id_usuario:id,
+      status:'aprovado'
+    },
+    include:[
+      {
         model:Grupo,
-        as:"gruposDoUsuario"
+        as:"dadosDosGrupo"
+      }
+    ]
+  }).then(data => {
+    return data.map(u => u.toJSON().dadosDosGrupo);
     }
-]}).then(data => {
-    return data.toJSON().gruposDoUsuario;
-        }
 )
 }
 function listaJogos(){
@@ -21,15 +27,32 @@ function listaJogos(){
     });
 }
 function infoGrupo(id){
-  return Grupo.findByPk(id,{include:
-    [
-      {
-        model: Usuario,
-        as: "usuariosDoGrupo"
+  return UsuarioGrupo.findAll(
+    {
+      where:{
+        id_grupo:id,
+        status:"aprovado"
+      },
+      include:
+        [
+          {
+            model: Usuario,
+            as: "dadosDosUsuario",
+            attributes:["id", "nickname"]
+          },
+          {
+            model:Grupo,
+            as:"dadosDosGrupo",
+            attributes:["id","id_admin","nome", "inicioReuniao", "cep","id_jogo", "descricao"]
+          }
+        ]
+    }).then(data =>{
+    return data.map(u =>{
+      return{
+        dadosDosUsuario:u.toJSON().dadosDosUsuario,
+        dadosDosGrupo:u.toJSON().dadosDosGrupo,
       }
-    ]
-  }).then(data =>{
-    return data.toJSON();
+    });
   })
 }
 function arrumaDataDb(dataUs){
@@ -38,6 +61,24 @@ function arrumaDataDb(dataUs){
   let ano = dataUs.getFullYear();
   return `${dia}/${mes}/${ano}`;
 }
+// dados notificacao
+function verificaPedidos (id){
+  return UsuarioGrupo.findAll({
+    where:{
+      id_grupo: id,
+      status: 'aguardando'
+    },
+    include:[
+      {
+        model:Usuario,
+        as: 'dadosDosUsuario'
+      }
+    ]
+  }).then(resul =>{
+    return resul.map(u => u.toJSON());
+  })
+}
+
 module.exports = {
   index: (req, res) => {
     res.render("index");
@@ -77,13 +118,38 @@ module.exports = {
   info: async (req, res) =>{
     let id = req.params.id;
     let infGrupo = await infoGrupo(id);
-    infGrupo.usuariosDoGrupo.forEach(usuario =>{
-      usuario.senha = undefined,
-      usuario.createdAt = undefined,
-      usuario.updatedAt = undefined,
-      usuario.usuarioGrupo = undefined
-    })
+    // console.log(infGrupo);
+    let usuariosDoGrupo = infGrupo.map(obj => obj.dadosDosUsuario);
+    infGrupo = infGrupo[0].dadosDosGrupo;
+    infGrupo.usuariosDoGrupo = usuariosDoGrupo;
+    infGrupo.idLogado = req.session.idUsuario;
     infGrupo.inicioReuniao = arrumaDataDb(infGrupo.inicioReuniao);
     res.status(200).json({infGrupo});
+  },
+  pedidos: async (req, res) =>{
+    let id = req.params.id;
+    let pedidos = await verificaPedidos(id);
+
+    pedidos = pedidos.map(pedido =>{
+      return {
+        id_usuario:pedido.id_usuario,
+        nickname: pedido.dadosDosUsuario.nickname
+      }
+    })
+
+    res.status(200).json({pedidos});
+  },
+  mudaStatus: async (req, res) =>{
+    let { novoStatus, idGrupo, idCandidato } = req.body;
+    await UsuarioGrupo.update({
+      status:novoStatus
+    },{
+      where:{
+        id_grupo: idGrupo,
+        id_usuario: idCandidato
+      }
+    })
+
+    res.status(200).json({resposta:`Usuário ${novoStatus}.`})
   }
 };

@@ -1,4 +1,4 @@
-const { sequelize, UsuarioGrupo, Usuario, Grupo } = require('../models');
+const { sequelize, UsuarioGrupo, Usuario, Grupo, Jogo } = require('../models');
 const { Op } = require('sequelize');
 
 /* TESTE TRAZENDO SÓ A TABELA */
@@ -83,3 +83,51 @@ const { Op } = require('sequelize');
 //             sequelize.close();
 //         }
 // )
+
+// PEGA OS USUARIOS COM UMA DETERMINADA CONDIÇÃO
+// UsuarioGrupo.findAll({
+//     where:{
+//       id_grupo: 1,
+//       status: 'aprovado'
+//     },
+//     include:[
+//       {
+//         model:Usuario,
+//         as: 'dadosDosUsuario'
+//       }
+//     ]
+//   }).then(resul =>{
+//     resul.map( u =>{
+//         let item = u.toJSON();
+//         console.log(item);
+//     })
+//   })
+
+UsuarioGrupo.findAll(
+    {
+        attributes:{
+            exclude:['createdAt','updatedAt']
+        },
+        include:{
+            model:Grupo,
+            as:"dadosDosGrupo",
+            attributes:{
+                exclude:['createdAt','updatedAt']
+            },
+            include:{
+                model:Jogo,
+                as:"jogoDoGrupo",
+                attributes:{
+                    exclude:['createdAt','updatedAt']
+                },
+            }
+        },
+        where:{
+            id_usuario:{
+                [Op.ne]:2
+            }
+        },
+    }
+).then(data => {
+    console.log(data.map( u => u.toJSON()));
+});

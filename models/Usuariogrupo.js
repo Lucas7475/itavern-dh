@@ -16,6 +16,10 @@ module.exports = (sequelize, DataTypes) => {
           model: "Grupo",
           key: "id"
       }
+  },
+  status:{
+    type: DataTypes.STRING,
+    allowNull: false
   }
   }, {
     tableName: 'usuarios_grupos'

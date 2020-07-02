@@ -43,3 +43,43 @@ const { Op } = require('sequelize');
 //             return listaGrupos;
 //         }
 // )
+
+async function teste(id){
+    let resul = await Grupo.findAll(
+        {
+            where:{
+                id_admin:{
+                    [Op.ne]:id
+                }
+            },
+            attributes:['id','id_admin','nome'],
+            include:[
+                {
+                    model:Jogo,
+                    as:"jogoDoGrupo",
+                    attributes:{
+                        exclude:['createdAt','updatedAt']
+                    }
+                },
+                {
+                    model:Usuario,
+                    as:"usuariosDoGrupo",
+                    attributes:['id','nickname'],
+                }
+            ]
+        }
+    ).then(data => {
+        return data.map( u => u.toJSON());
+    });
+    let filtrado = resul.map(grupo => grupo);
+    resul.map((grupo, index)=>{
+        grupo.usuariosDoGrupo.map(usuario =>{
+            if(usuario.id == id && usuario.UsuarioGrupo.status == "aprovado"){
+                filtrado.splice(index, 1);
+            }
+        });
+    })
+    return filtrado;
+}
+
+teste();
