@@ -13,5 +13,6 @@ router.get("/sair", verificaUsuarioLogado, IndexController.sair);
 router.get("/info/:id", verificaUsuarioLogado, IndexController.info)
 router.get("/notificacoes/:id", verificaUsuarioLogado, IndexController.pedidos);
 router.post('/mudaStatus', verificaUsuarioLogado, IndexController.mudaStatus);
+router.post('/tiraDoGrupo', verificaUsuarioLogado, IndexController.tiraDoGrupo);
 
 module.exports = router;

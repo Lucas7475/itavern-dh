@@ -151,5 +151,19 @@ module.exports = {
     })
 
     res.status(200).json({resposta:`Usuário ${novoStatus}.`})
+  },
+  tiraDoGrupo: async (req, res)=>{
+    let { id  }= req.body;
+    let idUsuario = req.session.idUsuario;
+
+    await UsuarioGrupo.update({
+      status:"saiu",
+    },{
+      where:{
+        id_grupo:id,
+        id_usuario:idUsuario
+      }
+    })
+    res.status(200).json({situacao:"Saiu do grupo"});
   }
 };

@@ -103,6 +103,16 @@
     color: red;
     cursor: pointer;
 }
+#pergunta{
+    margin-bottom: 15px;
+}
+#nao{
+    margin-left: 15px;
+    margin-top: 15px;
+}
+#sim{
+    margin-top: 15px;
+}
 
 @media(max-width:900px){
     #avatar{
