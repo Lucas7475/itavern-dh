@@ -31,6 +31,18 @@ module.exports = {
 
             //criando usuario
             await Usuario.create({nome,nickname,email,senha});
+
+            //pegando o usuario criado
+            let usuario = await Usuario.findOne({
+                where:{
+                    nickname:nickname
+                },
+                attributes:["id","nickname"]
+            })
+
+            req.session.idUsuario = usuario.id
+            req.session.usuario = usuario
+
             return res.redirect("/home");
     }
 }
