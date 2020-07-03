@@ -9,20 +9,8 @@ function listaJogos(){
         return data.map(u => u.toJSON())
     });
 }
-// essa função traz todos os grupos e apenas os grupos
-function gruposAll(){
-  return Grupo.findAll({include:[
-    {
-      model: Usuario,
-      as:"usuariosDoGrupo"
-    },
-    {
-      model: Jogo,
-      as: 'jogoDoGrupo'
-    }
-  ]}).then(
-    data => data.map( u => u.toJSON()))
-}
+// essa função retorna os grupos que o usuario atual não esta
+// e tambem retorna o numero de participantes desses grupos
 async function gruposSemUsuarioAtual(id){
   let resul = await Grupo.findAll(
       {
@@ -193,6 +181,41 @@ module.exports = {
         return grupo.jogoDoGrupo.id == groupGame;
       })
     }
+    if(groupSize){
+      switch(groupSize){
+        case "1":
+          grupos = grupos.filter((grupo,index) =>{
+            if(grupo.numJogadores <= 5){
+              return grupo;
+            }
+            else{
+              participantes.splice(index, 1);
+            }
+          })
+          break;
+        case "2":
+          grupos = grupos.filter((grupo, index) =>{
+            if(grupo.numJogadores >= 5 && grupo.numJogadores <= 7){
+              return grupo;
+            }
+            else{
+              participantes.splice(index, 1);
+            }
+          })
+          break;
+        case "3":
+          grupos = grupos.filter((grupo, index) =>{
+            if(grupo.numJogadores >= 7){
+              return grupo;
+            }
+            else{
+              participantes.splice(index, 1);
+            }
+          })
+          break;
+      }
+    }
+
     grupos.forEach(grupo => {
       if(grupo.img == ""){
         grupo.img = "group-cover.jpg";

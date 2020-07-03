@@ -39,11 +39,6 @@
                         <%  }  %>
                     </select>
             </div>
-        
-            <div class="numJogadores">
-                <label for="numJogador">Nº de Jogadores:</label>
-                <input type="number" name="numJogador" id="numJogador" min="2" step="1" pattern="\d*" value="<%= grupo.numJogadores %>"  >
-            </div>
 
             <div class="inicio">
                 <label for="inicio">Início das Reuniões:</label>
@@ -59,12 +54,27 @@
             <label for="duracao">Tempo de jogo:</label>
             <input type="number" name="tempoJogo" min="0" step=".5" id="duracao" value="<%= grupo.tempoJogo %>">
           </div>
+
+          <div class="numJogadores">
+            <label for="numJogador">Nº de Jogadores:</label>
+            <input type="number" name="numJogador" id="numJogador" min="2" step="1" pattern="\d*" value="<%= grupo.numJogadores %>"  >
+          </div>
         
             <div class="endereco">
                 <div class="cep">
                     <label for="cep">CEP:</label>
                     <input type="text" class="cep-edit" name="cep" id="cep-edit" placeholder="Apenas números" value="<%= grupo.cep %>" 
                      maxlength="9">
+                </div>
+
+                <div class="numero">
+                  <label for="numero">Número:</label>
+                  <input type="text" name="numero" id="numero" value="<%= grupo.numero %>">
+                </div>
+      
+                <div class="complemento">
+                  <label for="complemento">Complemento:</label>
+                  <input type="text" name="complemento" id="complemento" value="<%= grupo.complemento %>">
                 </div>
         
                 <div class="cidade">
@@ -76,28 +86,6 @@
                     <label for="endereco">Endereço:</label>
                     <input type="text" name="endereco" id="endereco" value="">
                 </div>
-        
-                <div class="numero">
-                    <label for="numero">Número:</label>
-                    <input type="text" name="numero" id="numero" value="<%= grupo.numero %>">
-                </div>
-        
-                <div class="complemento">
-                    <label for="complemento">Complemento:</label>
-                    <input type="text" name="complemento" id="complemento" value="<%= grupo.complemento %>">
-                </div>
-            </div>
-        
-            <div class="imgGrupo">
-                <label for="imgGrupo">Imagem do grupo:</label>
-                <div class="upload">
-                    <input type="file" name="imgGrupo" id="imgGrupo">
-                </div>
-            </div>
-        
-            <div class="descricao">
-                <label for="descricao">Descrição do grupo:</label>
-                <textarea name="descricao" id="descricao"><%= grupo.descricao %></textarea>
             </div>
         
             <div class="opcoes">
@@ -133,6 +121,19 @@
                     </div>
                 </div>
             </div>
+
+            <div class="imgGrupo">
+              <label for="imgGrupo">Imagem do grupo:</label>
+              <div class="upload">
+                  <input type="file" name="imgGrupo" id="imgGrupo">
+              </div>
+            </div>
+      
+            <div class="descricao">
+              <label for="descricao">Descrição do grupo:</label>
+              <textarea name="descricao" id="descricao"><%= grupo.descricao %></textarea>
+            </div>
+
             <div class="modal-footer">
               <button type="button" class="btn" data-dismiss="modal">Fechar</button>
               <button type="submit" class="btn">Editar</button>
