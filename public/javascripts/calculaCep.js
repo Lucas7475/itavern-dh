@@ -13,6 +13,12 @@ function limpaFormEdit() {
 function limpaInfo(){
     document.querySelector('#exampleModalCenter').querySelector('#enderecoInfo').innerText = "Não definido";
 }
+function limpaPerfil(){
+    document.getElementById("estadoUF").value = "";
+    document.getElementById("cidadeUser").value = "";
+    document.getElementById("bairro").value = "";
+    document.getElementById("ruaCasa").value = "";
+}
 // mostra o cep no popup de criar
 function callback(conteudo) {
 if (!("erro" in conteudo)) {
@@ -33,12 +39,25 @@ function mostraCep(conteudo) {
         limpaFormEdit();
     }
 }
+// mostra o cep no popup info
 function mostraCepInfo(conteudo){
     if (!("erro" in conteudo)) {
         document.querySelector('#enderecoInfo').innerText = (conteudo.logradouro);
     } 
     else {
         limpaInfo();
+    }
+}
+// mostra o cep no perfil
+function mostraCepPerfil(conteudo){
+    if (!("erro" in conteudo)) {
+        document.getElementById("estadoUF").value = (conteudo.uf);
+        document.getElementById("cidadeUser").value = (conteudo.localidade);
+        document.getElementById("bairro").value = (conteudo.bairro);
+        document.getElementById("ruaCasa").value = (conteudo.logradouro);
+    } 
+    else {
+        limpaPerfil();
     }
 }
 // função que busca o cep pro popup criar
@@ -104,6 +123,26 @@ function pesquisaCepInfo(valor){
     }
     else {
         limpaInfo();
+    }
+}
+
+function pesquisaCepPerfil(valor){
+    let cep = valor.replace(/\D/g, '');
+    
+    if (cep != "") {
+        var validacep = /^[0-9]{8}$/;
+    
+        if(validacep.test(cep)) {
+            let script = document.createElement('script');
+            script.src = `https://viacep.com.br/ws/${cep}/json/?callback=mostraCepPerfil`
+            document.body.appendChild(script); 
+        } 
+        else {
+            limpaPerfil();
+        }
+    }
+    else {
+        limpaPerfil();
     }
 }
 

@@ -6,11 +6,14 @@ var cepAlterado;
 var numEndereco;
 var tag;
 
-//mascara de data pro campo inicioReuniao
-$("#inicio").mask("99/99/9999");
-//mascara para o campo cep
-$("#cep-create").mask('99999-999');
-$("#cep-edit").mask('99999-999');
+
+setTimeout(()=>{
+    //mascara de data pro campo inicioReuniao
+    $("#inicio").mask("99/99/9999");
+    //mascara para o campo cep
+    $("#cep-create").mask('99999-999');
+    $("#cep-edit").mask('99999-999');
+})
 
 //função para marcar os dias de reunião
 const colocaCheck = (tag) =>{
@@ -98,7 +101,7 @@ document.querySelectorAll('.cep-edit').forEach(impCep =>{
         $(impCep).mask('99999-999');
     })
 })
-// adiciona evento que determina o valor da data
+// adiciona evento que determina o valor do cep
 document.querySelectorAll('.cep-edit').forEach(inpCep =>{
     inpCep.addEventListener('blur', evento =>{
         cepAlterado = inpCep.value;

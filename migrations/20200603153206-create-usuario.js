@@ -30,6 +30,14 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull: false
       },
+      cep:{
+        type: Sequelize.STRING,
+        allowNull:true
+      },
+      numero:{
+        type: Sequelize.INTEGER,
+        allowNull:true
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE

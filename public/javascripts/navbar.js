@@ -17,3 +17,11 @@ navClose.addEventListener("click", () => {
   navbar.classList.remove("showNav");
   body.classList.remove("body-overflow");
 });
+
+setTimeout(()=>{
+  //mascara de data pro campo inicioReuniao
+  $("#inicio").mask("99/99/9999");
+  //mascara para o campo cep
+  $("#cep-create").mask('99999-999');
+  $("#cep-edit").mask('99999-999');
+})

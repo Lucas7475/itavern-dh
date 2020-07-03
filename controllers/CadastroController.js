@@ -38,7 +38,7 @@ module.exports = {
                 where:{
                     nickname:nickname
                 },
-                attributes:["id","nickname","img_perfil", "nome"]
+                attributes:["id","nickname","img_perfil", "nome", "cep", "numero"]
             })
 
             req.session.idUsuario = usuario.id
@@ -50,7 +50,7 @@ module.exports = {
         
         let idUsuario = req.session.idUsuario;
 
-        let { nickname, nome} = req.body;
+        let { nickname, nome, cepUser, numeroCasa } = req.body;
         let imgPerfil;
 
         if(req.file == undefined){
@@ -62,7 +62,9 @@ module.exports = {
         await Usuario.update({
             nome,
             nickname,
-            img_perfil: imgPerfil
+            img_perfil: imgPerfil,
+            cep: cepUser,
+            numero: numeroCasa
         },{
             where:{
                 id: idUsuario
@@ -73,7 +75,7 @@ module.exports = {
             where:{
                 id: idUsuario
             },
-            attributes:["id", "nome", "nickname", "img_perfil"]
+            attributes:["id", "nome", "nickname", "img_perfil", "cep", "numero"]
         })
 
         res.redirect('/perfil');

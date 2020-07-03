@@ -32,44 +32,32 @@
 
                     <div class="dadosUser">
                         <label for="cepUser">CEP</label>
-                        <input type="text" id="cepUser" name="cepUser">
+                        <input type="text" id="cepUser" name="cepUser" value="<%= usuario.cep %>">
                     </div>
 
                     <div class="dadosUser">
                         <label for="estadoUF">Estado/UF</label>
-                        <select name="estadoUF" id="estadoUF">
-                            <option value="SP">São Paulo</option>
-                            <option value="RJ">Rio de Janeiro</option>
-                            <option value="MG">Minas Gerais</option>
-                        </select>
+                        <input type="text" name="estadoUF" id="estadoUF" value="">
                     </div>
 
                     <div class="dadosUser">
                         <label for="cidadeUser">Cidade</label>
-                        <select name="cidadeUser" id="cidadeUser">
-                            <option value="cidade1">Cidade 1</option>
-                            <option value="cidade2">Cidade 2</option>
-                            <option value="cidade3">Cidade 3</option>
-                        </select>
+                        <input type="text" name="cidadeUser" id="cidadeUser" value="">
                     </div>
 
                     <div class="dadosUser">
                         <label for="bairro">Bairro</label>
-                        <select name="bairro" id="bairro">
-                            <option value="bairro1">Bairro 1</option>
-                            <option value="bairro2">Bairro 2</option>
-                            <option value="bairro3">Bairro 3</option>
-                        </select>
+                        <input type="text" name="bairro" id="bairro" value="">
                     </div>
 
                     <div class="dadosUser">
                         <label for="ruaCasa">Rua</label>
-                        <input type="text" id="ruaCasa" name="ruaCasa"><br>
+                        <input type="text" id="ruaCasa" name="ruaCasa" value=""><br>
                     </div>
 
                     <div class="dadosUser">
                         <label for="numeroCasa">Número</label>
-                        <input type="text" id="numeroCasa" name="numeroCasa">
+                        <input type="text" id="numeroCasa" name="numeroCasa" value="<%= usuario.numero %>">
                     </div>
                 </div>
             </div>
@@ -79,12 +67,6 @@
             </div>
         </form>
     </div>
+    <script src="/javascripts/editarPerfil.js"></script>
 </main>
-
-
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-    <script src="https://use.fontawesome.com/46bd2a5d08.js"></script>
-
 <%- include('parts/foot'); %>
