@@ -81,7 +81,7 @@ function verificaPedidos (id){
 
 module.exports = {
   index: (req, res) => {
-    res.render("index");
+    res.render("index",{message:""});
   },
   home: async (req, res) => {
     let jogos = await listaJogos();

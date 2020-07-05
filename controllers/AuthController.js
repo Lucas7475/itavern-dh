@@ -11,16 +11,16 @@ const AuthController = {
         // console.log(usuario);
 
         if(!usuario){
-            return res.send({message:"Erro ao tentar realizar o login."})
+            return res.status(401).json({message:"Usuário e senha não correspondem."})
         }
 
         if(!bcrpyt.compareSync(senha, usuario.senha)){
-            return res.send({message:"Erro ao tentar realizar o login."})
+            return res.status(401).json({message:"Usuário e senha não correspondem."})
         }
         
         req.session.idUsuario = usuario.id
         req.session.usuario = usuario
-        return res.redirect('home');
+        return res.status(200).json({});
 
     }
 }
