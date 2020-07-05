@@ -1,7 +1,8 @@
 <%- include('parts/head',{title:'iTavern'}); %>
-    <link rel="stylesheet" href="/css/font-awesome.min.css">
-    <link rel="stylesheet" href="/css/criarSala.css">
-    <link rel="stylesheet" href="css/login-cadastro.css">
+<link rel="stylesheet" href="/css/font-awesome.min.css">
+<link rel="stylesheet" href="/css/criarSala.css">
+<link rel="stylesheet" href="css/login-cadastro.css">
+<%- include('esqueciSenha',{title:'iTavern'}); %>
     
 
 <!-- INICIO -->
@@ -45,14 +46,14 @@
                 </div>
                 <div id="login">
                     <h1>Insira sua conta iTavern</h1>
-                    <div id="falhaLogin" class="">
-                        <h6><%= message %></h6>
+                    <div id="falhaLogin" class="invi">
+                        <h6><%= email %></h6>
                     </div>
                     <div id="logar">
                         <form action="/login" method="POST" >
                             <input id="email" type="email" name="email"placeholder="Email"><br>
                             <input id="senha" type="password" name="senha" placeholder="Senha">
-                            <a href="#"><h4>Esqueceu sua senha?</h4></a>
+                            <a data-toggle="modal" data-target="#esqueciSenha"><h4>Esqueceu sua senha?</h4></a>
                             <button id="login" type="submit" class="entrar">Entrar</button><br>
                         </form>
                     </div>
@@ -101,13 +102,16 @@
                             <label class="senhaUser col-12">
                                 <br>
                                 Senha:<br>
-                                <input type="password" name="senha" id="senhaUser">
+                                <input type="password" name="senha" id="senhaUser" >
                             </label>
                             <label class="senhaUser col-12">
                                 <br>
                                 Confirmar senha:<br>
                                 <input type="password" name="senha2" id="confirmarSenhaUser">
                             </label>
+                            <div class="invi col-12" id="checkSenha">
+    
+                            </div>
                         </div>
                     </div>
                     <div class="modal-footer">
@@ -123,6 +127,7 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
     <script src="https://use.fontawesome.com/46bd2a5d08.js"></script>
+    <script src="/javascripts/jquery.mask.min.js"></script>
     <script src="/javascripts/login.js"></script>
 </body>
 </html>

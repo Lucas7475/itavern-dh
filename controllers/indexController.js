@@ -81,7 +81,11 @@ function verificaPedidos (id){
 
 module.exports = {
   index: (req, res) => {
-    res.render("index",{message:""});
+    let email ="";
+    if(!req.session.token){
+      res.render("index",{email});
+    }
+    res.render('index',{email:req.session.token.email})
   },
   home: async (req, res) => {
     let jogos = await listaJogos();
