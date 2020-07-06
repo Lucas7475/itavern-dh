@@ -12,7 +12,6 @@ inpCepUser.addEventListener('blur', (evento)=>{
     evento.preventDefault();
     if(inpCepUser.value == ""){
         inpCepUser.value = cepAtual;
-        document.getElementById("estadoUF").value = componetesEndereco.uf; 
         document.getElementById("cidadeUser").value = componetesEndereco.cidade;
         document.getElementById("bairro").value = componetesEndereco.bairro;
         document.getElementById("ruaCasa").value = componetesEndereco.rua;
@@ -32,7 +31,6 @@ setTimeout(()=>{
 
 inpCepUser.addEventListener('click', evento =>{
     cepAtual = inpCepUser.value;
-    componetesEndereco.uf = document.getElementById("estadoUF").value;
     componetesEndereco.cidade = document.getElementById("cidadeUser").value;
     componetesEndereco.bairro = document.getElementById("bairro").value;
     componetesEndereco.rua = document.getElementById("ruaCasa").value;

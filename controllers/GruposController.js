@@ -131,6 +131,7 @@ module.exports = {
     
     diasReuniao = diasReuniao.toString();
     inicioReuniao = arrumaDataDom(inicioReuniao);
+    let chat = JSON.stringify([{"autor":"ciclano","mensagem":"Bom dia!"}]);
 
     await Grupo.create({id_jogo,
                         id_admin,
@@ -143,7 +144,8 @@ module.exports = {
                         img,
                         descricao,
                         cep,
-                        numero});
+                        numero,
+                        chat});
     let id_grupo = await Grupo.findOne({
       where:{
         nome: nome
@@ -160,8 +162,8 @@ module.exports = {
   search: async (req, res) => {
     let jogos = await listaJogos();
     let { filtrado, participantes } = await gruposSemUsuarioAtual(req.session.idUsuario);
-    // let participantes = grupos.map(grupo => grupo.usuariosDoGrupo.length);
     let grupos = filtrado;
+    console.log(grupos)
     let {
       searchText,
       groupGame,

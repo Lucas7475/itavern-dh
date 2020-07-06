@@ -35,7 +35,11 @@ module.exports = (sequelize, DataTypes) => {
       type:DataTypes.STRING,
       allowNull:false
     },
-    numero: DataTypes.NUMBER
+    numero: DataTypes.NUMBER,
+    chat:{
+      type: DataTypes.JSON,
+      allowNull:false
+    }
   }, {
     tableName: 'grupos'
   });

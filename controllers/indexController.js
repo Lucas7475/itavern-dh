@@ -79,13 +79,18 @@ function verificaPedidos (id){
   })
 }
 
+function buscaGrupo (id){
+  return Grupo.findByPk(id,{
+    attributes:["id","nome"]
+  })
+}
+
 module.exports = {
   index: (req, res) => {
-    let email ="";
-    if(!req.session.token){
-      res.render("index",{email});
-    }
-    res.render('index',{email:req.session.token.email})
+    !req.session.token?
+      res.render("index",{email:""})
+    :
+      res.render('index',{email:req.session.token.email})
   },
   home: async (req, res) => {
     let jogos = await listaJogos();
@@ -109,12 +114,15 @@ module.exports = {
     res.render("editar-perfil", {jogos, usuario, nickname, imgPerfil});
   },
   chat: async (req,res) =>{
-    let gruposDB = gruposDoUsuario(1) 
+    // let gruposDB = gruposDoUsuario(1)
+    let grupo = await buscaGrupo(req.params.id);
     let nickname = req.session.usuario.nickname;
     let imgPerfil = req.session.usuario.img_perfil;
-    // console.log(req.query)
+    let jogos = await listaJogos();
+
     res.render("grupos",{
-      gruposDB,
+      grupo,
+      jogos,
       nickname,
       imgPerfil
     })
@@ -173,5 +181,16 @@ module.exports = {
       }
     })
     res.status(200).json({situacao:"Saiu do grupo"});
+  },
+  searchChat: async (req, res) =>{
+    let objComArray = await Grupo.findByPk(req.params.id,{
+      attributes:["chat"]
+    })
+
+    let mensagens = JSON.parse(objComArray.chat);
+
+    
+    res.status(200).json({mensagens});
+
   }
 };

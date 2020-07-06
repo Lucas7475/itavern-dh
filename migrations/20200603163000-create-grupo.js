@@ -54,6 +54,10 @@ module.exports = {
         type: Sequelize.INTEGER,
         allowNull: false
       },
+      chat:{
+        type: Sequelize.JSON,
+        allowNull: false
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE

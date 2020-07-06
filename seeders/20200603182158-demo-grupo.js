@@ -17,6 +17,7 @@ module.exports = {
           descricao: "Grupo fundado pelos criadores da plataforma",
           cep: "05343-010",
           numero: 123,
+          chat: JSON.stringify([{"autor":"fulano","mensagem":"Bom dia!"},{"autor":"ciclano","mensagem":"Bom dia!"}]),
           createdAt: new Date(),
           updatedAt: new Date()
         },
@@ -33,6 +34,7 @@ module.exports = {
           descricao: "Desbravando o mundo de Ozerath!",
           cep: "05337-020",
           numero: 312,
+          chat: JSON.stringify([{"autor":"fulano","mensagem":"Bom dia!"},{"autor":"ciclano","mensagem":"Bom dia!"}]),
           createdAt: new Date(),
           updatedAt: new Date()
         },
@@ -49,6 +51,7 @@ module.exports = {
           descricao: "Venham descobrir os mistérios de cthulhu",
           cep: "06020-060",
           numero: 456,
+          chat: JSON.stringify([{"autor":"fulano","mensagem":"Bom dia!"},{"autor":"ciclano","mensagem":"Bom dia!"}]),
           createdAt: new Date(),
           updatedAt: new Date()
         },
@@ -65,6 +68,7 @@ module.exports = {
           descricao: "Explorando o mundo de Tormenta",
           cep: "05353-110",
           numero: 789,
+          chat: JSON.stringify([]),
           createdAt: new Date(),
           updatedAt: new Date()
         },

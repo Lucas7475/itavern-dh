@@ -14,7 +14,6 @@ function limpaInfo(){
     document.querySelector('#exampleModalCenter').querySelector('#enderecoInfo').innerText = "Não definido";
 }
 function limpaPerfil(){
-    document.getElementById("estadoUF").value = "";
     document.getElementById("cidadeUser").value = "";
     document.getElementById("bairro").value = "";
     document.getElementById("ruaCasa").value = "";
@@ -51,7 +50,6 @@ function mostraCepInfo(conteudo){
 // mostra o cep no perfil
 function mostraCepPerfil(conteudo){
     if (!("erro" in conteudo)) {
-        document.getElementById("estadoUF").value = (conteudo.uf);
         document.getElementById("cidadeUser").value = (conteudo.localidade);
         document.getElementById("bairro").value = (conteudo.bairro);
         document.getElementById("ruaCasa").value = (conteudo.logradouro);

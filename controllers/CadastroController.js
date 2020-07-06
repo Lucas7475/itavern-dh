@@ -50,7 +50,7 @@ module.exports = {
         
         let idUsuario = req.session.idUsuario;
 
-        let { nickname, nome, cepUser, numeroCasa } = req.body;
+        let { nickname, nome, cepUser, numeroCasa, emailUser } = req.body;
         let imgPerfil;
 
         if(req.file == undefined){
@@ -63,6 +63,7 @@ module.exports = {
             nome,
             nickname,
             img_perfil: imgPerfil,
+            email:emailUser,
             cep: cepUser,
             numero: numeroCasa
         },{
