@@ -14,5 +14,6 @@ router.put("/:id/update", verificaUsuarioLogado, uploadCover.single('imgGrupo'),
 router.delete("/:id/delete", verificaUsuarioLogado, GruposController.delete);
 router.post('/addNoGrupo', verificaUsuarioLogado, GruposController.addGrupo);
 router.get("/teste", GruposController.teste);
+router.post('/ceps', verificaUsuarioLogado, GruposController.ceps);
 
 module.exports = router;

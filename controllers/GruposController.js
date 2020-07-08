@@ -51,7 +51,18 @@ async function gruposSemUsuarioAtual(id){
       });
       participantes.push(contador);
   })
-  return {filtrado, participantes};
+
+  let ceps = [];
+
+  filtrado.forEach(grupo =>{
+    ceps.push({
+      cep: grupo.cep,
+      numero: grupo.numero,
+      id: grupo.id
+    })
+  })
+
+  return {filtrado, participantes, ceps};
 }
 // essa função traz os grupos que um usuario está
 function gruposUsuario(id){
@@ -163,7 +174,6 @@ module.exports = {
     let jogos = await listaJogos();
     let { filtrado, participantes } = await gruposSemUsuarioAtual(req.session.idUsuario);
     let grupos = filtrado;
-    console.log(grupos)
     let {
       searchText,
       groupGame,
@@ -172,15 +182,25 @@ module.exports = {
     } = req.query;
     
     if (searchText) {
-      grupos = grupos.filter(grupo => {
+      grupos = grupos.filter((grupo, index) => {
         let umNome = grupo.nome.toLowerCase();
         let pesquisado = searchText.toLowerCase().trim();
-        return (umNome.includes(pesquisado))
+        if(umNome.includes(pesquisado)){
+          return grupo;
+        }
+        else{
+          participantes.splice(index, 1);
+        }
       })
     }
     if(groupGame){
-      grupos = grupos.filter(grupo =>{
-        return grupo.jogoDoGrupo.id == groupGame;
+      grupos = grupos.filter((grupo, index) =>{
+        if(grupo.jogoDoGrupo.id == groupGame){
+          return grupo
+        }
+        else{
+          participantes.splice(index, 1);
+        }
       })
     }
     if(groupSize){
@@ -217,6 +237,7 @@ module.exports = {
           break;
       }
     }
+    distance == undefined? distance = '': distance = distance;
 
     grupos.forEach(grupo => {
       if(grupo.img == ""){
@@ -229,6 +250,7 @@ module.exports = {
     res.render("grupos-busca", {
       grupos,
       jogos,
+      distance,
       participantes,
       nickname,
       imgPerfil
@@ -349,5 +371,10 @@ module.exports = {
       })
       res.status(200).json({situacao:"Seu pedido foi enviado"});
     }
+  },
+  ceps: async (req, res) =>{
+    let { ceps } = await gruposSemUsuarioAtual(req.session.idUsuario);
+
+    res.status(200).json({ceps});
   }
 };

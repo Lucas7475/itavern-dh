@@ -16,6 +16,19 @@ const colocaNoGrupo = (id) =>{
     })
 }
 
+const ocultaFiltrados = (lista) =>{
+    document.querySelectorAll('.aCard').forEach(single =>{
+        let id = single.getAttribute("id");
+        id = Number.parseInt(id);
+        if(lista.includes(id)){
+            single.classList.remove('invi')
+        }
+        else{
+            single.classList.add('invi');
+        }
+    })
+}
+
 document.querySelectorAll('.entrar').forEach(botao=>{
     botao.addEventListener('click', evento =>{
         evento.preventDefault();
@@ -26,7 +39,6 @@ document.querySelectorAll('.entrar').forEach(botao=>{
 document.getElementById('confirmaEntrada').addEventListener('click', async (evento) =>{
     evento.preventDefault();
     let resul = await colocaNoGrupo(idGrupo);
-    console.log(resul.situacao);
     document.getElementById(`${idGrupo}`).remove();
     idGrupo = null;
     

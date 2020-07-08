@@ -3,6 +3,7 @@
 <%- include('./criarSala',{jogos}); %>
 <%- include('parts/navbar', {current_page:'buscar-grupos'}); %>
 <%- include('./info'); %>
+
 <!-- searchbar -->
 <main>
   <section class="container searchbar">
@@ -24,7 +25,7 @@
       </div>
       <div class="col-4 col-md-2">
         <div class="input-group mb-3">
-          <select name="groupGame" class="custom-select form-control" id="inputGroupSelect01" placeholder="Jogo">
+          <select  name="groupGame" class="custom-select form-control" id="inputGroupSelect01" placeholder="Jogo">
             <option value="" selected disabled>Jogo</option>
             <% for(jogo of jogos) {%>
             <option value="<%= jogo.id %>"><%= jogo.nome %></option>
@@ -46,7 +47,7 @@
       <div class="col-4 col-md-2">
         <div class="input-group mb-3">
           <select class="custom-select form-control" name="distance" placeholder="Distância" id="inputGroupSelect03">
-            <option value="" disabled selected>Distância</option>
+            <option value="<%= distance %>" disabled selected>Distância</option>
             <option value="1">Até 5km</option>
             <option value="2">5km a 15km</option>
             <option value="3">mais de 15km</option>
@@ -61,7 +62,7 @@
       <!-- Inicio de um card de grupo -->
       <% let x = 0; %>
       <% for(let grupo of grupos){ %>
-      <article class="col-12 col-sm-6 col-lg-4 col-xl-3 py-3">
+      <article class="col-12 col-sm-6 col-lg-4 col-xl-3 py-3 aCard" id="<%= grupo.id %>">
         <div class="card" id="<%= grupo.id %>">
           <div class="cover-container">
             <img src="/images/covers/<%= grupo.img %>" class="card-img-top" alt="..." />
@@ -111,5 +112,8 @@
   </section>
   <script src="/javascripts/grupos-busca.js"></script>
   <script src="/javascripts/home.js"></script>
+  <script defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDReDjoWILi3KVAoNzzO63BhxXyzcEcLs0&libraries=geometry">
+  </script>
+  <script src="/javascripts/distanceMatrix.js"></script>
 </main>
 <%- include('parts/foot'); %>
