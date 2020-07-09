@@ -1,6 +1,6 @@
 <%- include('parts/head',{title:'iTavern'}); %>
 <link rel="stylesheet" href="/css/font-awesome.min.css">
-<link rel="stylesheet" href="/css/criarSala.css">
+<!-- <link rel="stylesheet" href="/css/criarSala.css"> -->
 <link rel="stylesheet" href="css/login-cadastro.css">
 <%- include('esqueciSenha',{title:'iTavern'}); %>
     
@@ -68,7 +68,7 @@
     <div class="modal fade" id="modalCadastro" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <form action="cadastro/submit" method="POST">
-                <div class="modal-content">
+                <div class="modal-content" id="dGIndex">
                     <div class="modal-header">
                     <div class="titulo">
                         <h5 class="modal-title" id="exampleModalCenterTitle">Cadastro</h5>
@@ -81,32 +81,30 @@
                     </div>
                     <div class="modal-body">
                         <div class="row">
-                            <label class="nomeUser col-6">
-                                <br>
-                                Nome:
-                                <input type="text" name="nome" id="nomeUser">
-                            </label>
-                            <br>
-                            <label class="sobrenomeUser col-6">
-                                <br>
-                                Nome de Usuário:
-                                <input type="text" name="nickname" id="sobrenomeUser">
-                            </label>
-                            <br>
+                            <div id="linha1">
+                                <label class="nomeUser col-6">
+                                    Nome:
+                                    <input type="text" name="nome" id="nomeUser">
+                                </label>
+                                
+                                <label class="sobrenomeUser col-6">
+                                    Nome de Usuário:
+                                    <input type="text" name="nickname" id="sobrenomeUser">
+                                </label>
+                            </div>
+
                             <label class="emailUser col-12">
-                                <br>
-                                Email:<br>
+                                Email:
                                 <input type="email" name="email" id="emailUser">
                             </label>
-                            <br>
+                            
                             <label class="senhaUser col-12">
-                                <br>
-                                Senha:<br>
+                                Senha:
                                 <input type="password" name="senha" id="senhaUser" >
                             </label>
+
                             <label class="senhaUser col-12">
-                                <br>
-                                Confirmar senha:<br>
+                                Confirmar senha:
                                 <input type="password" name="senha2" id="confirmarSenhaUser">
                             </label>
                             <div class="invi col-12" id="checkSenha">
@@ -115,7 +113,7 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="submit" class="btn btn-secondary">Cadastrar</button>
+                        <button type="submit" id="btnCriarConta" class="btn btn-secondary">Cadastrar</button>
                     </div>
                 </div>
                 </div>

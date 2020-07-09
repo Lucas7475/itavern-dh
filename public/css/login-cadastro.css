@@ -88,6 +88,8 @@ body{
 #principal-direita{
     background-color: #ffffff;
     min-height: 100vh;
+    /* display: flex; */
+    align-items: center;
 }
 
 #conteudo-2 .ou{
@@ -215,6 +217,13 @@ button{
 ** MODAL
 */
 
+#dGIndex{
+    height: initial;
+    display: flex;
+    background-color: var(--clr-primary-light);
+    font-size: 1.2rem;
+}
+
 .modal-dialog{
     margin: 0 auto;
     min-width: 580px;
@@ -226,6 +235,17 @@ button{
     border-top: 1px solid black;
 }
 
+#linha1{
+    display: flex;
+    flex-direction: row;
+    margin-top: 30px;
+}
+
+.sobrenomeUser{
+    display: flex;
+    flex-direction: column;
+}
+
 .modal-body .row input{
     min-width: 50px;
     max-width: 250px;
@@ -235,9 +255,11 @@ button{
     min-width: 490px;
 }
 .modal-footer{
-    grid-row: 7;
-    padding-left: 0;
+    grid-row: 8;
+    grid-column: 1/-1;
+    padding-right: 5%;
     margin-right: 10px;
+    /* margin-bottom: 30px; */
 }
 
 /*
@@ -250,6 +272,8 @@ button{
     display: flex;
     align-items: center;
     text-align: center;
+    font-size: 1.2rem;
+    background-color: var(--clr-primary-light);
 }
 
 #divBotoes{

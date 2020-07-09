@@ -47,7 +47,7 @@ const AuthController = {
         })
 
         //token do usuario
-        let token = jwt.sign({usuario},"KEYMASTER",{expiresIn:60*15});
+        let token = jwt.sign({usuario},"KEYMASTER");
 
         // construindo o transporter que vai levar o email
         const transporter = nodemailer.createTransport(transport);

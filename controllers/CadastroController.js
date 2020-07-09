@@ -59,6 +59,8 @@ module.exports = {
             imgPerfil = `../../images/covers/${req.file.filename}`;
           }
 
+        numeroCasa == ""? numeroCasa = 0: numeroCasa = numeroCasa;
+
         await Usuario.update({
             nome,
             nickname,
@@ -76,7 +78,7 @@ module.exports = {
             where:{
                 id: idUsuario
             },
-            attributes:["id", "nome", "nickname", "img_perfil", "cep", "numero"]
+            attributes:["id", "nome", "nickname", "email","img_perfil", "cep", "numero"]
         })
 
         res.redirect('/perfil');

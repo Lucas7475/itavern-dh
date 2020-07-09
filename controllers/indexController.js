@@ -43,7 +43,7 @@ function infoGrupo(id){
           {
             model:Grupo,
             as:"dadosDosGrupo",
-            attributes:["id","id_admin","nome", "inicioReuniao", "cep","id_jogo", "descricao"]
+            attributes:["id","id_admin","nome", "inicioReuniao", "cep","id_jogo", "descricao", "numero"]
           }
         ]
     }).then(data =>{
@@ -109,6 +109,7 @@ module.exports = {
   perfil: async (req, res) => {
     let jogos = await listaJogos();
     let { usuario } = req.session;
+    usuario.numero == 0? usuario.numero = "" : usuario.numero = usuario.numero;
     let nickname = req.session.usuario.nickname;
     let imgPerfil = req.session.usuario.img_perfil;
     res.render("editar-perfil", {jogos, usuario, nickname, imgPerfil});

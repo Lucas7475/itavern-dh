@@ -88,9 +88,10 @@
       <% } %>
       <!-- Fim de um card de grupo -->
     </div>
+
     <div class="modal fade" id="entraGrupo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog caixa" role="document">
-        <div class="modal-content tCaixa">
+      <div class="modal-dialog modal-dialog-centered caixa">
+        <div class="modal-content" id="colorConfirma">
           <div class="modal-header">
             <div class="titulo">
               <h5>Deseja entrar nesse grupo?</h5>
@@ -101,13 +102,16 @@
               </button>
             </div>
           </div>
-          <div class="conteudo">
+          <div class="modal-body">
+          </div>
+          <div class="modal-footer" id="ftBusca">
             <button type="button" class="btn" id="cancela" data-dismiss="modal">Cancelar</button>
             <button type="submit" class="btn" id="confirmaEntrada" data-dismiss="modal">Confirmar</button>
           </div>
         </div>
       </div>
     </div>
+
   </div>
   </section>
   <script src="/javascripts/grupos-busca.js"></script>

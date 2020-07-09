@@ -1,19 +1,12 @@
-#exampleModal{
-    width: 100%;
-}
-
-.modal-dialog{
-    min-width: 70%;
+#dXGCriar{
+    max-width: fit-content;
     margin-top: 4%;
 }
 
-.modal-content{
+#dGGCriar{
     background-color: var(--clr-primary-light);
-    height: 650px;
+    height: 700px;
     font-size: 1.2rem;
-    display: grid;
-    grid-template-columns: repeat(8, 12.5%);
-    grid-template-rows: repeat(8, 12.5%);
 }
 .titulo{
     grid-column: 3 / 7;
@@ -24,7 +17,7 @@
 }
 .modal-header{
     border-bottom: 1px;
-    grid-row: 1;
+    /* grid-row: 1; */
     width: 100%;
     grid-column: 1 / -1;
     padding-top: 0px;
@@ -57,8 +50,8 @@
 /* CORPO DO POPUP */
 
 .modal-body{
-    grid-row: 2 / -1;
-    grid-column: 1 / -1;
+    /* grid-row: 2 / -1;
+    grid-column: 1 / -1; */
     padding: 0% 5% 0 5%;
     height: 100%;
     display: flex;
@@ -69,7 +62,7 @@
     width: 100%;
     display: grid;
     grid-template-columns: repeat(8, calc( 100% / 8));
-    grid-template-rows: repeat(6, auto);
+    /* grid-template-rows: repeat(6, auto); */
     align-items: center;
 }
 .formulario input, select, textarea {
@@ -143,7 +136,7 @@
     grid-column: 1 / -1;
     display: grid;
     grid-template-columns: repeat(8, calc( 100% / 8));
-    grid-template-rows: repeat(2 , auto);
+    /* grid-template-rows: repeat(2 , auto); */
 }
 .cep{
     grid-row: 1;
@@ -153,16 +146,13 @@
 }
 .cep input{
     flex-grow: 1;
-    max-width: 60%;
+    max-width: 75%;
 }
 .cidade{
     grid-row: 2;
     grid-column: 7 / -1;
     display: flex;
     flex-direction: column;
-}
-.cidade select{
-    flex-grow: 1;
 }
 .rua{
     grid-row: 1;
@@ -195,24 +185,29 @@
     flex-grow: 1;
 }
 /* QUINTA LINHA FORMULARIO */
+
+#textOpcoes{
+    grid-column: 1;
+    text-align: left;
+}
+
 .opcoes{
-    grid-row: 4 ;
-    grid-column: 1 / 5;
+    /* grid-row: 4 ; */
+    grid-column: 2 / 5;
     display: flex;
     align-items: center;
 }
 .diaReuniao{
     font-size: 1rem;
-    margin-left: 15px;
+    /* margin-left: 15px; */
     display: grid;
     grid-template-rows: repeat(4, auto);
     grid-template-columns: repeat(2, auto);
-    column-gap: 10px;
+    column-gap: 15px;
     text-align: left;
 }
 /* SEXTA LINHA DO FORMULARIO */
 .descricao{
-    grid-row: 4 / 6;
     grid-column: 5 / -1;
     height: 100%;
     margin-bottom: 0;
@@ -223,20 +218,18 @@
 #descricao{
     resize: none;
     font-size: 1rem;
-    height: 80%;
+    height: 100%;
+    border-radius: calc(.3rem - 1px);
 }
 .imgGrupo{
     grid-row: 5;
-    grid-column: 1 / 4;
+    grid-column: 1 / -1;
     display: flex;
     align-items: center;
+    margin-top: 10px;
 }
 .upload{
     margin-left: 10px;
-    grid-row: 5;
-    grid-column: 2 / 4;
-    display: flex;
-    width: 7.5rem;
 }
 input[type="file"] {  
     cursor: pointer;
@@ -254,12 +247,13 @@ input[type="file"] {
 }
 .modal-footer{
     border-top: 1px;
-    grid-row: 6;
-    grid-column: 6 / -1;
-    padding-right: 12%;
+    grid-column: 5 / -1;
+    padding-top: 0;
 }
-.modal-footer button{
+
+.btnCE{
     margin-left: 20px;
+    font-size: 1.2rem;
 }
 .btn:focus{
     box-shadow: none;
@@ -301,79 +295,58 @@ input[type=number]::-webkit-outer-spin-button {
     font-size: 1.5rem;
     margin-top: 1.5rem;
 }
+#colorConfirma{
+    background-color: var(--clr-primary-light);
+    max-width: 300px;
+    min-width: 300px;
+    height: 200px;
+    display: flex;
+    align-self: center;
+}
+#ftBusca{
+    justify-content: space-evenly;
+}
 
-@media (max-width: 1100px){
-    .modal-dialog{
-        min-width: 80%;
+@media (max-width: 790px){
+    label{
+        margin-bottom: 0.2rem;
+    }
+    #dGGCriar{
+        height: 600px;
+        margin-top: 12%;
+    }
+    .modal-header h5{
+        font-size: 1.3rem;
     }
     .modal-body .formulario{
         font-size: 0.9rem;
     }
     .diaReuniao{
-        font-size: 0.8rem;
-        column-gap: 5px;
+        font-size: 0.9rem;
     }
     #descricao{
-        height: 60%;
-    }
-    .upload{
-        margin-left: 5px;
-        width: 6.3rem;
+        height: 75%;
     }
     .modal-footer{
-        padding-top: 0;
-        margin-top: -15px;
+        margin-top: 0;
     }
-
-}
-@media (max-width: 790px){
-    label{
-        margin-bottom: 0.2rem;
-    }
-    .modal-dialog{
-        min-width: 90%;
-    }
-    .modal-header h5{
-        font-size: 1.3rem;
-    }
-    .modal-footer button{
-        font-size: 0.8rem;
+    .btnCE{
+        font-size: 1rem;
         padding: 5%;
     }
-    .modal-body .formulario{
-        font-size: 0.8rem;
-        grid-template-rows: repeat(5,auto);
-        margin-bottom: 5%;
+    .conteudo{
+        margin-top: 4rem;
     }
-    .opcoes{
-        grid-column: 1 / 6;
-    }
-    .diaReuniao{
-        font-size: 0.7rem;
-    }
-    .descricao{
-        grid-column: 6 / -1;
-    }
-    #descricao{
-        height: 50%;
-    }
-    .imgGrupo{
-        grid-column: 1 / 5;
-    }
-    .upload{
-        width: 5.725rem;
-    }
-    .modal-footer{
-        grid-row: 5;
-        margin-top: 0;
+    .alerta{
+        margin-top: 2.5rem;
     }
 } 
 @media (max-width: 576px){
-    .modal-dialog{
+    #dXGCriar{
         height: 100%;
         margin: 5% 0 5% 0;
     }
-    .modal-content{
+    #dGGCriar{
         width: 95%;
         margin: auto;
         grid-template-rows: repeat(8, auto);

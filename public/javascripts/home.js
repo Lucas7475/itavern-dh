@@ -54,6 +54,7 @@ const montaInfo = async (dados)=>{
     popInfo.querySelector('#usuarios').innerText = '';
     popInfo.querySelector('#nomeGrupo').innerHTML = dados.nome;
     popInfo.querySelector('#dataInicio').innerHTML = dados.inicioReuniao;
+    popInfo.querySelector('#descricao').innerHTML = dados.descricao;
 
     pesquisaCepInfo(dados.cep);
 
@@ -83,60 +84,84 @@ const montaInfo = async (dados)=>{
         }
         if(usuario.id == dados.idLogado && dados.idLogado != dados.id_admin){
             popInfo.querySelector('.adm').classList.remove('invi');
+            popInfo.querySelector('#cNumero').classList.remove('invi');
+            popInfo.querySelector('#numero').innerHTML = dados.numero;
             desejaSair();
         }
     })
     if(dados.id_admin == dados.idLogado){
-
+        popInfo.querySelector('#numero').classList.remove('invi');
+        popInfo.querySelector('#numero').innerHTML = dados.numero;
         popInfo.querySelector('.adm').classList.remove('invi');
-        let pedidos = await requisitaNotificacoes(idGrupo);
-        montaPedidos(pedidos);
+        montaPedidos(await requisitaNotificacoes(idGrupo));
     }
     
 }
+
 
 const montaPedidos = (pedidos) =>{
     //array de obj
     let boxPedidos = document.getElementById('style-1');
     document.getElementById('style-1').innerText = "";
-
-    pedidos.forEach(pedido =>{
+    
+    if(pedidos.length != 0){
+        pedidos.length >= 2?
+            boxPedidos.setAttribute('style','overflow-y: scroll')
+        : 
+            boxPedidos.removeAttribute('style');
+        pedidos.forEach(pedido =>{
+            let notificacao = document.createElement('div');
+            notificacao.setAttribute('class','notificacao');
+            notificacao.setAttribute('id', `${pedido.id_usuario}`)
+    
+            let frasePedido = document.createElement('span');
+            frasePedido.setAttribute('class', 'frasePedido');
+            frasePedido.innerText = `Deseja aceitar ${pedido.nickname} em seu grupo`;
+    
+            let aprovar = document.createElement('i');
+            aprovar.setAttribute('class', 'fa fa-beer fa-2x');
+            aprovar.setAttribute('id', 'aprovar');
+            eventoAprovar(aprovar, pedido.id_usuario, pedido.nickname);
+    
+            let reprovar = document.createElement('i');
+            reprovar.setAttribute('class', 'fa fa-beer fa-2x');
+            reprovar.setAttribute('id', 'reprovar');
+            eventoReprovar(reprovar, pedido.id_usuario, pedido.nickname);
+    
+            notificacao.appendChild(frasePedido);
+            notificacao.appendChild(aprovar);
+            notificacao.appendChild(reprovar);
+    
+            boxPedidos.appendChild(notificacao);
+        })
+    }
+    else{
+        boxPedidos.removeAttribute('style');
         let notificacao = document.createElement('div');
         notificacao.setAttribute('class','notificacao');
-        notificacao.setAttribute('id', `${pedido.id_usuario}`)
-
-        let frasePedido = document.createElement('span');
-        frasePedido.setAttribute('class', 'frasePedido');
-        frasePedido.innerText = `Deseja aceitar ${pedido.nickname} em seu grupo`;
-
-        let aprovar = document.createElement('i');
-        aprovar.setAttribute('class', 'fa fa-beer');
-        aprovar.setAttribute('id', 'aprovar');
-        eventoAprovar(aprovar, pedido.id_usuario, pedido.nickname);
-
-        let reprovar = document.createElement('i');
-        reprovar.setAttribute('class', 'fa fa-beer');
-        reprovar.setAttribute('id', 'reprovar');
-        eventoReprovar(reprovar, pedido.id_usuario, pedido.nickname);
-
-        notificacao.appendChild(frasePedido);
-        notificacao.appendChild(aprovar);
-        notificacao.appendChild(reprovar);
-
+        let fraseVazio = document.createElement('span');
+        fraseVazio.setAttribute('class', 'frasePedido');
+        fraseVazio.innerText = "Nenhum pedido no momento"
+        notificacao.appendChild(fraseVazio);
         boxPedidos.appendChild(notificacao);
-    })
+    }
 }
+
 
 const desejaSair = () =>{
     let boxPedidos = document.getElementById('style-1');
     boxPedidos.innerText = "";
+    boxPedidos.removeAttribute('style');
 
     let sair = document.createElement("div");
-    sair.setAttribute('id', "sair");
+    sair.setAttribute('id', "sairGrupo");
 
     let span = document.createElement("span");
     span.setAttribute('id', 'pergunta');
     span.innerText = "Deseja sair desse Grupo ?"
+
+    let divBtns = document.createElement('div');
+    divBtns.setAttribute('id','botoes');
 
     let btnSim = document.createElement('button');
     btnSim.setAttribute('id',"sim");
@@ -152,8 +177,9 @@ const desejaSair = () =>{
     btnNao.innerText = "Não";
 
     sair.appendChild(span);
-    sair.appendChild(btnSim);
-    sair.appendChild(btnNao);
+    divBtns.appendChild(btnSim);
+    divBtns.appendChild(btnNao);
+    sair.appendChild(divBtns);
 
     boxPedidos.appendChild(sair);
 
@@ -166,6 +192,9 @@ const eventoAprovar = (botao, id, nickname) =>{
         let resul = await mudaStatus('aprovado');
         let frasePedido = document.getElementById(`${id}`);
         frasePedido.innerHTML = `${nickname} foi aprovado`;
+        setTimeout( async ()=>{
+            montaInfo(await requsitaDados(idGrupo));
+        },1000)
     })
 }
 

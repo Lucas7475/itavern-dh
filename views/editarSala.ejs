@@ -1,14 +1,6 @@
-
-<!-- Button trigger modal -->
-<link rel="stylesheet" href="/css/criarSala.css">
-
-<!-- <button type="button" class="btn" data-toggle="modal" data-target="#exampleModal">
-    Criar Sala
-  </button> -->
-  <!-- Modal -->
   <div class="modal fade" id="exampleModalEdit<%= x %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
+    <div class="modal-dialog" id="dXGCriar" role="document">
+      <div class="modal-content" id="dGGCriar">
         <div class="modal-header">
           <div class="titulo">
             <h5 class="modal-title" id="exampleModalLabel">Edite o grupo</h5>
@@ -87,9 +79,10 @@
                     <input type="text" name="endereco" id="endereco" value="">
                 </div>
             </div>
-        
+
+            <label id="textOpcoes">Dias de reunião:</label>
+
             <div class="opcoes">
-                Dias de reunião:
                 <div class="diaReuniao">
                     <div class="dia">
                       <input type="checkbox" name="diaReuniao" id="Domingo" value="Domingo" >
@@ -123,7 +116,7 @@
             </div>
 
             <div class="imgGrupo">
-              <label for="imgGrupo">Imagem do grupo:</label>
+              <label>Imagem do grupo:</label>
               <div class="upload">
                   <input type="file" name="imgGrupo" id="imgGrupo">
               </div>
@@ -135,8 +128,8 @@
             </div>
 
             <div class="modal-footer">
-              <button type="button" class="btn" data-dismiss="modal">Fechar</button>
-              <button type="submit" class="btn">Editar</button>
+              <button type="button" class="btn btnCE" data-dismiss="modal">Fechar</button>
+              <button type="submit" class="btn btnCE">Editar</button>
             </div>
             
             </form>
