@@ -7,6 +7,7 @@ const emailDaRec = document.querySelector('h6').innerText;
 const btnLogin = document.getElementById('login');
 
 
+// EVENTO ACONTECE QUANDO O USUARIO RECEBE O LINK DE MUDAR A SENHA
 setTimeout(()=>{
     if(emailDaRec.includes("@")){
         document.getElementById('lblEmail').classList.add("invi");
@@ -30,6 +31,25 @@ setTimeout(()=>{
     }
 })
 
+// VERIFICA SE O NICK OU EMAIL JÁ FOI CADASTRADO
+const verificaSeExiste = (nome, nickname, email, senha) =>{
+    console.log('cheguei')
+    fetch("/cadastro/submit",{
+        method:"POST",
+        headers:{
+            "Content-Type":"application/json"
+        },
+        body: JSON.stringify({nome, nickname, email, senha})
+    }).then(resp =>{
+        return resp.json();
+    }).then(data =>{
+        data.message?
+            mostraErroCriar(data.message)
+        :
+            location.href = 'http://localhost:3000/home';
+    })
+
+}
 
 // verifica login
 const verificaLogin = (email, senha) =>{
@@ -52,6 +72,11 @@ const verificaLogin = (email, senha) =>{
 const mostraErro = (erro) =>{
     document.querySelector('h6').innerText = erro;
     document.getElementById('falhaLogin').classList.remove('invi');
+}
+const mostraErroCriar = (erro) =>{
+
+    document.getElementById('restricoes').classList.remove('invi');
+    document.getElementById('restricoes').innerText = erro;
 }
 
 const comparaSenhas = () =>{
@@ -97,16 +122,18 @@ const atualizaSenha = (senha) =>{
     })
 }
 
+// EVENTO QUE CHAMA A VERIFICAÇÃO DE LOGIN
 document.getElementById('login').addEventListener('submit', async (evento) =>{
     evento.preventDefault();
     let email = document.getElementById('email').value;
     let senha = document.getElementById('senha').value;
     verificaLogin(email, senha);
 })
-
+// EVENTOS QUE VERIFICAM A SENHA NO MOMENTO QUE DIGITA
 document.getElementById('confirmarSenhaUser').addEventListener('keyup', evento =>{
     comparaSenhas();
 })
+
 document.getElementById('senhaUser').addEventListener('keyup', evento =>{
     comparaSenhas();
 })
@@ -117,4 +144,26 @@ document.getElementById('senhaRec').addEventListener('keyup', evento =>{
 
 document.getElementById('confirmaRec').addEventListener('keyup', evento=>{
     comparaSenhasRec();
+})
+
+// EVENTO QUE VERIFICA CRIAÇÃO
+document.getElementById('btnCriarConta').addEventListener('click', async (evento) =>{
+    evento.preventDefault();
+    let nome = document.getElementById('nomeUser').value;
+    let email = document.getElementById('emailUser').value;
+    let nickname = document.getElementById('sobrenomeUser').value;
+    let senha = document.getElementById('senhaUser').value;
+    let confCriar = document.getElementById('confirmarSenhaUser').value;
+
+    if(senha){
+        senha == confCriar?
+            verificaSeExiste(nome, nickname, email, senha)
+        :
+            mostraErroCriar('As senhas não conferem');
+    }
+    else{
+        verificaSeExiste(nome, nickname, email, senha)
+    }
+
+
 })

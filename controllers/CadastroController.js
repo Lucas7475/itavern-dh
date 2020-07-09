@@ -13,7 +13,7 @@ module.exports = {
 
             
             if(!nome || !nickname || !email || !senha){
-                res.send({message:"Preencha todo o formulário!"})
+                return res.status(401).json({message:"Preencha todo o formulário!"})
             }
 
             //hashing na senha
@@ -22,11 +22,11 @@ module.exports = {
 
             //buscando por email já existente
             if(await Usuario.findOne({where:{email}})) {
-                return res.send({message:"Este email já está cadastrado."})
+                return res.status(401).json({message:"Este email já está cadastrado."})
             }
 
             if(await Usuario.findOne({where:{nickname}})){
-                return res.send({message:"Este nome de usuário já está cadastrado. Por favor, escolha outro!"})
+                return res.status(401).json({message:"Este nome de usuário já está cadastrado. Por favor, escolha outro!"})
             }
             //imagem padrão de usuario
             let imgPerfil = `../../images/covers/dragknight.jpg`
@@ -44,7 +44,7 @@ module.exports = {
             req.session.idUsuario = usuario.id
             req.session.usuario = usuario
 
-            return res.redirect("/home");
+            return res.status(200).json({});
     },
     update: async(req, res) =>{
         

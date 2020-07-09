@@ -62,6 +62,13 @@ async function gruposSemUsuarioAtual(id){
     })
   })
 
+  for(let x = 0; x < filtrado.length; x++){
+    if(filtrado[x].numJogadores == participantes[x]){
+      participantes.splice(x, 1);
+      filtrado.splice(x,1)
+    }
+  }
+
   return {filtrado, participantes, ceps};
 }
 // essa função traz os grupos que um usuario está

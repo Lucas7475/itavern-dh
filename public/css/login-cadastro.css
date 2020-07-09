@@ -238,7 +238,7 @@ button{
 #linha1{
     display: flex;
     flex-direction: row;
-    margin-top: 30px;
+    margin-top: 5px;
 }
 
 .sobrenomeUser{
@@ -254,6 +254,14 @@ button{
 .modal-body .row input#emailUser, .modal-body .row input#senhaUser, .modal-body .row input#confirmarSenhaUser{
     min-width: 490px;
 }
+
+#restricoes{
+    display: flex;
+    flex-direction: column;
+    margin-top: 4px;
+    color: #982424;;
+}
+
 .modal-footer{
     grid-row: 8;
     grid-column: 1/-1;
