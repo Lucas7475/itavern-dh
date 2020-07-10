@@ -6,7 +6,7 @@
             <h5 class="modal-title" id="exampleModalLabel">Edite o grupo</h5>
           </div>
           <div class="botao">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <button type="button" name="fecha" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">X</span>
             </button>
           </div>
@@ -44,12 +44,12 @@
 
           <div class="duracao">
             <label for="duracao">Tempo de jogo:</label>
-            <input type="number" name="tempoJogo" min="0" step=".5" id="duracao" value="<%= grupo.tempoJogo %>">
+            <input type="text" class="duracao-edit" name="tempoJogo" min="0" id="duracao" maxlength="5" value="<%= grupo.tempoJogo %>">
           </div>
 
           <div class="numJogadores">
             <label for="numJogador">Nº de Jogadores:</label>
-            <input type="number" name="numJogador" id="numJogador" min="2" step="1" pattern="\d*" value="<%= grupo.numJogadores %>"  >
+            <input type="number" class="jog-edit" name="numJogador" id="numJogador" min="2" step="1" pattern="\d*" maxlength="2" value="<%= grupo.numJogadores %>"  >
           </div>
         
             <div class="endereco">
@@ -61,7 +61,7 @@
 
                 <div class="numero">
                   <label for="numero">Número:</label>
-                  <input type="text" name="numero" id="numero" value="<%= grupo.numero %>">
+                  <input type="text" class="numero-edit" name="numero" id="numero" value="<%= grupo.numero %>">
                 </div>
       
                 <div class="complemento">
@@ -71,12 +71,12 @@
         
                 <div class="cidade">
                     <label for="cidade">Cidade:</label>
-                    <input type="text" name="cidade" id="cidade">
+                    <input type="text" name="cidade" id="cidade" disabled>
                 </div>
         
                 <div class="rua">
                     <label for="endereco">Endereço:</label>
-                    <input type="text" name="endereco" id="endereco" value="">
+                    <input type="text" name="endereco" id="endereco" value="" disabled>
                 </div>
             </div>
 
@@ -129,7 +129,7 @@
 
             <div class="modal-footer">
               <button type="button" class="btn btnCE" data-dismiss="modal">Fechar</button>
-              <button type="submit" class="btn btnCE">Editar</button>
+              <button type="submit" name="fecha" class="btn btnCE">Editar</button>
             </div>
             
             </form>

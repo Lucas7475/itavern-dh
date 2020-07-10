@@ -115,6 +115,24 @@ document.querySelectorAll('.cep-edit').forEach(inpCep =>{
     })
 })
 
+document.querySelectorAll('.duracao-edit').forEach(inpDuracao =>{
+    inpDuracao.addEventListener('focus', evento =>{
+        $(inpDuracao).mask("0:00");
+    })
+})
+
+document.querySelectorAll('.numero-edit').forEach(inpNum =>{
+    inpNum.addEventListener('focus', evento =>{
+        $(inpNum).mask("00000");
+    })
+})
+
+document.querySelectorAll('.jog-edit').forEach(inpJog =>{
+    inpJog.addEventListener('focus', evento =>{
+        $(inpJog).mask("00");
+    })
+})
+
 //verifica se o usuario carregou algum grupo para editar
 let lista = document.querySelector('#invi4').innerText;
 if(lista == 0){

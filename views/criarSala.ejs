@@ -6,22 +6,23 @@
             <h5 class="modal-title" id="exampleModalLabel">Crie o grupo</h5>
           </div>
           <div class="botao">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <button type="button" name="fecha" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">X</span>
             </button>
           </div>
         </div>
-        <div class="modal-body">
-          <form action="/grupos/criargrupo" class="formulario" method="post" enctype="multipart/form-data">
+        <div class="modal-body" id="bodyCriar">
+          <div id="avisos" class="invi"></div>
+          <form action="/grupos/criargrupo" id="criarSala" class="formulario" method="post" enctype="multipart/form-data">
     
             <div class="nomeGrupo">
-                <label for="nomeGrupo">Nome do Grupo:</label>
-                <input type="text" name="nome" id="nomeGrupo">
+                <label for="nomeGrupo">*Nome do Grupo:</label>
+                <input class="obrig" type="text" name="nome" id="nomeGrupo">
             </div>
         
             <div class="nomeJogo">
-                <label for="nomeJogo">Nome do Jogo:</label>
-                    <select name="nomeJogo" id="nomeJogo">
+                <label for="nomeJogo">*Nome do Jogo:</label>
+                    <select class="obrig" id="nomeJogo" name="nomeJogo">
                       <option selected disabled>Selecione</option>
                          <% for(jogo of jogos){ %>
                             <option value="<%= jogo.id %>"><%= jogo.nome %></option>
@@ -30,35 +31,35 @@
             </div>
         
             <div class="inicio">
-                <label for="inicio">Início das Reuniões:</label>
-                <input type="text" name="inicioReuniao" id="inicio" placeholder="dd/mm/aaaa"><!-- calendario será aprimorado -->
+                <label for="inicio">*Início das Reuniões:</label>
+                <input class="obrig" type="text" name="inicioReuniao" id="inicio" placeholder="dd/mm/aaaa"><!-- calendario será aprimorado -->
             </div>
 
             <div class="horario">
-              <label for="horario">Horario das Reuniões:</label>
-              <input type="time" min="00:00" max="23:59" name="horario" id="horario">
+              <label for="horario">*Horario das Reuniões:</label>
+              <input class="obrig" type="time" name="horario" min="00:00" max="23:59" id="horario">
           </div>
 
           <div class="duracao">
-            <label for="duracao">Tempo de jogo:</label>
-            <input type="number" name="tempoJogo" min="0" step=".5" id="duracao">
+            <label for="duracao">*Tempo de jogo:</label>
+            <input class="obrig" type="text" name="tempoJogo" min="0" id="duracao" maxlength="5">
           </div>
 
           <div class="numJogadores">
-            <label for="numJogador">Nº de Jogadores:</label>
-            <input type="number" name="numJogadores" id="numJogador" min="2" step="1" pattern="\d*"  >
+            <label for="numJogador">*Nº de Jogadores:</label>
+            <input class="obrig" type="number" name="numJogadores" id="numJogador" min="2" step="1" pattern="\d*"  >
           </div>
     
         
             <div class="endereco">
                 <div class="cep">
-                    <label for="cep">CEP:</label>
-                    <input type="text" name="cep" id="cep-create" placeholder="Apenas números" value="" maxlength="9">
+                    <label for="cep">*CEP:</label>
+                    <input class="obrig" type="text" name="cep" id="cep-create" placeholder="Apenas números" value="" maxlength="9">
                 </div>
 
                 <div class="numero">
-                  <label for="numero">Número:</label>
-                  <input type="text" name="numero" id="numero">
+                  <label for="numero">*Número:</label>
+                  <input class="obrig" type="text" name="numero" id="numero">
                 </div>
       
                 <div class="complemento">
@@ -67,19 +68,19 @@
                 </div>
         
                 <div class="cidade">
-                    <label for="cidade">Cidade:</label>
-                    <input type="text" name="cidade" id="cidade">
+                    <label for="cidade">*Cidade:</label>
+                    <input type="text" name="cidade" id="cidade" disabled>
                 </div>
         
                 <div class="rua">
-                    <label for="endereco">Endereço:</label>
-                    <input type="text" name="endereco" id="endereco" value="">
+                    <label for="endereco">*Endereço:</label>
+                    <input type="text" name="endereco" id="endereco" value="" disabled>
                 </div>
         
                 
             </div>
         
-            <label id="textOpcoes">Dias de reunião:</label>
+            <label id="textOpcoes">*Dias de reunião:</label>
             <div class="opcoes">
                 <div class="diaReuniao">
                     <div class="dia">
@@ -114,9 +115,9 @@
             </div>
 
             <div class="imgGrupo">
-              <label>Imagem do grupo:</label>
+              <label>*Imagem do grupo:</label>
               <div class="upload">
-                  <input type="file" name="imgGrupo" id="imgGrupo">
+                  <input class="obrig" type="file" name="imgGrupo" id="imgGrupo">
               </div>
             </div>
       
@@ -126,9 +127,12 @@
             </div>
       
 
-            <div class="modal-footer">
-              <button type="button" class="btn btnCE" data-dismiss="modal">Fechar</button>
-              <button type="submit" class="btn btnCE">Criar</button>
+            <div class="modal-footer" id="footCriar">
+              <div id='obrigatorio'>*Campos obrigatórios</div>
+              <div id='btnsCriar'>
+                <button type="button" class="btn btnCE" name="fecha" data-dismiss="modal">Fechar</button>
+                <button type="submit" class="btn btnCE" id="btnCriarSala">Criar</button>
+              </div>
             </div>
             </form>
         </div>

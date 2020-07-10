@@ -17,10 +17,10 @@
 }
 .modal-header{
     border-bottom: 1px;
-    /* grid-row: 1; */
     width: 100%;
     grid-column: 1 / -1;
     padding-top: 0px;
+    padding-bottom: 3px;
     display: grid;
     grid-template-columns: repeat(8, 12.5%);
 }
@@ -57,6 +57,10 @@
     display: flex;
 }
 
+#bodyCriar{
+    flex-direction: column;
+}
+
 .modal-body .formulario{
     font-size: 1.1rem;
     width: 100%;
@@ -69,6 +73,12 @@
     background-color: white;
     opacity: .6;
 }
+input[name=endereco]{
+    opacity: .8;
+}
+input[name=cidade]{
+    opacity: .8;
+}
 .formulario input:hover , select:hover, textarea:hover{
     background-color: white;
     opacity: 1;
@@ -79,6 +89,22 @@
 }
 .formulario label{
     max-width: max-content;
+}
+
+#criarSala{
+    row-gap: 15px;
+}
+
+.flex{
+    display: flex;
+}
+
+#avisos{
+    font-size: 1.3rem;
+    color: #982424;
+    margin-bottom: 5px;
+    flex-wrap: wrap;
+    justify-content: space-around;
 }
 /* PRIMEIRA LINHA DO FORMULARIO */
 .nomeGrupo{
@@ -247,8 +273,14 @@ input[type="file"] {
 }
 .modal-footer{
     border-top: 1px;
-    grid-column: 5 / -1;
+    grid-column: 1 / -1;
     padding-top: 0;
+}
+
+#footCriar{
+    display: flex;
+    justify-content: space-between;
+    padding: 0 0 12px 0;
 }
 
 .btnCE{
@@ -306,6 +338,15 @@ input[type=number]::-webkit-outer-spin-button {
 #ftBusca{
     justify-content: space-evenly;
 }
+#obrigatorio{
+    color: #982424;
+}
+#btnsCriar{
+    display: flex;
+    width: 200px;
+    justify-content: flex-end;
+}
+
 
 @media (max-width: 790px){
     label{
