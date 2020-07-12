@@ -46,8 +46,12 @@ const AuthController = {
             }
         })
 
+        if(usuario == null){
+            return res.status(401).json({message:'Email não encontrado.'});
+        }
+
         //token do usuario
-        let token = jwt.sign({usuario},"KEYMASTER");
+        let token = jwt.sign({usuario},"KEYMASTER",{ expiresIn: 60 * 60 });
 
         // construindo o transporter que vai levar o email
         const transporter = nodemailer.createTransport(transport);
@@ -65,7 +69,7 @@ const AuthController = {
         // enviar o email
         transporter.sendMail(email)
 
-        res.redirect("/")
+        res.status(200).json({})
     },
     mandaMudar: async (req, res) =>{
         let { token } = req.params;

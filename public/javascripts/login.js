@@ -11,6 +11,7 @@ const btnLogin = document.getElementById('login');
 setTimeout(()=>{
     if(emailDaRec.includes("@")){
         document.getElementById('lblEmail').classList.add("invi");
+        document.getElementById('emailRec').classList.add("invi");
         document.getElementById('informa').classList.add("invi");
         document.getElementById('lblSenha').classList.remove("invi");
         document.getElementById('confirmaSenhaRec').classList.remove("invi");
@@ -25,7 +26,7 @@ setTimeout(()=>{
             senhaUser == senhaDigitada?
                 await atualizaSenha(document.getElementById('senhaRec').value)
             :
-                mostraErro('Senhas não compativeis')
+                mostraErroRec('Senhas não compativeis')
         })
         $('#esqueciSenha').modal('show')
     }
@@ -69,6 +70,24 @@ const verificaLogin = (email, senha) =>{
     })
 }
 
+const verificaEmail = (email) =>{
+    console.log(email);
+    fetch('login/recSenha',{
+        method:'POST',
+        headers:{
+            "Content-Type":"application/json"
+        },
+        body: JSON.stringify({emailRec:email})
+    }).then(resp =>{
+        return resp.json();
+    }).then(data =>{
+        data.message?
+            mostraErroRec(data.message)
+        :
+            location.href = 'http://localhost:3000'
+    })
+}
+
 const mostraErro = (erro) =>{
     document.querySelector('h6').innerText = erro;
     document.getElementById('falhaLogin').classList.remove('invi');
@@ -77,6 +96,11 @@ const mostraErroCriar = (erro) =>{
 
     document.getElementById('restricoes').classList.remove('invi');
     document.getElementById('restricoes').innerText = erro;
+}
+
+const mostraErroRec = (erro) =>{
+    document.getElementById('erroRec').innerText = '';
+    document.getElementById('erroRec').innerText = erro;
 }
 
 const comparaSenhas = () =>{
@@ -118,7 +142,7 @@ const atualizaSenha = (senha) =>{
         !data.message?
             location.href = 'http://localhost:3000/home'
         :
-            mostraErro(data.message)
+            mostraErroRec("Email não cadastrado")
     })
 }
 
@@ -166,4 +190,26 @@ document.getElementById('btnCriarConta').addEventListener('click', async (evento
     }
 
 
+})
+
+// EVENTO QUE VERIFICA SE O EMAIL ESTÁ CADASTRADO
+
+document.getElementById('recupera').addEventListener('submit', evento =>{
+    evento.preventDefault();
+
+    let email = document.getElementById('emailRec').value;
+
+    if(email != ""){
+        verificaEmail(email)
+    }
+    else{
+        mostraErroRec('Digite o email')
+    }
+
+})
+
+document.querySelectorAll('.fechaRec').forEach(btn =>{
+    btn.addEventListener('click', evento =>{
+        document.getElementById('erroRec').innerText = '';
+    })
 })

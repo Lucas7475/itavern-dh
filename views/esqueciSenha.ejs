@@ -8,17 +8,23 @@
                 <h5 class="modal-title" id="exampleModalLongTitle">Recupera senha</h5>
             </div>
             <div class="botao">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <button type="button" class="close fechaRec" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">X</span>
                 </button>
             </div>
         </div>
         <div class="modal-body row">
             <form action="login/recSenha" method="post" id="recupera">
+                <!-- <div id="erroRec">
+
+                </div> -->
                 <label id="lblEmail">
                     Digite o seu email de cadastro:
+                  </label>
+                  <div id="erroRec">
+
+                  </div>
                     <input type="email" placeholder="Email" name="emailRec" id="emailRec">
-                </label>
                 <div id="informa">
                     Estaremos enviando um email com um link para alterar sua senha.
                 </div>
@@ -36,7 +42,7 @@
                 </div>
             </div>
             <div class="modal-footer" id="divBotoes">
-              <button type="button" class="btn" data-dismiss="modal">Voltar</button>
+              <button type="button" class="btn fechaRec" data-dismiss="modal">Voltar</button>
               <button type="submit" class="btn" id="btnConf">Confirmar</button>
             </form>
         </div>

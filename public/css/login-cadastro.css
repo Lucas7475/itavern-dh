@@ -88,7 +88,7 @@ body{
 #principal-direita{
     background-color: #ffffff;
     min-height: 100vh;
-    /* display: flex; */
+    display: flex;
     align-items: center;
 }
 
@@ -305,6 +305,11 @@ button{
 #informa{
     font-size: 0.7rem;
     width: 70%;
+}
+
+#erroRec{
+    color: #982424;
+    font-size: 1rem;
 }
 
 /*Medium devices*/
