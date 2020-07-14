@@ -17,6 +17,10 @@ const colocaNoGrupo = (id) =>{
 }
 
 const ocultaFiltrados = (lista) =>{
+    if(lista.length == 0){
+        return document.getElementById('semGrupoBusca').classList.remove('invi');
+    }
+    document.getElementById('semGrupoBusca').classList.add('invi');
     document.querySelectorAll('.aCard').forEach(single =>{
         let id = single.getAttribute("id");
         id = Number.parseInt(id);
@@ -26,6 +30,12 @@ const ocultaFiltrados = (lista) =>{
         else{
             single.classList.add('invi');
         }
+    })
+}
+
+const tiraInvi = () =>{
+    document.querySelectorAll('.aCard').forEach(item =>{
+        item.classList.remove('invi');
     })
 }
 
@@ -43,3 +53,8 @@ document.getElementById('confirmaEntrada').addEventListener('click', async (even
     idGrupo = null;
     
 })
+
+document.getElementById('numDeGrupos').innerText == 0?
+    document.getElementById('semGrupoBusca').classList.remove('invi')
+:
+    document.getElementById('semGrupoBusca').classList.add('invi');

@@ -56,7 +56,7 @@ async function gruposSemUsuarioAtual(id){
 
   filtrado.forEach(grupo =>{
     ceps.push({
-      cep: grupo.cep,
+      logradouro: grupo.logradouro,
       numero: grupo.numero,
       id: grupo.id
     })
@@ -144,6 +144,7 @@ module.exports = {
          tempoJogo,
          inicioReuniao,
          cep,
+         endereco,
          numero,
          descricao} = req.body
     
@@ -162,6 +163,7 @@ module.exports = {
                         img,
                         descricao,
                         cep,
+                        logradouro:endereco,
                         numero,
                         chat});
     let id_grupo = await Grupo.findOne({
@@ -300,6 +302,7 @@ module.exports = {
       tempoJogo,
       inicioReuniao,
       cep,
+      endereco,
       numero,
       descricao} = req.body
 
@@ -316,6 +319,7 @@ module.exports = {
                         img,
                         descricao,
                         cep,
+                        logradouro:endereco,
                         numero
     },{
       where:{
@@ -385,6 +389,13 @@ module.exports = {
   ceps: async (req, res) =>{
     let { ceps } = await gruposSemUsuarioAtual(req.session.idUsuario);
 
-    res.status(200).json({ceps});
+    let listaEnderecos = [];
+    let endSemId = [];
+    ceps.forEach((obj) =>{
+        listaEnderecos.push({end:`${obj.logradouro} ${obj.numero}`, id:obj.id});
+        endSemId.push(`${obj.logradouro} ${obj.numero}`);
+    })
+
+    res.status(200).json({listaEnderecos, endSemId});
   }
 };

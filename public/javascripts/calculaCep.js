@@ -1,8 +1,6 @@
 const inpCepCriar = document.getElementById('cep-create');
 
 var popupEscolhido;
-var listaEnderecos = [];
-var endSemId = [];
 
 function limpaFormulario() {
     document.getElementById('endereco').value=("");
@@ -144,21 +142,6 @@ function pesquisaCepPerfil(valor){
     else {
         limpaPerfil();
     }
-}
-
-function transformaCep (lista){
-    listaEnderecos = [];
-    endSemId = [];
-    lista.forEach((obj) =>{
-        fetch(`https://viacep.com.br/ws/${obj.cep}/json/`
-        ).then(resp =>{
-            return resp.json();
-        }).then(data =>{
-            listaEnderecos.push({end:`${data.logradouro} ${obj.numero}`, id:obj.id});
-            endSemId.push(`${data.logradouro} ${obj.numero}`);
-        })
-    })
-    return {listaEnderecos, endSemId};
 }
 
 // adicionando evento que pega o valor do cep do grupo a ser criado

@@ -8,7 +8,7 @@ navigator.geolocation.getCurrentPosition((pos) =>{
     lonFixa = pos.coords.longitude;
 })
 
-function buscaCeps (){
+function buscaEnderecos (){
     return fetch('/grupos/ceps',{
         method:"POST",
         headers:{
@@ -17,7 +17,7 @@ function buscaCeps (){
     }).then(resp =>{
         return resp.json();
     }).then(data =>{
-        return data.ceps;
+        return {listaEnderecos:data.listaEnderecos, endSemId:data.endSemId};
     })
 }
 
@@ -33,7 +33,7 @@ async function initMap(valueDistancia) {
 
         let service = new google.maps.DistanceMatrixService();
 
-        let {listaEnderecos, endSemId} = transformaCep( await buscaCeps())
+        let {listaEnderecos, endSemId} = await buscaEnderecos()
 
         let request = montaRequest([{lat:latFixa, lng:lonFixa}], endSemId);
         service.getDistanceMatrix(request, function(response, status) {
@@ -75,9 +75,12 @@ async function initMap(valueDistancia) {
     )
 }
 
-setTimeout(()=>{
+// setTimeout(()=>{
     let valueDistancia = document.getElementById('inputGroupSelect03').value
     if(document.getElementById('inputGroupSelect03').value != ''){
         initMap(valueDistancia);
     }
-})
+    else{
+        tiraInvi();
+    }
+// })

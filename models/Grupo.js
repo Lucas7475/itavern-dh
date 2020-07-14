@@ -35,6 +35,10 @@ module.exports = (sequelize, DataTypes) => {
       type:DataTypes.STRING,
       allowNull:false
     },
+    logradouro:{
+      type: DataTypes.STRING,
+      allowNull:false
+    },
     numero: DataTypes.NUMBER,
     chat:{
       type: DataTypes.JSON,

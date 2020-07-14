@@ -59,10 +59,14 @@
   <!-- end of searchbar -->
   <section class="container grupos">
     <div class="row">
+      <div id="semGrupoBusca" class="invi">
+        <h2>Desculpe não achamos nenhum grupo correspondente!</h2>
+      </div>
       <!-- Inicio de um card de grupo -->
       <% let x = 0; %>
+      <p class="invi" id="numDeGrupos"><%= grupos.length %></p>
       <% for(let grupo of grupos){ %>
-      <article class="col-12 col-sm-6 col-lg-4 col-xl-3 py-3 aCard" id="<%= grupo.id %>">
+      <article class="col-12 col-sm-6 col-lg-4 col-xl-3 py-3 aCard invi" id="<%= grupo.id %>">
         <div class="card" id="<%= grupo.id %>">
           <div class="cover-container">
             <img src="/images/covers/<%= grupo.img %>" class="card-img-top" alt="..." />

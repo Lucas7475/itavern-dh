@@ -79,6 +79,13 @@
   width: 5rem;
 }
 
+#semGrupoBusca{
+  max-width: 400px;
+  margin: auto;
+  text-align: center;
+  margin-top: 5%;
+}
+
 form {
   display: inline;
 }

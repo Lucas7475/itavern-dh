@@ -1,4 +1,5 @@
 'use strict';
+const bcrypt = require('bcrypt');
 
 module.exports = {
   up: (queryInterface, Sequelize) => {
@@ -9,7 +10,7 @@ module.exports = {
           nickname: 'lps',
           img_perfil:"../../images/covers/dragknight.jpg",
           email: 'lucas@lucas.com',
-          senha: '123456',
+          senha: bcrypt.hashSync('123456',10),
           cep: "05343-010",
           numero: 123,
           createdAt: new Date(),
@@ -20,7 +21,7 @@ module.exports = {
           nickname: 'irissquei',
           img_perfil:"../../images/covers/dragknight.jpg",
           email: 'iriss@iriss.com',
-          senha: '123456',
+          senha: bcrypt.hashSync('123456',10),
           cep: "05337-020",
           numero: 312,
           createdAt: new Date(),
@@ -31,7 +32,7 @@ module.exports = {
           nickname: 'fabcap',
           img_perfil:"../../images/covers/dragknight.jpg",
           email: 'fabiano@fabiano.com',
-          senha: '123456',
+          senha: bcrypt.hashSync('123456',10),
           cep: "06020-060",
           numero: 456,
           createdAt: new Date(),
@@ -42,7 +43,7 @@ module.exports = {
           nickname: 'sdj',
           img_perfil:"../../images/covers/dragknight.jpg",
           email: 'sandra@sandra.com',
-          senha: '123456',
+          senha: bcrypt.hashSync('123456',10),
           cep: "05353-110",
           numero: 789,
           createdAt: new Date(),
@@ -53,7 +54,7 @@ module.exports = {
           nickname: 'alr',
           img_perfil:"../../images/covers/dragknight.jpg",
           email: 'alfredo@alfredo.com',
-          senha: '123456',
+          senha: bcrypt.hashSync('123456',10),
           cep: "05361-050",
           numero: 52,
           createdAt: new Date(),
