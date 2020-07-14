@@ -12,7 +12,13 @@ function gruposDoUsuario(id){
     include:[
       {
         model:Grupo,
-        as:"dadosDosGrupo"
+        as:"dadosDosGrupo",
+        include:[
+          {
+            model: Jogo,
+            as: 'jogoDoGrupo'
+          }
+        ]
       }
     ]
   }).then(data => {

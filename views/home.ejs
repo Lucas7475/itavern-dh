@@ -26,10 +26,9 @@
         </div>
         <div class="card-body text-center">
           <h3 class="group-title"><%= grupo.nome %></h3>
-          <h4 class="group-game"><%= grupo.jogo %></h4>
-          <ul class="group-perks">
-            <li>Próxima reunião em: 4 dias</li>
-            <li style="color:green">22 novas mensagens</li>
+          <h4 class="group-game"><%= grupo.jogoDoGrupo.nome%></h4>
+          <ul class="group-perks" style="height: 50px;">
+            <li>Reuniões: <%= grupo.diasReuniao %></li>
           </ul>
 
           <a href="#" class="btn btn-grupo info" data-toggle="modal" data-target="#exampleModalCenter">Info</a>
