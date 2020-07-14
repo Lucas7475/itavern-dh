@@ -11,6 +11,11 @@ const buscaChat = () =>{
     })
 }
 
+const scrollButtom = () =>{
+    let lastMsg = document.querySelector('.message-area').lastElementChild;
+    lastMsg.scrollIntoView();
+}
+
 setTimeout(async()=>{
     var socket = io('http://localhost:3000');
 
@@ -51,7 +56,6 @@ setTimeout(async()=>{
         }
 
         showMessage(objMsg);
-
         socket.emit('enviaMsg', objMsg);
     })
 })
@@ -75,5 +79,6 @@ const showMessage = (mensagem) =>{
           </div>`
         )
     }
+    scrollButtom();
 }
 

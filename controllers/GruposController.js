@@ -166,7 +166,10 @@ module.exports = {
                         chat});
     let id_grupo = await Grupo.findOne({
       where:{
-        nome: nome
+        nome: nome,
+        id_jogo: id_jogo,
+        id_admin: id_admin,
+        inicioReuniao:inicioReuniao
       }
     }).then(grupo => grupo.toJSON());
     await UsuarioGrupo.create({
