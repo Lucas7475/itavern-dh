@@ -18,7 +18,7 @@ module.exports = {
           cep: "05343-010",
           logradouro: "Rua Araicás",
           numero: 89,
-          chat: JSON.stringify([{"autor":"fulano","mensagem":"Bom dia!"},{"autor":"ciclano","mensagem":"Bom dia!"}]),
+          chat: JSON.stringify([{"autor":"ciclano","mensagem":"Bom dia!","horaMsg":"12:00"}]),
           createdAt: new Date(),
           updatedAt: new Date()
         },
@@ -36,7 +36,7 @@ module.exports = {
           cep: "05337-020",
           logradouro: "Rua Professor Carlos Benvenutti Filho",
           numero: 193,
-          chat: JSON.stringify([{"autor":"fulano","mensagem":"Bom dia!"},{"autor":"ciclano","mensagem":"Bom dia!"}]),
+          chat: JSON.stringify([{"autor":"ciclano","mensagem":"Bom dia!","horaMsg":"12:00"}]),
           createdAt: new Date(),
           updatedAt: new Date()
         },
@@ -54,7 +54,7 @@ module.exports = {
           cep: "05450-000",
           logradouro: "Rua Gregório Paes de Almeida",
           numero: 500,
-          chat: JSON.stringify([{"autor":"fulano","mensagem":"Bom dia!"},{"autor":"ciclano","mensagem":"Bom dia!"}]),
+          chat: JSON.stringify([{"autor":"ciclano","mensagem":"Bom dia!","horaMsg":"12:00"}]),
           createdAt: new Date(),
           updatedAt: new Date()
         },
@@ -72,7 +72,7 @@ module.exports = {
           cep: "02309-130",
           logradouro: "Rua Padre Leão Peruche",
           numero: 103,
-          chat: JSON.stringify([{"autor":"fulano","mensagem":"Bom dia!"}]),
+          chat: JSON.stringify([{"autor":"ciclano","mensagem":"Bom dia!","horaMsg":"12:00"}]),
           createdAt: new Date(),
           updatedAt: new Date()
         },

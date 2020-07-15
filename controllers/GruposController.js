@@ -154,7 +154,7 @@ module.exports = {
     
     diasReuniao = diasReuniao.toString();
     inicioReuniao = arrumaDataDom(inicioReuniao);
-    let chat = JSON.stringify([{"autor":"ciclano","mensagem":"Bom dia!"}]);
+    let chat = [{"autor":"ciclano","mensagem":"Bom dia!","horaMsg":"12:00"}];
 
     await Grupo.create({id_jogo,
                         id_admin,
@@ -281,12 +281,17 @@ module.exports = {
     let meusGrupos = await gruposUsuario(idUsuario);
     let participantes = [];
     meusGrupos.forEach(grupo => {
+      let contador = 0;
       if(grupo.img == ""){
         grupo.img = "/images/covers/group-cover.jpg";
       }
-      participantes.push(grupo.usuariosDoGrupo.length);
+      grupo.usuariosDoGrupo.forEach(usuario =>{
+        usuario.UsuarioGrupo.status == 'aprovado'? contador++ : usuario;
+      })
+      participantes.push(contador);
       grupo.inicioReuniao = arrumaDataDb(grupo.inicioReuniao);
     })
+
 
     let nickname = req.session.usuario.nickname;
     let imgPerfil = req.session.usuario.img_perfil;

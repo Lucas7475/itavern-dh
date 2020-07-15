@@ -107,13 +107,18 @@ module.exports = {
     let nickname = req.session.usuario.nickname;
     let imgPerfil = req.session.usuario.img_perfil;
     let gruposDB = await gruposDoUsuario(id);
-    let participantes = gruposDB.map( grupo => grupo.usuariosDoGrupo.length);
+    let participantes = [];
     gruposDB.forEach(grupo => 
       {
+        let contador = 0;
         grupo.inicioReuniao = arrumaDataDb(grupo.inicioReuniao);
         if(grupo.img == ""){
-          grupo.img = "/group-cover.jpg";
+          grupo.img = "group-cover.jpg";
         }
+        grupo.usuariosDoGrupo.forEach(usuario =>{
+          usuario.UsuarioGrupo.status == 'aprovado'? contador++ : usuario;
+        })
+        participantes.push(contador);
       });
 
 
@@ -207,8 +212,7 @@ module.exports = {
       attributes:["chat"]
     })
 
-    let mensagens = JSON.parse(objComArray.chat);
-
+    let mensagens = objComArray.chat;
     
     res.status(200).json({mensagens});
 

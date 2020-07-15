@@ -7,6 +7,7 @@ const buscaChat = () =>{
     }).then(resul =>{
         return resul.json()
     }).then(data =>{
+        console.log(data.mensagens)
         return data.mensagens;
     })
 }
@@ -24,12 +25,11 @@ setTimeout(async()=>{
     })
 
     let mensagens = await buscaChat();
-    let x = 0;
-    for(mensagem of mensagens){
+    console.log(mensagens)
+    for(let x = 0; x < mensagens.length; x++){
         if(x != 0){
-            showMessage(mensagem);
+            showMessage(mensagens[x]);
         }
-        x++;
     }
 
     // socket.on('msgAntigas', (mensagens)=>{
