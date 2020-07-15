@@ -8,7 +8,7 @@ module.exports = {
         {
           nome: 'Lucas Silva',
           nickname: 'lps',
-          img_perfil:"../../images/covers/dragknight.jpg",
+          img_perfil:"../../images/covers/avatar.jpg",
           email: 'lucas@lucas.com',
           senha: bcrypt.hashSync('123456',10),
           cep: "05343-010",
@@ -19,7 +19,7 @@ module.exports = {
         {
           nome: 'Iriss Queiroz',
           nickname: 'irissquei',
-          img_perfil:"../../images/covers/dragknight.jpg",
+          img_perfil:"../../images/covers/avatar.jpg",
           email: 'iriss@iriss.com',
           senha: bcrypt.hashSync('123456',10),
           cep: "05337-020",
@@ -30,7 +30,7 @@ module.exports = {
         {
           nome: 'Fabiano Capadocia',
           nickname: 'fabcap',
-          img_perfil:"../../images/covers/dragknight.jpg",
+          img_perfil:"../../images/covers/avatar.jpg",
           email: 'fabiano@fabiano.com',
           senha: bcrypt.hashSync('123456',10),
           cep: "06020-060",
@@ -41,7 +41,7 @@ module.exports = {
         {
           nome: 'Sandra Jorge',
           nickname: 'sdj',
-          img_perfil:"../../images/covers/dragknight.jpg",
+          img_perfil:"../../images/covers/avatar.jpg",
           email: 'sandra@sandra.com',
           senha: bcrypt.hashSync('123456',10),
           cep: "05353-110",

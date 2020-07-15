@@ -17,6 +17,9 @@ function gruposDoUsuario(id){
           {
             model: Jogo,
             as: 'jogoDoGrupo'
+          },{
+            model: Usuario,
+            as: 'usuariosDoGrupo'
           }
         ]
       }
@@ -104,10 +107,20 @@ module.exports = {
     let nickname = req.session.usuario.nickname;
     let imgPerfil = req.session.usuario.img_perfil;
     let gruposDB = await gruposDoUsuario(id);
+    let participantes = gruposDB.map( grupo => grupo.usuariosDoGrupo.length);
+    gruposDB.forEach(grupo => 
+      {
+        grupo.inicioReuniao = arrumaDataDb(grupo.inicioReuniao);
+        if(grupo.img == ""){
+          grupo.img = "/group-cover.jpg";
+        }
+      });
+
 
     res.render("home", {
       gruposDB,
       jogos,
+      participantes,
       nickname,
       imgPerfil
     });

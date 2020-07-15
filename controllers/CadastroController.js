@@ -29,7 +29,7 @@ module.exports = {
                 return res.status(401).json({message:"Este nome de usuário já está cadastrado. Por favor, escolha outro!"})
             }
             //imagem padrão de usuario
-            let imgPerfil = `../../images/covers/dragknight.jpg`
+            let imgPerfil = `../../images/covers/avatar.jpg`
             //criando usuario
             await Usuario.create({nome, nickname, img_perfil:imgPerfil, email, senha});
 

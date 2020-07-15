@@ -77,6 +77,10 @@ function gruposUsuario(id){
     {
         model:Jogo,
         as:"jogoDoGrupo",
+    },
+    {
+      model:Usuario,
+      as:"usuariosDoGrupo"
     }
 ],where:{id_admin:id}}).then(
         data => data.map( u => u.toJSON()))
@@ -252,6 +256,7 @@ module.exports = {
     distance == undefined? distance = '': distance = distance;
 
     grupos.forEach(grupo => {
+      grupo.inicioReuniao = arrumaDataDb(grupo.inicioReuniao)
       if(grupo.img == ""){
         grupo.img = "group-cover.jpg";
       }
@@ -274,17 +279,19 @@ module.exports = {
     let jogos = await listaJogos();
     // Conectar com o banco pra trazer as informações
     let meusGrupos = await gruposUsuario(idUsuario);
+    let participantes = [];
     meusGrupos.forEach(grupo => {
       if(grupo.img == ""){
         grupo.img = "/images/covers/group-cover.jpg";
       }
+      participantes.push(grupo.usuariosDoGrupo.length);
       grupo.inicioReuniao = arrumaDataDb(grupo.inicioReuniao);
     })
 
     let nickname = req.session.usuario.nickname;
     let imgPerfil = req.session.usuario.img_perfil;
 
-    res.render('editarGrupo', {meusGrupos, jogos, nickname, imgPerfil});
+    res.render('editarGrupo', {meusGrupos, jogos, participantes, nickname, imgPerfil});
   },
   update: async (req, res) =>{
     let { id } = req.params;
